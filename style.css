@@ -1,0 +1,170 @@
+/*ALL PAGES MAIN TITLE & NAVBAR*/
+.mainTitleSub{
+    color: mediumvioletred;
+    font-weight:lighter;
+    font-size: 30px;
+}
+.navbar{
+background-color: black;
+    color: aliceblue;
+}
+
+.fullTextStyling {
+font-style: italic;
+    font-size: 15px;
+    font-family: Calibri;
+    margin-top: 15px;
+    color: mediumvioletred;
+}
+
+ui-accordion {
+color: aqua;
+}
+
+.hidden {
+    display: none;
+}
+
+.workContainer {
+    cursor: auto;
+}
+
+.workTitle {
+    cursor: pointer;
+}
+
+.iframeButton {
+    position: relative;
+}
+
+.pdfFrame {
+    text-align: center;
+    margin-left: 50px;
+}
+
+.buttonStyling {
+    text-align: center;
+    background-color:transparent;
+    color: mediumvioletred;
+    border-radius: 500px;
+    box-shadow: none;
+    cursor: default;
+    text-shadow: none; 
+    border: 1px;
+}
+
+#dropdownbutton {
+    margin-top: 22px;
+    margin-left: 100px;
+}
+
+.buttonStyling:hover{
+    color:black;
+}
+
+.messageForm {
+    border-radius: 25px; 
+    width: 500px;
+    padding: 10px;
+    text-align: left;
+border: solid 1px mediumvioletred;     
+}
+
+.nameForm {
+        border-radius: 25px; 
+    text-align: left;
+    border: solid 1px mediumvioletred;     
+        padding: 10px;
+}
+
+.contactColon {
+    color: mediumvioletred;
+}
+
+.contactDescription {
+    font-weight: bold;
+}
+
+.sendForm {
+border: solid 1px mediumvioletred;     
+    
+}
+
+.emailForm {
+        border-radius: 25px; 
+    text-align: left;
+    border: solid 1px mediumvioletred;     
+        padding: 10px;
+}
+
+.dadsWorks{
+    margin-top:50px;
+    font-family:  Calibri;
+text-align: justify;
+}
+
+#formatting{
+    background-color: red;
+}
+
+.selected{
+    color:mediumvioletred;
+}
+
+/*ABOUT PAGE*/
+.about-section {
+    position: relative;
+    font-size:17px;
+        text-align: justify;
+    cursor: pointer;
+}
+
+a:hover {
+color:mediumvioletred;
+    text-decoration: none;
+}
+
+.aboutP {
+    padding: 20px;
+}
+
+.personalMessage {
+        padding: 20px;
+
+}
+.personalTitle {
+    color: mediumvioletred;
+}
+
+.displayAuthor {
+font-size:15px;
+    font-style: italic;
+    float: right;
+    color: dodgerblue;
+}
+
+.dadsWorks {
+padding-bottom: 200px;
+}
+
+/* FADE-IN-ABOUT PAGE
+#test p {
+    opacity: 0;
+    font-size: 21px;
+    margin-top: 120px;
+    margin-right: 200px;
+    position: relative;
+    text-align: center;
+    font-family:  Garamond;
+
+    -webkit-transition: all 1s ease-in;
+       -moz-transition: all 1s ease-in;
+        -ms-transition: all 1s ease-in;
+         -o-transition: all 1s ease-in;
+            transition: all 1s ease-in;
+}
+
+#test p.load {
+    opacity: 1;
+}*/
+
