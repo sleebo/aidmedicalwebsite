@@ -2,7 +2,7 @@
 var dadsWorks = [
     {
         id: 1,
-        title: "Use of anti-dementia drugs and delayed care home placement: An observational study",
+        title: "Use of anti-dementia drugs and delayed care home placement: An observational study.",
         citation: "Psychiatrist, October 2011, vol./is. 35/10(384-388), 1758-3209;1758-3217 (October 2011)",
         author: "Salib E.; Thompson J",
         abstract: "Aims and method: To examine the association between the use of cholinesterase inhibitors (ChEIs) and time to care home placement. We compared patients who were prescribed ChEIs in 2006 with those who were not with respect to their placement in care homes over a 4-year period, using survival analysis. Results: During the first 30 months of follow-up there was a delay in care home placement by a median of 12 months in those who took ChEIs compared with those who did not. However, at the end of the follow-up there was no significant reduction in the probability of being in a care home setting between those who had taken ChEIs compared with those who had not (hazard ratio 0.75,95% CI 0.25-6, P = 0.1)",
@@ -12,7 +12,7 @@ var dadsWorks = [
 },
     {
         id: 2,
-        title: "An association between month of birth and method of suicide",
+        title: "An association between month of birth and method of suicide.",
         citation: "International Journal of Psychiatry in Clinical Practice, 2010, vol./is. 14/1(8-17),1365-1501;1471-1788 (2010)",
         author: "Salib E.; Cortina-Borja M.",
         abstract: "Background. A statistically significant association between season of birth and suicidal behaviour has been reported. However, the effect of month of birth on the choice of suicide method is yet to be established. Aim. This study examines the association between commonly used methods of suicide and season of birth using data on suicide collected over a 21-year period in England, Wales and Scotland. The sample size available, in excess of 52,000 suicides, greatly exceeds all previous studies in this field. Method. Data on suicides registered between 1979 and 2000 were obtained from the Office for National Statistics (ONS) for England and Wales, and the General Register Office (GRO) for Scotland. Our analyses include all suicides [ICD 9 codes; E950 E959] and undetermined injury deaths [E980E989], reported between 1979 and 2000 in England, Wales and Scotland for persons born between 1941 and 1966. We used Poisson and negative binomial generalised linear models (GLMs) with seasonal harmonic components. Results. Adjusting for the year of birth, the model predicts that the average increase in risk of suicide between the trough (October) and the peak (May) of the seasonal component is 17.9% (95% CI 1333%). For males the estimated increase in risk was 15% (95% CI 522%) and for females 27% (95% CI 847%). The effect of month of birth on suicide applied to all commonly used methods, with the exception of suicide by burning (SBB) with a significant increase of 16% (95% CI 237%) in people born in January compared to other methods. Conclusion. Our results replicate our earlier finding of an association between season of birth and suicide incidence. Birth rates of persons who kill themselves show a disproportionate excess in spring compared to other months. The unexpected observed finding in suicide by burning (SBB) may represent the effect of latitude and warrants further examination. Seasonality of birth in suicide may enhance our understanding of some biological aspects in its aetiology and give directions for future research. 2010 Informa UK Ltd.",
@@ -39,7 +39,7 @@ var dadsWorks = [
 },
     {
         id: 5,
-        title: "Elderly suicide in primary care",
+        title: "Elderly suicide in primary care.",
         citation: "International Journal of Geriatric Psychiatry, August 2007, vol./is. 22/8(750-756), 0885-6230;1099-1166 (Aug 2007)",
         author: "Tadros G.; Salib E.",
         abstract: "Background: Primary care is probably the most suitable setting to start a strategy for suicide prevention for the elderly especially as more people are seen before committing suicide in primary care than in secondary care. Aim: This study examines the nature of complaints and timing of presentation to general practitioners by suicide victims in their last GP consultation, comparing persons aged 65 and over with those aged between 18 and 64. Methods: Details of all cases of suicide verdict and open verdict, which were returned in inquests, held at the Coroner's Court of Birmingham and Solihull, between January 1995 and December 1999 were reviewed. The study provided a comparison between older people (65+) and younger adults. Results: Older people had more physical illness, and were more likely to have seen their GP in the 6 months before suicide. Younger adults presented with more psychiatric symptoms, while older adults presented with more physical symptoms. Complaints to the GP in the last consultation were significantly different between the two age groups. Older people are more commonly present with physical pain and depression. Conclusions: The study found that elderly suicide victims had different characteristics and attributes from those of younger adults presenting to primary care. This difference may have implications for suicide research, training of primary care staff and suicide prevention programmes. Copyright 2006 John Wiley & Sons, Ltd.",
@@ -149,7 +149,7 @@ var dadsWorks = [
 },
     {
         id: 17,
-        title: "Astrological birth signs in suicide: hypothesis or speculation?.",
+        title: "Astrological birth signs in suicide: hypothesis or speculation?",
         citation: "Medicine, Science & the Law, April 2003, vol./is. 43/2(111-4), 0025-8024;0025-8024 (2003 Apr)",
         author: "Salib E",
         abstract: "Astrology is no longer regarded as a science by many, because its claims are almost impossible to test empirically in controlled laboratory conditions and it can not meet the scientific need to be reproducible. However, the majority of those who read their 'star signs' can identify aspects of their personality in what they read and it is possible that this may influence their attitudes and actions. The literature has neglected astrological signs as a possible predictor of suicide ideation. To see whether astrological birth signs are associated with suicide and the method used, data was collected from the Public Health Department in North Cheshire representing all the Cheshire Coroner's verdicts of suicide, and open verdicts, in all deceased aged 60 and above between 1989 and 2000. The observed occurrence of deaths due to natural causes, and suicide, in relation to birth signs did not differ significantly from what would be expected from chance. However, the distribution of suicide by hanging appeared significantly higher in those with a birth sign of Virgo and lowest in Sagittarius and Scorpio. The distribution of violent and non-violent suicides in relation to star signs showed higher occurences of violent death in persons born in the summer months.",
@@ -452,7 +452,7 @@ var dadsWorks = [
 },
     {
         id: 51,
-        title: "Alzheimer's disease and the aluminium connection: A literature review",
+        title: "Alzheimer's disease and the aluminium connection: A literature review.",
         citation: "International Journal of Psychiatry in Clinical Practice, 1998, vol./is. 2/3(181-188), 1365-1501 (1998)",
         author: "Salib E.",
         abstract: "This review explores the different areas of research that, over the past 35 years have provided grounds for linking Alzheimer's disease and aluminium. However, in spite of the growing evidence, exposure to aluminium as a risk factor is yet to be confirmed. The evidence is discussed under four headings: evidence from brain aluminium studies; evidence from aluminium uptake studies; evidence from aluminium-related neurodegenerative conditions; and evidence from chronic aluminium exposure studies: aluminium in drinking water, and by occupational exposure.",
@@ -461,7 +461,7 @@ var dadsWorks = [
 },
     {
         id: 52,
-        title: "A dementia story with a happier ending",
+        title: "A dementia story with a happier ending.",
         citation: "International Journal of Psychiatry in Clinical Practice, 1998, vol./is. 2/1(65-66), 1365-1501 (1998)",
         author: "Praveen S.; Salib E.",
         abstract: "A case is described of a 77-year-old lady who was diagnosed as having Parkinson's disease and was treated with antiparkinsonian drugs over a year with little effect. She was subsequently referred to a psychiatrist because of her aggressive outbursts and marked changes in personality. Investigations showed that she suffered from normal pressure hydrocephalus (NPH), and the insertion of a ventriculo-peritoneal shunt (VPS) led to a resolution of most of her problems, physical as well as mental.",
@@ -505,7 +505,7 @@ var dadsWorks = [
 },
     {
         id: 57,
-        title: "Elderly suicide and weather conditions: is there a link?.",
+        title: "Elderly suicide and weather conditions: is there a link?",
         citation: "International Journal of Geriatric Psychiatry, September 1997, vol./is. 12/9(937-41), 0885-6230;0885-6230 (1997 Sep)",
         author: "Salib E",
         abstract: "BACKGROUND: Studies of the effect of meteorological factors on suicide have yielded inconclusive and often contradictory results. This may be due to a variety of methodological problems including small numbers and variability in the definition of suicide. The relationship has not been examined in the elderly.OBJECTIVES: To study the effect of weather conditions on suicide rate in an elderly population of 40,000 of North Cheshire aged 65 and above. In this study, coroner's verdicts of suicide and open verdict which were recorded in a specified period were included.METHOD: Five-year data of deaths resulting from suicide within North Cheshire were analysed in relation to meteorological data, which were measured at the nearest Met office to the study population.RESULTS: Significant positive association was demonstrated between suicide in the elderly and hours of sunshine (p < 0.01) and relative humidity (p < 0.05). These effects were independent of sex.CONCLUSIONS: Weather may influence suicide in the elderly, probably interacting with biological and social variables. The rate of reported suicide appears to be positively related to fine weather conditions, during early summer, and not to extreme weather conditions as previously reported. Method of death appears to be also associated with weather conditions.",
@@ -523,7 +523,7 @@ var dadsWorks = [
     },
     {
         id: 59,
-        title: "Unexpected death of psychiatric patients: suicide, misadventure, accident or unsolved mystery?.",
+        title: "Unexpected death of psychiatric patients: suicide, misadventure, accident or unsolved mystery?",
         citation: "Medicine, Science & the Law, July 1997, vol./is. 37/3(210-4), 0025-8024;0025-8024 (1997 Jul)",
         author: "Salib E; Joseph A; Cawley S",
         abstract: "We examined the association between the psychiatric history of patients who were the subjects of a coroner's inquest and the recorded verdict, in a seven-year retrospective review. A suicide verdict was less frequently returned on patients who had inpatient psychiatric treatment compared to other unexpected deaths. History and diagnosis of an alcohol-related condition, method of death and intimation of intent were the main factors that appeared to be associated with the coroner's verdict. Age, sex, duration of illness, time and number of admissions, previous suicide attempts and treatment received did not appear to be significantly associated with the recorded verdict.",

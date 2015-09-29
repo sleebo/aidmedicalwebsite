@@ -17,6 +17,15 @@ font-style: italic;
     color: mediumvioletred;
 }
 
+.contactSection {
+    font-weight: bold;
+}
+
+.contactInfoSection{
+    font-weight: lighter;
+    color: mediumvioletred;
+}
+
 ui-accordion {
 color: aqua;
 }
@@ -146,6 +155,8 @@ font-size:15px;
 .dadsWorks {
 padding-bottom: 200px;
 }
+
+
 
 /* FADE-IN-ABOUT PAGE
 #test p {
