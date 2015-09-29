@@ -9,6 +9,17 @@ background-color: black;
     color: aliceblue;
 }
 
+
+#cycler img{
+    position:absolute;
+    z-index:1;
+    right: 200px;
+}
+
+#cycler img.active{
+    z-index:3;
+}
+
 .fullTextStyling {
 font-style: italic;
     font-size: 15px;
