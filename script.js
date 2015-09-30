@@ -608,23 +608,22 @@ $(function () {
     displayWorks();
     sortByTitle();
     accordions();
-    setInterval('cycleImages()', 3000);
 });
 
 //everything out of here isn't ON LOAD.//
 
 //Accordion sliders on about and services page//
 
-function cycleImages(){
-      var $active = $('#cycler .active');
-      var $next = ($active.next().length > 0) ? $active.next() : $('#cycler img:first');
-      $next.css('z-index',2);//move the next image up the pile
-      $active.fadeOut(3000,function(){//fade out the top image
-	  $active.css('z-index',1).show().removeClass('active');//reset the z-index and unhide the image
-          $next.css('z-index',3).addClass('active');//make the next image the top one
-      });
-    }
-
+//function cycleImages(){
+//      var $active = $('#cycler .active');
+//      var $next = ($active.next().length > 0) ? $active.next() : $('#cycler img:first');
+//      $next.css('z-index',2);//move the next image up the pile
+//      $active.fadeOut(3000,function(){//fade out the top image
+//	  $active.css('z-index',1).show().removeClass('active');//reset the z-index and unhide the image
+//          $next.css('z-index',3).addClass('active');//make the next image the top one
+//      });
+//    }
+//
 
 function accordions() {
     $("#accordion").accordion({
