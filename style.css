@@ -11,13 +11,21 @@ background-color: black;
 
 
 #cycler img{
-    position:absolute;
-    z-index:1;
+    position: absolute;
+    z-index: 1;
     right: 200px;
+    top: 150px;
+    max-width: inherit;
+}
+
+.servicesImages{
+    width: 350px;
+    height: 400px;
+    box-shadow: 0 0 8px 8px white inset;
 }
 
 #cycler img.active{
-    z-index:3;
+    z-index: 3;
 }
 
 .fullTextStyling {
