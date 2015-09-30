@@ -13,9 +13,6 @@ background-color: black;
 #cycler img{
     position: absolute;
     z-index: 1;
-    right: 200px;
-    top: 150px;
-    max-width: inherit;
 }
 
 .servicesImages{
