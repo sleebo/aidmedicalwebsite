@@ -38,7 +38,9 @@ background-color: black;
   *border-bottom-width: 2px;
 }
 
-
+.imageWrapper {
+    padding: 50px;
+}
 
 .servicesImages{
     width: 100%;

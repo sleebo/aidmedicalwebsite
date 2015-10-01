@@ -794,7 +794,9 @@ function createWorkElement(work) {
     var workContainerElement = $('<div></div>');
     workContainerElement.attr('id', work.id); 
     workContainerElement.addClass('workContainer')
-
+    
+    var hrElement = $('<hr>');
+    
     var workTitleElement = $('<h4>' + work.title + '</h4>');
     workTitleElement.addClass("workTitle");
 
@@ -829,7 +831,7 @@ function createWorkElement(work) {
     
        var buttons = [readMoreButton, requestButton];
 
-    var groupingWorkElements = [workTitleElement, underWorkTitleElement];
+    var groupingWorkElements = [hrElement, workTitleElement, underWorkTitleElement];
     
     workContainerElement.append(groupingWorkElements);
     underWorkTitleElement.append(buttons);
