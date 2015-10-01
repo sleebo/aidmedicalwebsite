@@ -1,5 +1,5 @@
 /*ALL PAGES MAIN TITLE & NAVBAR*/
-.mainTitleSub{
+.mainTitleSub {
     color: mediumvioletred;
     font-weight:lighter;
     font-size: 30px;
@@ -41,13 +41,11 @@ background-color: black;
 
 
 .servicesImages{
-    width: 350px;
-    height: 400px;
+    width: 100%;
+    height: auto;
     border: mediumvioletred 2px solid;
         box-shadow: 20px 20px 20px #888888;
-
 }
-
 
 
 .fullTextStyling {
