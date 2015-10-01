@@ -43,6 +43,9 @@ background-color: black;
 .servicesImages{
     width: 350px;
     height: 400px;
+    border: mediumvioletred 2px solid;
+        box-shadow: 20px 20px 20px #888888;
+
 }
 
 
