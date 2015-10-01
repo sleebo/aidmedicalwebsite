@@ -593,6 +593,35 @@ var dadsWorks = [
     }
 ];
 
+//Dad's articles Search//
+function autoCompleteArticles() {
+    var data = [
+      { label: "Suicide", category: "Title" },
+        { label: "Dementia", category: "Title" },
+      { label: "Elderly", category: "Title" },
+      { label: "Alzheimer's", category: "Title" },
+      { label: "Analgesics", category: "Title" },
+      { label: "Self-Harm", category: "Title" },
+      { label: "Depression", category: "Title" },
+      { label: "Psychiatry in Clinical Practice", category: "Citation" },
+      { label: "Journal of Geriatric Psychiatry", category: "Citation" },
+        
+        
+        { label: "Emad Salib", category: "Author" },
+                { label: "Sheila Cawley", category: "Author" },
+                { label: "Mario Cortina-Borja", category: "Author" },
+   
+      { label: "annk K12", category: "Abstract" },
+     
+    ];
+     
+    $( "#search" ).catcomplete({
+      delay: 0,
+      source: data
+    });
+  };
+
+
 //When Page Loads, Execute THIS code//
 $(function () {
 
@@ -608,7 +637,12 @@ $(function () {
     displayWorks();
     sortByTitle();
     accordions();
+    autoCompleteArticles();
+
+
 });
+
+
 
 //everything out of here isn't ON LOAD.//
 
@@ -625,10 +659,39 @@ $(function () {
 //    }
 //
 
+
+$.widget( "custom.catcomplete", $.ui.autocomplete, {
+    _create: function() {
+      this._super();
+      this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+    },
+    _renderMenu: function( ul, items ) {
+      var that = this,
+        currentCategory = "";
+      $.each( items, function( index, item ) {
+        var li;
+        if ( item.category != currentCategory ) {
+          ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+          currentCategory = item.category;
+        }
+        li = that._renderItemData( ul, item );
+        if ( item.category ) {
+          li.attr( "aria-label", item.category + " : " + item.label );
+        }
+      });
+    }
+  });
+
+ 
+
+
+
+
 function accordions() {
     $("#accordion").accordion({
         collapsible: true,
         heightStyle: "content"
+        
     });
 
     $('#accordionAgain').accordion({
@@ -756,8 +819,6 @@ function createWorkElement(work) {
     $('buttonStyling').toggle();
     });
     
-    
-
     var worksElement = $('#dadsWorksDiv');
 
     var displayAuthorElement = $('<p style="display:none">' + work.author + '</p>');
