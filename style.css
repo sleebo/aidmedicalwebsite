@@ -121,8 +121,8 @@ color: aqua;
 
 .messageForm {
     border-radius: 25px; 
-    width: 400px;
-    height: 200px;
+    width: 100%;
+    height: auto;
     padding: 10px;
     text-align: left;
 border: solid 1px mediumvioletred;     
