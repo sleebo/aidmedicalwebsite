@@ -75,12 +75,20 @@ color: aqua;
     display: none;
 }
 
+.cuteformting {
+    padding: 50px;
+}
+
 .workContainer {
     cursor: auto;
 }
 
 .workTitle {
     cursor: pointer;
+}
+
+.contactButton {
+    border: solid mediumvioletred 2px;
 }
 
 .iframeButton {
@@ -111,6 +119,16 @@ color: aqua;
 .buttonStyling:hover{
     color:black;
 }
+.nameForm {
+padding: 10px;
+    
+}
+
+.nameFormBox {
+    padding: 200px;
+        border-radius: 50px;
+color: mediumvioletred;
+}
 
 .ui-autocomplete-category {
     font-weight: bold;
@@ -119,7 +137,7 @@ color: aqua;
     line-height: 1.5;
 }
 
-.messageForm {
+.messageFormBox {
     border-radius: 25px; 
     width: 100%;
     height: auto;
@@ -128,12 +146,11 @@ color: aqua;
 border: solid 1px mediumvioletred;     
 }
 
-.nameForm {
-        border-radius: 25px; 
-    text-align: left;
-    border: solid 1px mediumvioletred;     
-        padding: 10px;
+#search:hover {
+    color: blue;
 }
+
+
 .contactPadding {
     padding: 50px;
 }

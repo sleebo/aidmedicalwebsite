@@ -613,7 +613,6 @@ function autoCompleteArticles() {
                 { label: "Sheila Cawley", category: "Author" },
                 { label: "Mario Cortina-Borja", category: "Author" },
    
-      { label: "annk K12", category: "Abstract" },
      
     ];
      
@@ -813,13 +812,13 @@ function createWorkElement(work) {
     var requestButton = $('<button> Citation </button>');
     requestButton.addClass('buttonStyling');
     requestButton.on('click', function () {
-        $('#' + work.id + " " + '.fullTextStyling').slideToggle('slow');
+        $('#' + work.id + " " + '.fullTextStyling').slideToggle();
     });
 
     var readMoreButton = $('<button>  More  </button>');
     readMoreButton.addClass('buttonStyling');
     readMoreButton.on('click', function () {
-    $('#' + work.id + " " + '.workAbstractSection').slideToggle('slow');
+    $('#' + work.id + " " + '.workAbstractSection').slideToggle();
     $('buttonStyling').toggle();
     });
     
