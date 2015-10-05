@@ -124,6 +124,13 @@ padding: 10px;
     
 }
 
+.formText {
+    color: mediumvioletred
+}
+.messageBoxForm {
+    padding: 20px;
+}
+
 .nameFormBox {
     padding: 200px;
         border-radius: 50px;
@@ -137,14 +144,6 @@ color: mediumvioletred;
     line-height: 1.5;
 }
 
-.messageFormBox {
-    border-radius: 25px; 
-    width: 100%;
-    height: auto;
-    padding: 10px 10px;
-    text-align: left;
-border: solid 1px mediumvioletred;     
-}
 
 #search:hover {
     color: blue;
