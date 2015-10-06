@@ -78,7 +78,12 @@
 
 
     <div class="cuteformting col-md-7 col-sm-10 col-xs-12 container-fluid">
-        <form action="https://docs.google.com/forms/d/1uka3LG1BnSyYpQYQVaoev2Ru1XxpA0BJH5rL5wCgJsQ/formResponse" method="POST" id="ss-form" target="_self" onsubmit="">
+        
+        <script type="text/javascript">var submitted=false;</script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"     
+onload="if(submitted) {window.location='contact.html';}"></iframe>
+      <form action="https://docs.google.com/forms/d/1uka3LG1BnSyYpQYQVaoev2Ru1XxpA0BJH5rL5wCgJsQ/formResponse" method="post" target="hidden_iframe" 
+onsubmit="submitted=true;">
             <ol role="list" class="ss-question-list" style="padding-left: 0">
                 <div class="ss form-question errorbox-good" role="listitem">
 
