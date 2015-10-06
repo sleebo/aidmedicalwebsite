@@ -597,25 +597,22 @@ var dadsWorks = [
 
 //Dad's articles Search//
 function autoCompleteArticles() {
-    var data = [
-      { label: "Suicide", category: "Title" },
-        { label: "Dementia", category: "Title" },
-      { label: "Elderly", category: "Title" },
-      { label: "Alzheimer's", category: "Title" },
-      { label: "Analgesics", category: "Title" },
-      { label: "Self-Harm", category: "Title" },
-      { label: "Depression", category: "Title" },
-      { label: "Psychiatry in Clinical Practice", category: "Citation" },
-      { label: "Journal of Geriatric Psychiatry", category: "Citation" },
-        
-        
-        { label: "Emad Salib", category: "Author" },
-                { label: "Sheila Cawley", category: "Author" },
-                { label: "Mario Cortina-Borja", category: "Author" },
-   
+var data = [
+{ label: "Suicide", category: "Title" },
+{ label: "Dementia", category: "Title" },
+{ label: "Elderly", category: "Title" },
+{ label: "Alzheimer's", category: "Title" },
+{ label: "Analgesics", category: "Title" },
+{ label: "Self-Harm", category: "Title" },
+{ label: "Depression", category: "Title" },
+{ label: "Psychiatry in Clinical Practice", category: "Citation" },
+{ label: "Journal of Geriatric Psychiatry", category: "Citation" },
+{ label: "Emad Salib", category: "Author" },
+{ label: "Sheila Cawley", category: "Author" },
+{ label: "Mario Cortina-Borja", category: "Author" },
+
      
     ];
-     
     $( "#search" ).catcomplete({
       delay: 0,
       source: data
@@ -646,7 +643,6 @@ $.widget( "custom.catcomplete", $.ui.autocomplete, {
     }
   });
 
- 
 
 
 
@@ -665,12 +661,22 @@ $(function () {
     displayWorks();
     sortByTitle();
     accordions();
-    autoCompleteArticles();
+    
+    $('#ss-submit').click(function(){
+ $( ".sentMessage" ).text( 'Thanks for getting in touch').show();
+});
+        
+    $('#searchBox').keyup(function(){
+        var searched = $(this).val(), count = 0;
+        var relevantWorks = dadsWorks.indexOf(searched);
+        dadsWorks.forEach(relevantWorks)
+        console.log(relevantWorks);
+    });
+    
+    //    autoCompleteArticles();
 
 
 });
-
-
 
 //everything out of here isn't ON LOAD.//
 
@@ -686,7 +692,6 @@ $(function () {
 //      });
 //    }
 //
-
 
 
 
