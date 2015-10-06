@@ -139,6 +139,10 @@ padding: 10px;
 color: mediumvioletred;
 }
 
+#searchBox {
+    padding: 20px;
+}
+
 .ui-autocomplete-category {
     font-weight: bold;
     padding: .2em .4em;

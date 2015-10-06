@@ -667,10 +667,14 @@ $(function () {
 });
         
     $('#searchBox').keyup(function(){
-        var searched = $(this).val(), count = 0;
-        var relevantWorks = dadsWorks.indexOf(searched);
-        dadsWorks.forEach(relevantWorks)
-        console.log(relevantWorks);
+        var searched = $(this).val();
+            var count = 0;
+        
+        searchWorks(searched);
+        
+//        var relevantWorks = dadsWorks.indexOf(searched);
+//        dadsWorks.forEach(relevantWorks)
+//        console.log(relevantWorks);
     });
     
     //    autoCompleteArticles();
@@ -693,6 +697,19 @@ $(function () {
 //    }
 //
 
+function searchWorks(searched){
+dadsWorks.forEach(function (dadsWork){
+var isIncluded = dadsWork.title.indexOf(searched) > -1; 
+    console.log(isIncluded);
+    var $selected =  $('#' + dadsWork.id);
+    if (isIncluded){
+        $selected.show();
+    } else {
+        $selected.slideUp('2000');
+    }
+    
+})
+}
 
 
 function accordions() {
@@ -826,7 +843,9 @@ function createWorkElement(work) {
     readMoreButton.addClass('buttonStyling');
     readMoreButton.on('click', function () {
     $('#' + work.id + " " + '.workAbstractSection').slideToggle();
-    $('buttonStyling').toggle();
+    $('buttonStyling').toggle(function (){
+        this.text('Less');
+    });
     });
     
     var worksElement = $('#dadsWorksDiv');
@@ -834,7 +853,7 @@ function createWorkElement(work) {
     var displayAuthorElement = $('<p style="display:none">' + work.author + '</p>');
     displayAuthorElement.addClass('displayAuthor');
     workTitleElement.on('click', function () {
-        $('#' + work.id + " " + '.displayAuthor').fadeToggle();
+        $('#' + work.id + " " + '.displayAuthor').fadeToggle('slow');
     });
     
        var buttons = [readMoreButton, requestButton];
