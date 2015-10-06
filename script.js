@@ -597,51 +597,87 @@ var dadsWorks = [
 
 //Dad's articles Search//
 function autoCompleteArticles() {
-var data = [
-{ label: "Suicide", category: "Title" },
-{ label: "Dementia", category: "Title" },
-{ label: "Elderly", category: "Title" },
-{ label: "Alzheimer's", category: "Title" },
-{ label: "Analgesics", category: "Title" },
-{ label: "Self-Harm", category: "Title" },
-{ label: "Depression", category: "Title" },
-{ label: "Psychiatry in Clinical Practice", category: "Citation" },
-{ label: "Journal of Geriatric Psychiatry", category: "Citation" },
-{ label: "Emad Salib", category: "Author" },
-{ label: "Sheila Cawley", category: "Author" },
-{ label: "Mario Cortina-Borja", category: "Author" },
+    var data = [
+        {
+            label: "Suicide",
+            category: "Title"
+        },
+        {
+            label: "Dementia",
+            category: "Title"
+        },
+        {
+            label: "Elderly",
+            category: "Title"
+        },
+        {
+            label: "Alzheimer's",
+            category: "Title"
+        },
+        {
+            label: "Analgesics",
+            category: "Title"
+        },
+        {
+            label: "Self-Harm",
+            category: "Title"
+        },
+        {
+            label: "Depression",
+            category: "Title"
+        },
+        {
+            label: "Psychiatry in Clinical Practice",
+            category: "Citation"
+        },
+        {
+            label: "Journal of Geriatric Psychiatry",
+            category: "Citation"
+        },
+        {
+            label: "Emad Salib",
+            category: "Author"
+        },
+        {
+            label: "Sheila Cawley",
+            category: "Author"
+        },
+        {
+            label: "Mario Cortina-Borja",
+            category: "Author"
+        },
 
-     
+
     ];
-    $( "#search" ).catcomplete({
-      delay: 0,
-      source: data
+    $("#search").catcomplete({
+        delay: 0,
+        source: data
     });
-  };
+};
 
 
 
-$.widget( "custom.catcomplete", $.ui.autocomplete, {
-    _create: function() {
-      this._super();
-      this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+$.widget("custom.catcomplete", $.ui.autocomplete, {
+    _create: function () {
+        this._super();
+        this.widget().menu("option", "items", "> :not(.ui-autocomplete-category)");
     },
-    _renderMenu: function( ul, items ) {
-      var that = this,
-        currentCategory = "";
-      $.each( items, function( index, item ) {
-        var li;
-        if ( item.category != currentCategory ) {
-          ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
-          currentCategory = item.category;
-        }
-        li = that._renderItemData( ul, item );
-        if ( item.category ) {
-          li.attr( "aria-label", item.category + " : " + item.label );
-        }
-      });
+    _renderMenu: function (ul, items) {
+        var that = this,
+            currentCategory = "";
+        $.each(items, function (index, item) {
+            var li;
+            if (item.category != currentCategory) {
+                ul.append("<li class='ui-autocomplete-category'>" + item.category + "</li>");
+                currentCategory = item.category;
+            }
+            li = that._renderItemData(ul, item);
+            if (item.category) {
+                li.attr("aria-label", item.category + " : " + item.label);
+            }
+        });
     }
-  });
+});
 
 
 
@@ -661,22 +697,22 @@ $(function () {
     displayWorks();
     sortByTitle();
     accordions();
-    
-    $('#ss-submit').click(function(){
- $( ".sentMessage" ).text( 'Thanks for getting in touch').show();
-});
-        
-    $('#searchBox').keyup(function(){
-        var searched = $(this).val();
-            var count = 0;
-        
-        searchWorks(searched);
-        
-//        var relevantWorks = dadsWorks.indexOf(searched);
-//        dadsWorks.forEach(relevantWorks)
-//        console.log(relevantWorks);
+
+    $('#ss-submit').click(function () {
+        var thanks = $(".sentMessage").text("Thanks for getting in touch! We'll be in contact soon.").fadeIn('3000');
     });
-    
+
+    $('#searchBox').keyup(function () {
+        var searched = $(this).val();
+        var count = 0;
+
+        searchWorks(searched);
+
+        //        var relevantWorks = dadsWorks.indexOf(searched);
+        //        dadsWorks.forEach(relevantWorks)
+        //        console.log(relevantWorks);
+    });
+
     //    autoCompleteArticles();
 
 
@@ -697,18 +733,18 @@ $(function () {
 //    }
 //
 
-function searchWorks(searched){
-dadsWorks.forEach(function (dadsWork){
-var isIncluded = dadsWork.title.indexOf(searched) > -1; 
-    console.log(isIncluded);
-    var $selected =  $('#' + dadsWork.id);
-    if (isIncluded){
-        $selected.show();
-    } else {
-        $selected.slideUp('2000');
-    }
-    
-})
+function searchWorks(searched) {
+    dadsWorks.forEach(function (dadsWork) {
+        var isIncluded = dadsWork.title.indexOf(searched) > -1;
+        console.log(isIncluded);
+        var $selected = $('#' + dadsWork.id);
+        if (isIncluded) {
+            $selected.show();
+        } else {
+            $selected.slideUp('2000');
+        }
+
+    })
 }
 
 
@@ -716,7 +752,7 @@ function accordions() {
     $("#accordion").accordion({
         collapsible: true,
         heightStyle: "content"
-        
+
     });
 
     $('#accordionAgain').accordion({
@@ -817,17 +853,17 @@ function displayWorks() {
 function createWorkElement(work) {
 
     var workContainerElement = $('<div></div>');
-    workContainerElement.attr('id', work.id); 
+    workContainerElement.attr('id', work.id);
     workContainerElement.addClass('workContainer')
-    
+
     var hrElement = $('<hr>');
-    
+
     var workTitleElement = $('<h4>' + work.title + '</h4>');
     workTitleElement.addClass("workTitle");
 
     var underWorkTitleElement = $('<div></div>');
 
-      var workAbstractElement = $('<p style="display:none">' + work.abstract + '</p>');
+    var workAbstractElement = $('<p style="display:none">' + work.abstract + '</p>');
     workAbstractElement.addClass("workAbstractSection");
 
     var workFullTextElement = $('<p style="display:none">' + work.citation + '</p>');
@@ -840,14 +876,14 @@ function createWorkElement(work) {
     });
 
     var readMoreButton = $('<button>  More  </button>');
-    readMoreButton.addClass('buttonStyling');
-    readMoreButton.on('click', function () {
-    $('#' + work.id + " " + '.workAbstractSection').slideToggle();
-    $('buttonStyling').toggle(function (){
-        this.text('Less');
+    readMoreButton.addClass('buttonStyling moreButton');
+    readMoreButton.on('click',  function () {
+        $('#' + work.id + " " + '.workAbstractSection').slideToggle();
+        $(this).text(function(i, text){
+          return text === "Less" ? "More" : "Less";
+      })
     });
-    });
-    
+
     var worksElement = $('#dadsWorksDiv');
 
     var displayAuthorElement = $('<p style="display:none">' + work.author + '</p>');
@@ -855,11 +891,11 @@ function createWorkElement(work) {
     workTitleElement.on('click', function () {
         $('#' + work.id + " " + '.displayAuthor').fadeToggle('slow');
     });
-    
-       var buttons = [readMoreButton, requestButton];
+
+    var buttons = [readMoreButton, requestButton];
 
     var groupingWorkElements = [hrElement, workTitleElement, underWorkTitleElement];
-    
+
     workContainerElement.append(groupingWorkElements);
     underWorkTitleElement.append(buttons);
     worksElement.append(workContainerElement);
