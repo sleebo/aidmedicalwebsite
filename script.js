@@ -615,22 +615,15 @@ function autoCompleteArticles() {
    
      
     ];
-//     
-//    $( "#search" ).catcomplete({
-//      delay: 0,
-//      source: data
-//    });
-//  };
+     
+    $( "#search" ).catcomplete({
+      delay: 0,
+      source: data
+    });
+  };
 
 
-    var searchedElement = $('#search').val ;
-    
-    function searchDadsWorks(){
-        
-    }
 
-    
-    
 $.widget( "custom.catcomplete", $.ui.autocomplete, {
     _create: function() {
       this._super();
