@@ -9,6 +9,11 @@ background-color: black;
     color: aliceblue;
 }
 
+.backgroundDiv {
+    padding: 30px;
+    
+}
+
 .ui-autocomplete {
   position: absolute;
   top: 100%;
