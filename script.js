@@ -4,7 +4,7 @@ var dadsWorks = [
         id: 1,
         title: "Use of anti-dementia drugs and delayed care home placement: An observational study.",
         citation: "Psychiatrist, October 2011, vol./is. 35/10(384-388), 1758-3209;1758-3217 (October 2011)",
-        date: '2011',
+        date: 2011,
         author: "Salib E.; Thompson J",
         abstract: "Aims and method: To examine the association between the use of cholinesterase inhibitors (ChEIs) and time to care home placement. We compared patients who were prescribed ChEIs in 2006 with those who were not with respect to their placement in care homes over a 4-year period, using survival analysis. Results: During the first 30 months of follow-up there was a delay in care home placement by a median of 12 months in those who took ChEIs compared with those who did not. However, at the end of the follow-up there was no significant reduction in the probability of being in a care home setting between those who had taken ChEIs compared with those who had not (hazard ratio 0.75,95% CI 0.25-6, P = 0.1)",
         clinicalImplications: "The study provides some evidence to suggest that prescribing ChEIs may be associated with a delay in the timing of care home placement as observed in the first 2.5 years of treatment. However, based on purely observational data, no conclusion can be made as to whether such association is causal",
