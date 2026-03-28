@@ -72,7 +72,11 @@
       margin: 0 auto 1.5rem;
       font-size: 3.5rem; font-weight: 700; color: var(--navy);
       box-shadow: 0 0 0 6px rgba(201,168,76,.3);
-      position: relative;
+      position: relative; overflow: hidden;
+    }
+    .hero-avatar img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      border-radius: 50%;
     }
     #hero h1 { font-size: 2.6rem; font-weight: 700; letter-spacing: -.01em; }
     #hero h1 span { color: var(--gold-lt); }
@@ -378,7 +382,7 @@
 
 <!-- ── Hero ── -->
 <section id="hero">
-  <div class="hero-avatar">ES</div>
+  <div class="hero-avatar"><img src="dremad.jpg" alt="Dr. Emad Salib" /></div>
   <h1>Dr. <span>Emad Salib</span></h1>
   <p class="credentials">MB · DPM · MSc · MRCPI · FRCPsych</p>
   <p class="tagline">Consultant Psychiatrist &amp; Honorary Senior Lecturer, University of Liverpool — advancing our understanding of elderly mental health, suicide epidemiology, and dementia.</p>
