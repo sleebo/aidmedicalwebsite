@@ -124,6 +124,14 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
       margin-top: 2.5rem; align-items: start;
     }
+    .about-photo {
+      width: 220px; height: 260px; object-fit: cover; object-position: center top;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+      border: 4px solid var(--white);
+      outline: 2px solid var(--gray-2);
+      display: block; margin-bottom: 1.4rem;
+    }
     .about-body { font-size: 1rem; color: var(--gray-4); }
     .about-body p { margin-bottom: 1rem; }
     .about-body p:last-child { margin-bottom: 0; }
@@ -397,6 +405,7 @@
 
     <div class="about-grid">
       <div class="about-body">
+        <img src="dremad.jpg" alt="Dr. Emad Salib" class="about-photo" />
         <p>Dr. Emad Salib is a Consultant Psychiatrist and Clinical Director with decades of distinguished clinical and academic service across NHS hospitals in Warrington and St Helens, England. Holding appointments at both Hollins Park Hospital (Five Boroughs Partnership NHS Trust) and Peasley Cross Hospital, he has long exemplified the practitioner-researcher model — conducting substantive, nationally recognised academic work from a community and regional clinical base.</p>
 
         <p>Throughout his career, Dr. Salib has maintained a dual commitment to direct patient care in elderly and general adult psychiatry and to rigorous epidemiological and clinical research. His work is grounded in real-world data — coroner's inquests, hospital records, national mortality statistics — giving his findings immediate translational relevance for clinicians, policymakers, and public health professionals.</p>
