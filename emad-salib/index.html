@@ -357,14 +357,59 @@
     @media (max-width: 768px) {
       nav { padding: 0 1rem; }
       .nav-links { display: none; }
-      #hero h1 { font-size: 1.9rem; }
-      .hero-stats { gap: 1.5rem; }
+      section { padding: 48px 1rem; }
+      #hero { padding: 52px 1rem 44px; }
+      #hero h1 { font-size: 1.8rem; }
+      #hero .tagline { font-size: 1rem; }
+      .hero-stats { gap: 1.2rem; }
+      .stat-num { font-size: 1.5rem; }
       .about-grid, .contact-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
-      .works-table th:nth-child(4),
-      .works-table td:nth-child(4) { display: none; }
-      .works-table th:nth-child(5),
-      .works-table td:nth-child(5) { display: none; }
+      .works-controls { flex-direction: column; }
+      .works-controls select { width: 100%; }
+      .search-wrap { width: 100%; }
+      .category-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: .3rem; }
+      .category-tabs::-webkit-scrollbar { height: 3px; }
+      .category-tabs::-webkit-scrollbar-thumb { background: var(--gray-2); border-radius: 2px; }
+      /* Table → card layout */
+      .table-wrap { background: transparent; box-shadow: none; border-radius: 0; overflow: visible; }
+      .works-table { display: block; }
+      .works-table thead { display: none; }
+      .works-table tbody { display: flex; flex-direction: column; gap: .75rem; }
+      .works-table tbody tr.main-row {
+        display: block;
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 1rem;
+        border: none !important;
+      }
+      .works-table tbody tr.main-row:hover { background: var(--white); }
+      .works-table tbody tr.expand-row {
+        display: none;
+        background: #f8fafc;
+        border-radius: 0 0 var(--radius) var(--radius);
+        margin-top: -.75rem;
+        padding: 0 1rem .25rem;
+        box-shadow: var(--shadow);
+      }
+      .works-table tbody tr.expand-row[style*="display: table-row"],
+      .works-table tbody tr.expand-row:not([style*="display: none"]) { display: block !important; }
+      .works-table td { display: block; padding: .2rem 0; border: none !important; font-size: .88rem; }
+      .works-table td.title-cell { color: var(--navy); font-weight: 600; max-width: 100%; }
+      .works-table td.year-col { display: none; }
+      .works-table td.coauth-col::before { content: 'Authors: '; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gray-3); }
+      .works-table td.journal-cell { max-width: 100%; }
+      .works-table td.journal-cell::before { content: 'Journal: '; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gray-3); font-style: normal; }
+      .journal-cell { font-style: italic; }
+      .action-btns { flex-direction: row; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
+      .paper-btn, .expand-btn, .abstract-btn { font-size: .8rem; padding: .35rem .65rem; }
+      .expand-row td { padding: .75rem 0; }
+    }
+    @media (max-width: 480px) {
+      #hero h1 { font-size: 1.5rem; }
+      .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .about-photo { width: 160px; height: 190px; }
     }
   </style>
 </head>
@@ -509,7 +554,7 @@
     </div>
 
     <div class="works-meta">
-      <span class="works-count">Showing <strong id="resultCount">26</strong> of <strong>26</strong> publications</span>
+      <span class="works-count">Showing <strong id="resultCount">51</strong> of <strong>51</strong> publications</span>
     </div>
 
     <div class="table-wrap">
@@ -639,308 +684,215 @@
 
 <script>
 const publications = [
-  {
-    id: 1,
-    title: "Effect of 11 September 2001 on Suicide and Homicide in England and Wales",
-    year: 2003,
-    category: "suicide",
-    journal: "British Journal of Psychiatry",
-    coauthors: "Emad Salib (sole author)",
-    pmid: "12948992",
-    url: "https://pubmed.ncbi.nlm.nih.gov/12948992/",
-    abstract: "Monthly suicide and homicide rates in England and Wales were examined for the 22 years preceding and including September 2001 using Office for National Statistics mortality data. Suicide rates in September 2001 were significantly lower than in any comparable month over the prior 22 years, consistent with Durkheim's theory that major social crises temporarily enhance group cohesion and reduce self-directed violence.",
-    summary: "Examined whether the 9/11 terrorist attacks affected suicide and homicide rates in England and Wales by analysing 22 years of national mortality data. Found that suicides in September 2001 were significantly lower than any September recorded in the prior 22 years. Interpreted through Durkheim's theory of social integration — national tragedies temporarily reduce suicide by increasing group cohesion and collective solidarity. Became a foundational paper in disaster psychiatry literature."
-  },
-  {
-    id: 2,
-    title: "Effect of 7 July 2005 Terrorist Attacks in London on Suicide in England and Wales",
-    year: 2009,
-    category: "suicide",
-    journal: "British Journal of Psychiatry",
-    coauthors: "Emad Salib & Mario Cortina-Borja",
-    pmid: "19118332",
-    url: "https://pubmed.ncbi.nlm.nih.gov/19118332/",
-    abstract: "This study tested whether the 7 July 2005 London bombings produced a measurable reduction in suicide rates in England and Wales, replicating the methodology of a prior study of the 9/11 attacks. A modest but non-significant reduction was observed, providing only weak support for Durkheim's social integration hypothesis.",
-    summary: "A methodological follow-up to the 9/11 study, examining whether the 7 July 2005 London bombings produced a similar reduction in suicide rates. Found a comparable — though weaker — effect, only partially supporting Durkheim's theory of collective integration. The more localised nature of the 7/7 attacks and its context within ongoing international conflict may explain the attenuated result."
-  },
-  {
-    id: 3,
-    title: "Effect of Month of Birth on the Risk of Suicide",
-    year: 2006,
-    category: "suicide",
-    journal: "British Journal of Psychiatry",
-    coauthors: "Emad Salib & Mario Cortina-Borja",
-    pmid: "16648527",
-    url: "https://pubmed.ncbi.nlm.nih.gov/16648527/",
-    abstract: "This study analysed 26,915 suicides registered in England and Wales between 1979 and 2001 to determine whether month of birth is associated with subsequent suicide risk. Statistically significant seasonal birth patterns were identified, making this the largest study of birth season and suicide risk at the time of publication.",
-    summary: "One of the largest statistical studies of birth-season and suicide risk ever conducted, analysing 26,915 suicides over 22 years in England and Wales. Investigated whether an individual's month of birth is associated with subsequent suicide risk, controlling for population distributions. At the time of publication, this represented the most statistically powered study of its kind globally."
-  },
-  {
-    id: 4,
-    title: "Month of Birth and Suicide: An Exploratory Study",
-    year: 2002,
-    category: "suicide",
-    journal: "International Journal of Psychiatry in Clinical Practice",
-    coauthors: "Emad Salib (sole author)",
-    url: "https://www.tandfonline.com/doi/abs/10.1080/136515002753489407",
-    abstract: "Using coroner data for 1,273 suicides in Cheshire between 1989 and 2000, this exploratory study examined whether birth month was associated with suicide risk and method. A higher rate of violent suicide, particularly hanging, was found among individuals born in summer months.",
-    summary: "Preliminary investigation using 12 years of Cheshire suicide data to explore whether seasonal birth patterns are associated with suicide risk. Found an increased risk of violent suicide — particularly hanging — among those born in summer months. Provided the methodological foundation for the larger national study published in 2006."
-  },
-  {
-    id: 5,
-    title: "An Association Between Month of Birth and Method of Suicide",
-    year: 2014,
-    category: "suicide",
-    journal: "Published Study",
-    coauthors: "Emad Salib (sole author)",
-    pmid: "24917227",
-    url: "https://pubmed.ncbi.nlm.nih.gov/24917227/",
-    abstract: "This study examined data from over 52,000 suicides in England, Wales, and Scotland (1979–2001) to determine whether the method of suicide varies systematically by the decedent's month of birth. Significant associations were identified between birth month and specific methods of suicide.",
-    summary: "Extended the birth-season/suicide line of research to examine whether the specific method chosen for self-harm varies by month of birth. Used a dataset of over 52,000 suicides drawn from England, Wales, and Scotland across 21 years — the largest sample applied to this question. Findings contribute to understanding the biological and neurodevelopmental mechanisms linking early neurodevelopment to adult suicidal behaviour."
-  },
-  {
-    id: 6,
-    title: "Elderly Suicide: An Analysis of Coroner's Inquests into Two Hundred Cases in Cheshire 1989–2001",
-    year: 2005,
-    category: "suicide",
-    journal: "Medicine, Science and the Law",
-    coauthors: "Sahar Rahim, George El-Nimr, Bassem Habeeb",
-    url: "https://journals.sagepub.com/doi/10.1258/rsmmsl.45.1.71",
-    abstract: "Two hundred consecutive elderly suicide cases in Cheshire (1989–2001) were analysed using coroner's inquest records to characterise the clinical and demographic features of late-life suicide. Elderly suicides were marked by high lethality, low rates of prior communication of intent, and high rates of comorbid physical illness and depression.",
-    summary: "A systematic analysis of 200 elderly suicide cases using coroner's inquest records in Cheshire over 13 years. Found that late-life suicide is characterised by less advance warning, higher lethality of chosen methods, and greater prevalence of comorbid depression and physical illness compared to suicide in younger populations. Described elderly suicide as 'an index of widespread disorder and discontent.' One of the most detailed clinical characterisations of late-life suicide in the UK."
-  },
-  {
-    id: 7,
-    title: "Intimation of Intent in Elderly Fatal Self-Harm: Do the Elderly Who Leave Suicide Notes Differ from Those Who Do Not?",
-    year: 2002,
-    category: "suicide",
-    journal: "Published Study",
-    coauthors: "Emad Salib (sole author)",
-    pmid: "24945202",
-    url: "https://pubmed.ncbi.nlm.nih.gov/24945202/",
-    abstract: "This study examined 200 elderly suicide cases to determine whether those who left suicide notes differed clinically or sociodemographically from those who did not. Note-writers were more likely to have communicated suicidal intent prior to death and to have used more lethal methods.",
-    summary: "Explored suicide notes as clinical markers of suicidal severity and intent among elderly patients. Examined whether elderly individuals who leave suicide notes differ clinically, sociodemographically, or in terms of method lethality from those who do not. Findings inform clinical assessment of suicide risk in older patients and challenge assumptions about planning and intent."
-  },
-  {
-    id: 8,
-    title: "Weather Conditions and Fatal Self-Harm in North Cheshire 1989–1993",
-    year: 1996,
-    category: "suicide",
-    journal: "British Journal of Psychiatry",
-    coauthors: "Emad Salib (sole author)",
-    url: "https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/abs/weather-conditions-and-fatal-selfharm-in-north-cheshire-19891993/1B4620D4AE339185E8A1647A89750407",
-    abstract: "Meteorological data were correlated with fatal self-harm rates in North Cheshire over a five-year period (1989–1993). Significant positive associations were found between fatal self-harm and hours of sunshine and diurnal temperature range.",
-    summary: "Analysed five years of fatal self-harm data against multiple meteorological variables in North Cheshire. Found small but statistically significant positive correlations between fatal self-harm and hours of sunshine and diurnal temperature variation. Concluded that weather interacts with biological and social variables to influence suicidal behaviour, with elevated rates observed during fine early-summer weather. An early contribution to the environmental determinants of suicide."
-  },
-  {
-    id: 9,
-    title: "Astrological Birth Signs in Suicide: Hypothesis or Speculation?",
-    year: 2003,
-    category: "suicide",
-    journal: "Medicine, Science and the Law",
-    coauthors: "Emad Salib (sole author)",
-    pmid: "12741653",
-    url: "https://journals.sagepub.com/doi/10.1258/rsmmsl.43.2.111",
-    abstract: "Using 1,273 suicides in Cheshire, this paper examined whether astrological birth signs were associated with suicide rates, framing the analysis as a methodological critique of seasonal birth research in psychiatry. No significant associations between sun signs and suicide were found.",
-    summary: "An exploratory epidemiological study examining whether astrological birth signs carry any statistically meaningful association with suicide. Framed explicitly as a methodological and epidemiological thought experiment, the paper interrogates the statistical reasoning behind birth-season research more broadly and uses astrology as a satirical lens to critique over-interpretation of seasonal patterns in suicide data."
-  },
-  {
-    id: 10,
-    title: "Trends in Suicide by Drowning in the Elderly in England and Wales 1979–2001",
-    year: 2005,
-    category: "suicide",
-    journal: "International Journal of Geriatric Psychiatry",
-    coauthors: "Emad Salib (sole author)",
-    url: "https://onlinelibrary.wiley.com/doi/10.1002/gps.1211",
-    abstract: "This study analysed 22 years of national mortality data (1979–2001) to describe trends in suicide by drowning among elderly individuals in England and Wales. Drowning accounted for a disproportionate share of elderly suicide deaths, with distinct patterns by sex and age group.",
-    summary: "Presented time-series data on drowning as a method of elderly suicide across England and Wales over 22 years. Examined age-specific and sex-specific patterns and temporal trends. Contributed to the evidence base on the clinical and environmental factors associated with the choice of drowning as a method in late-life suicide, including its intersection with cognitive impairment."
-  },
-  {
-    id: 11,
-    title: "Dementia: Suicide by Drowning",
-    year: 2009,
-    category: "suicide",
-    journal: "British Journal of Psychiatry",
-    coauthors: "Emad Salib (sole author)",
-    pmid: "19478304",
-    url: "https://pubmed.ncbi.nlm.nih.gov/19478304/",
-    abstract: "This correspondence examines the clinical and risk management implications of self-drowning in patients with dementia, drawing on epidemiological data from England and Wales. The findings highlight the need for means restriction strategies in the care of dementia patients with access to open water.",
-    summary: "A focused commentary on the intersection of dementia and death by drowning, exploring the clinical and risk management implications for psychiatrists and care home staff. Contributes to the sparse literature on self-harm risk and means restriction in patients with dementia, and draws on Dr. Salib's prior epidemiological work on drowning trends in the elderly."
-  },
-  {
-    id: 12,
-    title: "Alzheimer's Disease and the Aluminium Connection: A Literature Review",
-    year: 1998,
-    category: "dementia",
-    journal: "International Journal of Psychiatry in Clinical Practice",
-    coauthors: "Emad Salib (sole author)",
-    url: "https://www.tandfonline.com/doi/abs/10.3109/13651509809115354",
-    abstract: "This review synthesised 35 years of research on the aluminium-Alzheimer's disease hypothesis across four domains: brain aluminium levels, uptake studies, aluminium-related neurodegeneration, and chronic exposure studies. The evidence was found to be inconclusive, with major methodological limitations preventing definitive causal conclusions.",
-    summary: "A systematic review of 35 years of published research on the proposed aluminium–Alzheimer's disease link, surveying four domains: post-mortem brain aluminium studies, aluminium uptake studies, aluminium-related neurodegeneration models, and chronic human exposure studies. Concluded that the cumulative evidence remains inconclusive and that methodological inconsistencies make definitive causal claims premature. Provided a balanced synthesis at a time when the aluminium hypothesis remained hotly debated."
-  },
-  {
-    id: 13,
-    title: "A Case-Control Study of Alzheimer's Disease and Aluminium Occupation",
-    year: 1999,
-    category: "dementia",
-    journal: "British Journal of Psychiatry",
-    coauthors: "Emad Salib (sole author)",
-    url: "https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/abs/casecontrol-study-of-alzheimers-disease-and-aluminium-occupation/A3FD380BF6E797608C6112F179999862",
-    abstract: "A case-control study compared 198 Alzheimer's disease patients with 340 controls on occupational history of aluminium exposure in North Cheshire. No significant association was found between aluminium-related occupations and Alzheimer's disease risk.",
-    summary: "Compared 198 Alzheimer's disease patients to 340 matched controls (other dementias and non-demented patients) on occupational history, specifically examining lifetime exposure to aluminium-related industries. Found that 11.1% of Alzheimer's patients reported aluminium-related occupations, but this did not significantly exceed control rates. Contributed important negative evidence to the aluminium-Alzheimer's debate and called for more rigorous biomarker-based exposure assessments."
-  },
-  {
-    id: 14,
-    title: "Risk Factors for Alzheimer's Disease",
-    year: 2000,
-    category: "dementia",
-    journal: "Nursing Older People",
-    coauthors: "Emad Salib (sole author)",
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=salib+emad+%22risk+factors%22+alzheimer",
-    abstract: "This review article summarised the established and emerging risk factors for Alzheimer's disease for a nursing and primary care audience, covering genetic, vascular, environmental, and lifestyle determinants. The review emphasised translating epidemiological evidence into practical clinical guidance.",
-    summary: "An accessible clinical review of established and emerging risk factors for Alzheimer's disease, targeted at nursing and primary care audiences. Covers age, genetics, vascular risk factors, head injury, educational attainment, and environmental exposures. Reflects Dr. Salib's commitment to translating complex research findings into practical guidance for frontline healthcare workers caring for older patients."
-  },
-  {
-    id: 15,
-    title: "Handedness and Dementia: A Literature Review",
-    year: 2001,
-    category: "dementia",
-    journal: "Literature Review",
-    coauthors: "Emad Salib (sole author)",
-    url: "https://www.researchgate.net/profile/Emad-Salib",
-    abstract: "A review of approximately 10 studies from PsycInfo and MEDLINE examined the relationship between hand preference and dementia risk and onset. Evidence of higher left-handedness prevalence in early-onset dementia populations was identified, with implications for neurodevelopmental theories of cognitive reserve.",
-    summary: "Reviewed approximately 10 studies from PsycInfo and MEDLINE on the relationship between handedness (left vs. right) and dementia risk and presentation. Identified findings suggesting a higher prevalence of left-handedness in early-onset dementia populations. Placed findings within the context of neurodevelopmental theories of lateralisation and cognitive reserve, acknowledging methodological limitations across the reviewed studies."
-  },
-  {
-    id: 16,
-    title: "Does the Weather Influence Dementia Admissions?",
-    year: 1999,
-    category: "dementia",
-    journal: "International Journal of Geriatric Psychiatry",
-    coauthors: "Emad Salib & Nicola Sharp",
-    url: "https://pubmed.ncbi.nlm.nih.gov/?term=salib+emad+%22dementia+admissions%22+weather",
-    abstract: "This study examined the association between meteorological variables and hospital admission rates for dementia in North Cheshire. Significant relationships were found between specific weather parameters and rates of behavioural disturbance requiring inpatient admission.",
-    summary: "The first published study to examine the relationship between weather parameters — humidity, sunshine, temperature variation, and rainfall — and hospital admission rates for dementia in North Cheshire. Found significant associations between specific meteorological variables and admission frequency. Raised questions about the biological and social mechanisms linking environmental conditions to behavioural disturbance in dementia patients."
-  },
-  {
-    id: 17,
-    title: "Mental Alternation Test (MAT): A Rapid and Valid Screening Tool for Dementia in Primary Care",
-    year: 2002,
-    category: "dementia",
-    journal: "International Journal of Geriatric Psychiatry",
-    coauthors: "Emad Salib & Justin McCarthy",
-    pmid: "12461766",
-    url: "https://pubmed.ncbi.nlm.nih.gov/12461766/",
-    abstract: "The Mental Alternation Test (MAT) was validated as a rapid screening tool for dementia in primary care settings against the Mini-Mental State Examination, using 172 patients in Warrington. The MAT demonstrated high sensitivity and specificity at a cut-off of fewer than 15 correct alternations in 30 seconds.",
-    summary: "Validated the Mental Alternation Test (MAT) as a rapid bedside screening tool for dementia, comparing its performance against the Mini-Mental State Examination (MMSE) in clinically diagnosed dementia and non-dementia controls in Warrington. Established sensitivity/specificity cut-off scores (max score 52; cut-off < 15 correct alternations in 30 seconds). This paper had lasting clinical impact — the MAT was subsequently incorporated into the cognitive battery of the Canadian Longitudinal Study on Aging, one of the world's largest aging cohort studies."
-  },
-  {
-    id: 18,
-    title: "Passive Euthanasia in Dementia: Killing… Or Letting Die?",
-    year: 2003,
-    category: "dementia",
-    journal: "Survey Study",
-    coauthors: "Emad Salib (sole author)",
-    url: "https://www.researchgate.net/profile/Emad-Salib",
-    abstract: "This study surveyed family carers of dementia patients on their ethical attitudes toward passive euthanasia, including withdrawal of nutrition and life-sustaining treatment. Findings revealed a spectrum of views influenced by disease stage, perceived patient suffering, and personal and religious values.",
-    summary: "Surveyed a sample of family carers of dementia patients on their ethical attitudes toward passive euthanasia — the withdrawal or withholding of life-sustaining treatment. Explored the factors influencing carer views, including perceived patient suffering, disease stage, and personal values. Contributes to the bioethics literature on end-of-life decision-making in dementia care at a time when UK policy on the topic was evolving."
-  },
-  {
-    id: 19,
-    title: "Cholinesterase Inhibitors and Time to Care Home Placement",
-    year: 2008,
-    category: "dementia",
-    journal: "NHS Clinical Study",
-    coauthors: "Emad Salib and co-authors",
-    url: "https://www.researchgate.net/profile/Emad-Salib",
-    abstract: "This study used survival analysis to examine whether prescription of cholinesterase inhibitors in 2006 was associated with delayed placement of dementia patients in care homes over a four-year follow-up period. The findings suggested a modest delay in institutionalisation among treated patients.",
-    summary: "Examined whether prescribing cholinesterase inhibitors (ChEIs) in 2006 delayed institutional placement of dementia patients into care homes. Used survival analysis over a four-year follow-up period, comparing ChEI-prescribed patients to those who were not prescribed. Findings contributed to local NHS commissioning decisions and the broader evidence base on the real-world effectiveness of dementia pharmacotherapy beyond its cognitive effects."
-  },
-  {
-    id: 20,
-    title: "Practice of Seclusion: A Five-Year Retrospective Review in North Cheshire",
-    year: 1998,
-    category: "forensic",
-    journal: "Medicine, Science and the Law",
-    coauthors: "Emad Salib, A.G. Ahmed & Mike Cope",
-    url: "https://journals.sagepub.com/doi/10.1177/002580249803800408",
-    abstract: "A five-year retrospective audit reviewed 186 episodes of seclusion involving 94 patients at a regional secure unit in North Cheshire, examining patient characteristics and diagnostic patterns. Patients with personality disorder accounted for a disproportionate 44.2% of seclusion episodes despite comprising only 11.4% of the patient population.",
-    summary: "A five-year retrospective audit of seclusion use at a regional secure psychiatric unit in North Cheshire. Of 614 total admissions, 94 patients (15.3%) were secluded on 186 occasions. Crucially, patients with personality disorder (11.4% of the patient population) accounted for 44.2% of all seclusions, while patients with a defined mental illness (55% of the population) accounted for only 35%. Highlighted diagnostic disparities in seclusion use and raised questions about whether seclusion functions as a therapeutic or administrative intervention."
-  },
-  {
-    id: 21,
-    title: "Seclusion in Psychiatry: Continuing Use",
-    year: 2000,
-    category: "forensic",
-    journal: "Published Study",
-    coauthors: "Lawrence Savage & Emad Salib",
-    pmid: "10661207",
-    url: "https://pubmed.ncbi.nlm.nih.gov/10661207/",
-    abstract: "This study examined ongoing seclusion use in a secure psychiatric unit, analysing clinical outcomes and staff perceptions. For a subset of patients with severe, persistent behavioural disturbance, seclusion was found to be a safe and effective intervention.",
-    summary: "Examined the continuing use of seclusion in a secure mental health unit, tracking outcomes and clinical justifications over a follow-up period. Concluded that for a defined subset of patients with severe, treatment-resistant behavioural disturbance, regular seclusion use remains a safe and effective intervention for protecting patients and staff. Engaged with the then-ongoing policy debate about whether seclusion should be abolished in NHS settings."
-  },
-  {
-    id: 22,
-    title: "Audit of the Use of Nurses' Holding Power Under Section 5(4) of the Mental Health Act 1983",
-    year: 1998,
-    category: "forensic",
-    journal: "Medicine, Science and the Law",
-    coauthors: "Emad Salib (sole author)",
-    url: "https://journals.sagepub.com/doi/abs/10.1177/002580249803800308",
-    abstract: "This audit reviewed the frequency, clinical context, and appropriateness of nurses' use of the holding power under Section 5(4) of the Mental Health Act 1983 in a psychiatric inpatient unit. Findings informed training and governance recommendations for appropriate application of the legislation.",
-    summary: "A clinical audit of the application of Section 5(4) of the Mental Health Act 1983, the nurses' holding power permitting detention of an informal inpatient pending a medical review. Evaluated the appropriateness, frequency, and clinical context of its use across a psychiatric unit. Identified patterns in when and how the power was invoked, contributing to best-practice guidance for nursing staff and hospital governance bodies."
-  },
-  {
-    id: 23,
-    title: "The Khat Users: A Study of Khat Chewing in Liverpool's Somali Men",
-    year: 1998,
-    category: "transcultural",
-    journal: "Medicine, Science and the Law",
-    coauthors: "A.G. Ahmed & Emad Salib",
-    url: "https://journals.sagepub.com/doi/abs/10.1177/002580249803800215",
-    abstract: "A comparative study examined khat-chewing patterns, psychiatric morbidity (GHQ), and social characteristics of 105 Somali men in Liverpool, comparing regular khat users to age-matched non-users. No significant difference in psychiatric morbidity was found, challenging assumptions about khat's mental health risks.",
-    summary: "Examined the demographic, social, and psychological characteristics of regular khat users compared to matched non-users within Liverpool's Somali immigrant community. Measured psychiatric morbidity using the General Health Questionnaire (GHQ). Found that khat users did not exhibit significantly higher psychiatric morbidity than non-users, differing mainly in nicotine use patterns and perceptions of khat's social harms. Challenged alarmist narratives about khat use and contributed to the evidence base informing UK drugs policy debates."
-  },
-  {
-    id: 24,
-    title: "Hubris Syndrome and the Arab Spring: Shared Ideology or Folie Partagée?",
-    year: 2014,
-    category: "transcultural",
-    journal: "International Psychiatry",
-    coauthors: "Salwa Khalil & Emad Salib",
-    url: "https://www.cambridge.org/core/journals/international-psychiatry/article/hubris-syndrome-and-the-arab-spring-shared-ideology-or-folie-partagee/80A43806D25A6950E0EF3D748D30B3F9",
-    abstract: "This paper applied Owen and Davidson's concept of hubris syndrome — an acquired personality disorder in powerful leaders — to the political leaders of the Arab Spring uprisings. The authors explored whether the shared extremist behaviours of these leaders constituted a folie partagée or a recognisable political-psychiatric syndrome.",
-    summary: "Applied the concept of hubris syndrome — an acquired personality disorder theorised to affect political leaders in power (Owen & Davidson, 2009) — to the leaders of the Arab Spring uprisings. Explored whether the shared extreme ideological behaviours exhibited by these leaders constituted a folie partagée (shared madness) or a common political-psychological syndrome with biological and environmental determinants. A pioneering application of psychiatric nosology to contemporary political science."
-  },
-  {
-    id: 25,
-    title: "Spiritual Healing in Elderly Psychiatric Patients",
-    year: 1997,
-    category: "transcultural",
-    journal: "Clinical Study",
-    coauthors: "Emad Salib (sole author)",
-    url: "https://www.researchgate.net/profile/Emad-Salib",
-    abstract: "This study investigated the association between recourse to spiritual healing and the frequency of schizophrenic relapses in elderly Egyptian psychiatric inpatients. Findings highlighted the complex interaction between religious and cultural practices and psychiatric relapse in transcultural settings.",
-    summary: "Investigated whether recourse to spiritual or religious healing was associated with the frequency of schizophrenic relapses in a sample of elderly Egyptian psychiatric inpatients. Conducted in an Egyptian psychiatric hospital setting, the study reflects Dr. Salib's cross-cultural background and interest in how religious and cultural practices intersect with psychiatric illness management. An early contribution to the transcultural psychiatry literature on spirituality and mental illness."
-  },
-  {
-    id: 26,
-    title: "Lies… Damned Lies… and Suicide Statistics!",
-    year: 2003,
-    category: "methodology",
-    journal: "Medicine, Science and the Law",
-    coauthors: "Emad Salib & Noir Thomas",
-    url: "https://journals.sagepub.com/doi/abs/10.1258/rsmmsl.43.4.315",
-    abstract: "This methodological paper critically examined the reliability and validity of official suicide statistics in England and Wales, focusing on coroner variation, misclassification, and systemic under-reporting. The authors argued that published suicide statistics require cautious interpretation due to fundamental inconsistencies in how verdicts are recorded.",
-    summary: "A critical methodological analysis of the reliability and validity of official suicide statistics in England and Wales. Examined how suicide verdicts are reached by coroners, the variation in reporting standards across jurisdictions, and the systematic biases that may lead to under-counting or miscategorisation of suicide deaths. Argued that published national suicide statistics cannot be interpreted uncritically and called for standardised coroner reporting frameworks. The title references the famous aphorism often attributed to Mark Twain."
-  }
+  { id:1, year:1997, category:"suicide", title:"Weather Conditions and Suicide", journal:"British Journal of Psychiatry, 170: 473–477", coauthors:"N. Gray", pmid:"9004338", url:"https://pubmed.ncbi.nlm.nih.gov/9004338/",
+    abstract:"This study examined the relationship between specific meteorological variables and weekly suicide counts in North Cheshire. Significant positive correlations were found between suicide and hours of sunshine, and negative correlations with relative humidity.",
+    summary:"One of Dr Salib's earliest epidemiological studies, correlating weather variables with suicide counts using local Cheshire data. Found that sunshine and temperature were positively associated with suicide rates while humidity was protective. Laid the groundwork for subsequent larger-scale environmental studies of suicidal behaviour." },
+
+  { id:2, year:1997, category:"suicide", title:"Elderly Suicide and Weather Conditions: Is There a Link?", journal:"Int J Geriatric Psychiatry, 12(9): 937–941", coauthors:"Emad Salib (sole author)", pmid:"9309473", url:"https://pubmed.ncbi.nlm.nih.gov/9309473/",
+    abstract:"This paper specifically examined weather as a precipitant of suicide among elderly individuals in North Cheshire, extending earlier general population findings to an older age cohort. Seasonal and meteorological patterns in elderly fatal self-harm were analysed.",
+    summary:"Focused specifically on the elderly subgroup, this study examined whether the weather–suicide associations observed in the general population were replicated in older adults. The findings underscored the particular vulnerability of elderly individuals to environmental triggers of suicidal behaviour and contributed to an emerging evidence base on late-life suicide risk factors." },
+
+  { id:3, year:1997, category:"forensic", title:"Coroner's Verdicts in the Elderly: A Suicide or an Open Verdict?", journal:"Int J Geriatric Psychiatry, 12(4): 481–483", coauthors:"Emad Salib (sole author)", pmid:"9178054", url:"https://pubmed.ncbi.nlm.nih.gov/9178054/",
+    abstract:"This paper examined the frequency of open verdicts versus suicide verdicts in coroner's inquests involving elderly decedents, and the factors influencing which verdict was returned. The misclassification of elderly suicides as undetermined deaths is explored.",
+    summary:"An important methodological contribution examining how coroner's verdicts are assigned in elderly deaths. Argued that elderly suicides are systematically undercounted because coroners are more likely to record open verdicts for older decedents — a finding with major implications for interpreting national elderly suicide statistics." },
+
+  { id:4, year:1997, category:"forensic", title:"Unexpected Death of Psychiatric Patients: Suicide, Misadventure, Accident or Unsolved Mystery?", journal:"Medicine, Science and the Law, 37(3)", coauthors:"Ann Joseph; Sheila Cawley", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A seven-year retrospective review of unexpected deaths among psychiatric inpatients, examining the coroner's classification of cause across suicide, misadventure, accident, and open verdicts. The study explored the clinical and administrative factors associated with each verdict type.",
+    summary:"Reviewed unexpected deaths of psychiatric inpatients over seven years, examining the range of coroner's verdicts returned and the circumstances surrounding each death. Raised questions about the reliability of mortality statistics for psychiatric populations and the adequacy of psychiatric unit safety procedures in preventing accidental and self-inflicted deaths." },
+
+  { id:5, year:1998, category:"forensic", title:"Practice of Seclusion: A Five-Year Retrospective Review in North Cheshire", journal:"Medicine, Science and the Law, 38(4): 321–327", coauthors:"A G Ahmed; Mike Cope", pmid:"9808944", url:"https://pubmed.ncbi.nlm.nih.gov/9808944/",
+    abstract:"A five-year retrospective audit of seclusion use at a regional secure psychiatric unit found that 15.3% of admissions involved seclusion, with patients diagnosed with personality disorder accounting for a disproportionate 44.2% of episodes despite forming only 11.4% of the population.",
+    summary:"Landmark audit of seclusion practices at a North Cheshire secure unit. Key finding: patients with personality disorder — a minority of the patient population — accounted for nearly half of all seclusion episodes, while those with defined mental illness were secluded far less frequently. Raised important questions about whether seclusion serves therapeutic or disciplinary functions, and whether it is applied equitably across diagnostic groups." },
+
+  { id:6, year:1998, category:"forensic", title:"Audit of the Use of Nurses' Holding Power Under Section 5(4) of the Mental Health Act 1983", journal:"Medicine, Science and the Law, 38(3)", coauthors:"Emad Salib (sole author)", url:"https://journals.sagepub.com/doi/abs/10.1177/002580249803800308",
+    abstract:"An audit of the clinical use of the nurses' emergency holding power under Section 5(4) of the Mental Health Act 1983, examining frequency, appropriateness, and subsequent disposition of detained patients across a psychiatric unit.",
+    summary:"Systematic audit of how nursing staff applied the emergency detention power under s5(4) MHA 1983, which allows a nurse to detain an informal patient for up to six hours. Examined whether the power was applied appropriately, how often it led to a formal medical assessment, and what training implications arose. An important contribution to NHS governance of statutory detention powers." },
+
+  { id:7, year:1998, category:"transcultural", title:"The Khat Users: A Study of Khat Chewing in Liverpool's Somali Men", journal:"Medicine, Science and the Law, 38(2)", coauthors:"A G Ahmed", url:"https://journals.sagepub.com/doi/abs/10.1177/002580249803800215",
+    abstract:"A case-control study compared psychiatric morbidity (GHQ) and social characteristics between 105 regular khat-chewing Somali men in Liverpool and age-matched non-users. No significant difference in psychiatric morbidity was found between the groups.",
+    summary:"Investigated khat use within Liverpool's Somali immigrant community, comparing regular chewers to matched non-users on psychological wellbeing, social function, and health perceptions. Challenged widespread assumptions linking khat to psychiatric disorder by finding no significant difference in GHQ morbidity scores. Contributed evidence to UK policy debates on whether khat should be classified as a controlled substance." },
+
+  { id:8, year:1999, category:"dementia", title:"Does the Weather Influence Dementia Admissions?", journal:"Int J Geriatric Psychiatry, 14(11): 925–935", coauthors:"N. Sharp", pmid:"10556863", url:"https://pubmed.ncbi.nlm.nih.gov/10556863/",
+    abstract:"This study examined associations between meteorological variables — humidity, sunshine, temperature variation, and rainfall — and rates of hospital admission for dementia in North Cheshire. Significant relationships were found between specific weather parameters and admission frequency.",
+    summary:"The first published study to investigate whether weather conditions affect hospital admission rates for dementia. Found statistically significant associations between certain meteorological variables and increased behavioural disturbance requiring inpatient admission in dementia patients. Raised clinical and biological questions about environmental triggers of agitation in patients with cognitive impairment." },
+
+  { id:9, year:1999, category:"forensic", title:"Seclusion in Psychiatry", journal:"Nursing Standard, 13(50): 34–37", coauthors:"Lawrence Savage", pmid:"10661207", url:"https://pubmed.ncbi.nlm.nih.gov/10661207/",
+    abstract:"This study examined the continuing use of seclusion in a psychiatric unit, assessing clinical outcomes, staff perceptions, and whether seclusion constituted a safe and effective intervention for patients with severe behavioural disturbance.",
+    summary:"Follow-up to the 1998 seclusion audit, examining ongoing practices and outcomes. For a defined subset of patients with severe, treatment-resistant behavioural disturbance, seclusion was found to be a safe and clinically justifiable intervention. Engaged with the debate about whether seclusion should be abolished in NHS settings, offering a measured defence of its judicious continued use." },
+
+  { id:10, year:2000, category:"suicide", title:"Fatal Self-Harm in the Elderly: Methods Compared to Young Adults", journal:"Int J Geriatric Psychiatry, 15(9): 848–", coauthors:"George Tadros", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A comparative coroner-based study contrasted the methods used in fatal self-harm between elderly and younger adult decedents, examining whether older individuals chose more lethal or irreversible methods.",
+    summary:"Compared methods of fatal self-harm between elderly and younger adults using coroner data, finding that older individuals tended to choose methods of higher lethality. This supports the clinical observation that suicidal intent is typically more resolved in late-life suicide, with less ambivalence and a lower likelihood of rescue. Informed guidelines on risk assessment in elderly patients presenting with suicidal ideation." },
+
+  { id:11, year:2001, category:"suicide", title:"History of Deliberate Self Harm May Predict Methods of Fatal Self Harm in the Elderly", journal:"Medicine, Science and the Law, 41(2): 107–110", coauthors:"G. El-Nimr; M. Yacoub", pmid:"11368389", url:"https://pubmed.ncbi.nlm.nih.gov/11368389/",
+    abstract:"This study examined whether elderly individuals who died by suicide had a history of non-fatal deliberate self-harm, and whether prior methods predicted the method used in the fatal act. A significant association between prior and final method was identified.",
+    summary:"Investigated whether a history of non-fatal self-harm in elderly patients predicts the method ultimately used in a fatal act. Found a statistically significant correspondence between earlier and later methods, suggesting that method continuity is an important clinical risk indicator. Informed assessment of elderly patients with a history of self-harm." },
+
+  { id:12, year:2002, category:"suicide", title:"Month of Birth and Suicide: An Exploratory Study", journal:"Int J Psychiatry in Clinical Practice, 6(1): 39–44", coauthors:"Emad Salib (sole author)", pmid:"24931890", url:"https://pubmed.ncbi.nlm.nih.gov/24931890/",
+    abstract:"Using 12 years of Cheshire coroner data, this exploratory study examined whether birth month was associated with risk and method of suicide. A higher rate of violent suicide, particularly hanging, was found among individuals born in summer months.",
+    summary:"Preliminary investigation of seasonal birth patterns and suicide risk using local Cheshire data. Found evidence of a summer birth excess in violent suicides, particularly hanging. This study provided the methodological template for the much larger national replication published in the British Journal of Psychiatry in 2006 with co-author Mario Cortina-Borja." },
+
+  { id:13, year:2002, category:"suicide", title:"Intimation of Intent in Elderly Fatal Self-Harm: Do the Elderly Who Leave Suicide Notes Differ From Those Who Do Not?", journal:"Int J Psychiatry in Clinical Practice, 6(3): 155–161", coauthors:"J. Maximous", pmid:"24945202", url:"https://pubmed.ncbi.nlm.nih.gov/24945202/",
+    abstract:"This study compared clinical and sociodemographic characteristics between elderly suicide decedents who left notes and those who did not, examining whether note-leaving was associated with greater lethality of method or prior communication of intent.",
+    summary:"Examined whether elderly individuals who leave suicide notes represent a clinically distinct subgroup from those who do not. Found that note-writers were more likely to have communicated suicidal intent prior to death. Contributed to clinical understanding of the significance of suicide notes in risk assessment for older patients." },
+
+  { id:14, year:2002, category:"suicide", title:"The Significance of Suicide Notes in the Elderly", journal:"Aging and Mental Health, 6(2): 186–190", coauthors:"Emad Salib (sole author)", pmid:"12028889", url:"https://pubmed.ncbi.nlm.nih.gov/12028889/",
+    abstract:"Analysing ten years of Cheshire coroner data, this study examined the prevalence and clinical significance of suicide notes among elderly decedents. Notes were found in a minority of cases and were associated with specific clinical characteristics.",
+    summary:"A dedicated analysis of suicide notes left by elderly individuals, using 10 years of Cheshire coroner data. Explored what notes reveal about the psychological state of older suicides and whether their presence or absence carries clinical significance. One of very few studies to focus specifically on suicide note characteristics in a geriatric population." },
+
+  { id:15, year:2002, category:"suicide", title:"Their Last Words: A Review of Suicide Notes in the Elderly", journal:"Medicine, Science and the Law, 42(4): 334–338", coauthors:"G. El-Nimr; M. Yacoub", pmid:"12487519", url:"https://pubmed.ncbi.nlm.nih.gov/12487519/",
+    abstract:"This study reviewed the content and themes of suicide notes left by elderly decedents, categorising the expressed motivations, emotions, and communications to survivors. Themes of hopelessness, physical illness, and farewell messages were prominent.",
+    summary:"Qualitative and quantitative analysis of the content of suicide notes left by elderly suicide decedents in Cheshire. Identified recurring themes — physical illness, hopelessness, expressions of love for family, and apologetic statements — that shed light on the subjective experience of suicidal crisis in late life. Offered clinical insights into the distinct phenomenology of elderly suicide." },
+
+  { id:16, year:2002, category:"dementia", title:"Mental Alternation Test (MAT): A Rapid and Valid Screening Tool for Dementia in Primary Care", journal:"Int J Geriatric Psychiatry, 17(12): 1157–1161", coauthors:"Justin McCarthy", pmid:"12461766", url:"https://pubmed.ncbi.nlm.nih.gov/12461766/",
+    abstract:"The Mental Alternation Test (MAT) was validated against the MMSE in 172 patients in Warrington, demonstrating high sensitivity and specificity at a cut-off of fewer than 15 correct alternations in 30 seconds for the detection of dementia.",
+    summary:"Co-validated the Mental Alternation Test (MAT) as a rapid, bedside primary care screening tool for dementia. The MAT requires patients to alternate between naming letters and numbers sequentially; it can be administered without equipment in under a minute. This paper established its sensitivity/specificity profile and has had lasting influence — the MAT was adopted into the cognitive assessment battery of the Canadian Longitudinal Study on Aging." },
+
+  { id:17, year:2003, category:"suicide", title:"Effect of 11 September 2001 on Suicide and Homicide in England and Wales", journal:"British Journal of Psychiatry, 183: 207–212", coauthors:"Emad Salib (sole author)", pmid:"12948992", url:"https://pubmed.ncbi.nlm.nih.gov/12948992/",
+    abstract:"Monthly suicide and homicide rates in England and Wales were examined for the 22 years preceding September 2001. Suicide rates in September 2001 were significantly lower than in any comparable month over the prior 22 years, consistent with Durkheim's social cohesion hypothesis.",
+    summary:"One of Dr Salib's most widely cited papers. Demonstrated that suicide rates in England and Wales fell significantly in the weeks following 9/11, interpreted through Durkheim's theory of social integration — that shared national trauma temporarily increases group cohesion and reduces self-directed violence. Became a foundational paper in disaster psychiatry and attracted major international media coverage." },
+
+  { id:18, year:2003, category:"methodology", title:"Astrological Birth Signs in Suicide: Hypothesis or Speculation?", journal:"Medicine, Science and the Law, 43(2): 111–114", coauthors:"Emad Salib (sole author)", pmid:"12741653", url:"https://pubmed.ncbi.nlm.nih.gov/12741653/",
+    abstract:"Using Cheshire suicide data, this paper tested whether astrological birth signs were associated with suicide rates, framing the exercise as a methodological critique of over-interpretation of seasonal birth patterns in psychiatric research. No significant astrology–suicide association was found.",
+    summary:"A methodologically innovative paper using astrology as a satirical vehicle to interrogate statistical reasoning in birth-season suicide research. By demonstrating that astrological signs (which track calendar months) show no significant association with suicide, the paper challenged researchers to consider the biological plausibility of birth-month findings more rigorously before drawing causal conclusions." },
+
+  { id:19, year:2003, category:"methodology", title:"Lies… Damned Lies… and Suicide Statistics!", journal:"Medicine, Science and the Law, 43(4): 315–316", coauthors:"Noir Thomas", pmid:"14655962", url:"https://pubmed.ncbi.nlm.nih.gov/14655962/",
+    abstract:"This methodological paper critically examined the reliability and validity of official suicide statistics in England and Wales, focusing on coroner variation, misclassification, and systemic under-reporting across jurisdictions.",
+    summary:"A provocative and important critique of the suicide statistics used as outcome measures in public health and clinical research. Argued that coroner variation, inconsistent application of the legal standard of proof, and systematic under-recording of suicides among the elderly mean that published statistics are significant underestimates. Called for standardised national coroner reporting frameworks. Title alludes to the aphorism attributed to Mark Twain." },
+
+  { id:20, year:2004, category:"dementia", title:"Risk Factors in Clinically Diagnosed Alzheimer's Disease: A Retrospective Hospital-Based Case Control Study in Warrington", journal:"Int J Geriatric Psychiatry", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A retrospective case-control study of 198 Alzheimer's disease patients compared to 340 controls in Warrington examined demographic, occupational, and lifestyle risk factors, including aluminium occupational exposure. No significant association with aluminium was identified.",
+    summary:"Large case-control study based at Warrington examining risk factors for clinically diagnosed Alzheimer's disease. Compared 198 cases to 340 age-matched controls across a range of potential risk factors. Contributed important negative evidence on occupational aluminium exposure as a risk factor. Preceded and informed the aluminium-Alzheimer's literature review also conducted by Dr Salib." },
+
+  { id:21, year:2004, category:"suicide", title:"Gender in Elderly Suicide: Analysis of Coroner's Inquests of 200 Cases of Elderly Suicide in Cheshire 1989–2001", journal:"Medicine, Science and the Law", coauthors:"G. El-Nimr; S. Rahim; B. Habeeb", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This paper compared male and female elderly suicide cases from 200 coroner's inquests in Cheshire, examining gender differences in method, prior contact with services, psychiatric history, and circumstantial factors.",
+    summary:"Gender-stratified analysis of 200 elderly suicide cases drawn from Cheshire coroner's inquests. Found significant gender differences in method preference, prior psychiatric contact, and precipitating factors. Contributed to clinical awareness that elderly male and female suicides represent distinct clinical presentations requiring different preventive strategies." },
+
+  { id:22, year:2004, category:"forensic", title:"Hospital Post Mortems in Psychiatry — Mortue Vivos Docent?!", journal:"Unpublished/Conference", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This paper examined declining hospital post-mortem rates in psychiatric settings, arguing that reduced autopsy practice limits clinical learning from unexpected inpatient deaths.",
+    summary:"A commentary examining the steady decline in hospital post-mortem rates in psychiatric settings, lamenting its effect on clinical learning and quality improvement. The Latin title — 'the dead teach the living' — captures the paper's argument that autopsy findings in unexpected psychiatric deaths offer irreplaceable insights into disease mechanisms, medication effects, and clinical decision-making." },
+
+  { id:23, year:2005, category:"suicide", title:"Elderly Suicide: An Analysis of Coroner's Inquests into Two Hundred Cases in Cheshire 1989–2001", journal:"Medicine, Science and the Law, 45(1): 71–80", coauthors:"S. Rahim; G. El-Nimr; B. Habeeb", url:"https://journals.sagepub.com/doi/10.1258/rsmmsl.45.1.71",
+    abstract:"Two hundred consecutive elderly suicide cases in Cheshire (1989–2001) were analysed from coroner's inquest records. Elderly suicides were characterised by high method lethality, low rates of prior warning, and high rates of comorbid physical illness and depression.",
+    summary:"Comprehensive analysis of 200 elderly suicide cases over 13 years in Cheshire, using coroner's inquest records as the primary data source. One of the most detailed clinical characterisations of late-life suicide in the UK. Found that elderly suicide is marked by less warning, higher lethality, and greater physical comorbidity than suicide in younger populations — a pattern described as 'an index of widespread disorder and discontent.'" },
+
+  { id:24, year:2005, category:"suicide", title:"Trends in Suicide by Drowning in the Elderly in England and Wales 1979–2001", journal:"Int J Geriatric Psychiatry, 20(2): 175–181", coauthors:"Emad Salib (sole author)", url:"https://onlinelibrary.wiley.com/doi/10.1002/gps.1211",
+    abstract:"This study analysed 22 years of national ONS data to describe trends in suicide by drowning among elderly individuals in England and Wales, identifying distinct patterns by sex, age group, and location.",
+    summary:"Time-series analysis of drowning as a method of elderly suicide across England and Wales, drawing on 22 years of ONS mortality data. Found that drowning accounts for a disproportionate share of elderly suicide deaths and displays distinct trends by sex. Provided the epidemiological foundation for subsequent work on the overlap between drowning, undetermined deaths, and dementia." },
+
+  { id:25, year:2005, category:"suicide", title:"Suicide and Undetermined Death by Drowning", journal:"Int J Psychiatry in Clinical Practice, 9(2): 107–115", coauthors:"N. Agnew", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This study analysed suicide and undetermined deaths by drowning in England and Wales between 1979 and 2001, examining the extent to which undetermined drowning verdicts represent hidden suicides and the factors associated with open versus suicide verdicts.",
+    summary:"Investigated the relationship between suicide and open-verdict drowning deaths, examining 22 years of national data. Many drowning deaths cannot be definitively classified as suicide or accident, resulting in open verdicts. This study argued that a proportion of undetermined drowning deaths are misclassified suicides, and that this particularly affects the elderly, compounding under-counting of late-life suicide." },
+
+  { id:26, year:2005, category:"suicide", title:"Childlessness in Elderly Suicide: An Analysis of Coroner's Inquests of 200 Cases in Cheshire 1989–2001", journal:"Medicine, Science and the Law", coauthors:"G. El-Nimr; B. Habeeb; M. Theophanous", pmid:"15296243", url:"https://pubmed.ncbi.nlm.nih.gov/15296243/",
+    abstract:"This study examined whether childlessness was over-represented among 200 elderly suicide cases compared to age-matched living controls, exploring social isolation as a risk factor in late-life suicide.",
+    summary:"Explored childlessness as a social risk factor for suicide in later life, using coroner data from 200 Cheshire elderly suicide cases. Found that childlessness was disproportionately represented among elderly suicide decedents, suggesting that the absence of familial social networks and reciprocal care obligations increases vulnerability to suicidal crisis in old age." },
+
+  { id:27, year:2005, category:"suicide", title:"Primary Care and Suicide Prevention in the Elderly", journal:"Commentary", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This commentary examined the role of primary care practitioners in identifying and preventing suicide in elderly patients, reviewing the evidence on GP contact prior to elderly suicide and the barriers to effective screening in this population.",
+    summary:"A clinical commentary reviewing the evidence that elderly individuals who die by suicide have frequently contacted their GP in the weeks before death, and exploring why these contacts so often fail to trigger appropriate intervention. Argued for better training of GPs in elderly suicide risk assessment and more systematic primary care suicide prevention strategies." },
+
+  { id:28, year:2005, category:"suicide", title:"Potentially Preventable Suicide", journal:"British Journal of Psychiatry, 187(2): 190–191", coauthors:"M. Theophanous", url:"https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry",
+    abstract:"This letter argued that a substantial proportion of suicides among people in recent contact with mental health services might be preventable, examining evidence on contact frequency, risk assessment quality, and post-discharge follow-up.",
+    summary:"A correspondence letter in the British Journal of Psychiatry responding to research on suicide following mental health service contact. Argued that systematic improvements in post-discharge follow-up and risk assessment could prevent a meaningful proportion of suicides, and called for more detailed analysis of service-contact patterns in elderly suicide decedents." },
+
+  { id:29, year:2006, category:"suicide", title:"Effect of Month of Birth on the Risk of Suicide", journal:"British Journal of Psychiatry, 188: 416–422", coauthors:"M. Cortina-Borja", pmid:"16648527", url:"https://pubmed.ncbi.nlm.nih.gov/16648527/",
+    abstract:"This study analysed 26,915 suicides registered in England and Wales between 1979 and 2001 — the largest sample ever applied to this question — finding a statistically significant spring–summer excess in suicide births, interpreted through the foetal origins hypothesis.",
+    summary:"The definitive large-scale study of birth season and suicide risk, co-authored with UCL biostatistician Mario Cortina-Borja. Analysed 26,915 suicides across 22 years — the largest dataset in any such study globally at the time of publication. Found a statistically significant spring–summer birth excess among suicide decedents. Results interpreted in the context of neurodevelopmental and foetal programming hypotheses." },
+
+  { id:30, year:2006, category:"suicide", title:"Effect of 7 July 2005 London Bombings on Suicide in England and Wales", journal:"British Journal of Psychiatry", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This preliminary analysis examined national suicide data for the weeks following the 7 July 2005 London bombings, testing the hypothesis that shared social trauma reduces suicide rates through increased collective solidarity.",
+    summary:"A preliminary analysis of the 7/7 bombings and national suicide rates, preceding the fuller study published with Cortina-Borja in 2009. Applied the methodological framework of the 9/11 study to the London bombings context, contributing to the evidence base on how terrorist events affect population mental health at a macro-epidemiological level." },
+
+  { id:31, year:2007, category:"methodology", title:"Hot Weather and Suicide: A Real Risk or Statistical Illusion?", journal:"British Journal of Psychiatry, 191(6): 560", coauthors:"M. Cortina-Borja; D. Anderson", url:"https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry",
+    abstract:"This e-letter critiqued the statistical methodology of a published study reporting an association between hot weather and elevated suicide rates, arguing that confounding by seasonality and inadequate statistical controls may have produced a spurious finding.",
+    summary:"A methodological response letter by Dr Salib and colleagues challenging a published report on hot weather and suicide. Using robust statistical arguments, the authors demonstrated that the apparent weather–suicide relationship may be an artefact of inadequate seasonal adjustment, contributing to an important methodological debate about causal inference in environmental suicide research." },
+
+  { id:32, year:2007, category:"methodology", title:"John Edward Barclay: Obituary", journal:"Psychiatric Bulletin, 31(10): 400", coauthors:"Emad Salib (sole author)", url:"https://doi.org/10.1192/pb.bp.107.017467",
+    abstract:"An obituary for Dr John Edward Barclay, published in the Psychiatric Bulletin of the Royal College of Psychiatrists.",
+    summary:"An obituary published in the Royal College of Psychiatrists' Psychiatric Bulletin. Reflects Dr Salib's standing within the UK psychiatric community and his connection to colleagues in the North West England psychiatric establishment." },
+
+  { id:33, year:2007, category:"dementia", title:"Diagnosing Visual Hallucinations in an Elderly Patient", journal:"Progress in Neurology and Psychiatry, 11(8)", coauthors:"M. Saoud; M. Theophanous", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A case-based clinical paper examining the differential diagnosis of visual hallucinations in an elderly patient, discussing the distinction between Lewy body dementia, Parkinson's disease dementia, and other causes of late-life hallucinations.",
+    summary:"A clinical case study and review examining the differential diagnosis of visual hallucinations in elderly patients. Explored the distinction between Lewy body dementia, Parkinson's disease dementia, late-onset psychosis, and delirium as causes of visual hallucinations in older adults. Aimed at practising clinicians managing complex presentations in old age psychiatry." },
+
+  { id:34, year:2007, category:"methodology", title:"Friday the 13th and Suicide", journal:"RCPsych Congress Poster, Edinburgh", coauthors:"M. Saoud; M. Theophanous; F. Lindon", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A conference poster examining whether suicide rates are elevated on Friday the 13th, framed as a statistical test of cultural superstition and an exploration of date-specific suicide clustering.",
+    summary:"A tongue-in-cheek epidemiological investigation — in the spirit of the astrological signs paper — testing whether Friday the 13th is associated with elevated suicide rates. Presented as a Royal College of Psychiatrists Congress poster. Uses the cultural superstition as a vehicle for examining statistical clustering and methodological pitfalls in date-specific event studies." },
+
+  { id:35, year:2009, category:"suicide", title:"Effect of July 7th 2005 on Suicide in England and Wales", journal:"British Journal of Psychiatry, 194: 80–85", coauthors:"M. Cortina-Borja", pmid:"19118332", url:"https://pubmed.ncbi.nlm.nih.gov/19118332/",
+    abstract:"Using national ONS mortality data, this study tested whether the 7 July 2005 London bombings produced a significant reduction in suicide rates comparable to that observed after 9/11. A modest but non-significant reduction was found.",
+    summary:"The full peer-reviewed study examining the impact of the 7/7 London bombings on national suicide rates, co-authored with Mario Cortina-Borja. Found a weaker effect than the 9/11 study, attributed to the more localised nature of the attacks and their occurrence within the context of ongoing international conflict. Together with the 9/11 paper, this study constitutes a key contribution to the sociology of disaster and suicide." },
+
+  { id:36, year:2009, category:"suicide", title:"Dementia: Suicide by Drowning", journal:"British Journal of Psychiatry, 194(6): 562–563", coauthors:"Emad Salib (sole author)", pmid:"19478304", url:"https://pubmed.ncbi.nlm.nih.gov/19478304/",
+    abstract:"This correspondence examined the intersection of dementia and death by drowning, exploring the clinical and risk management implications of self-drowning in cognitively impaired individuals.",
+    summary:"A focused commentary on the dangerous combination of dementia and access to water, drawing on Dr Salib's prior epidemiological work on drowning trends in elderly populations. Highlighted the need for targeted means restriction and environmental safety measures in the care of dementia patients who live near rivers, canals, or the sea. Contributed to the sparse literature on dementia-specific suicide risk management." },
+
+  { id:37, year:2010, category:"suicide", title:"An Association between Month of Birth and Method of Suicide", journal:"Int J Psychiatry in Clinical Practice, 14(1): 8–17", coauthors:"M. Cortina-Borja", pmid:"24917227", url:"https://pubmed.ncbi.nlm.nih.gov/24917227/",
+    abstract:"This study used over 52,000 suicides from England, Wales, and Scotland (1979–2001) to examine whether the method of suicide varies by the decedent's month of birth, finding significant associations between birth season and method choice.",
+    summary:"The largest study in the birth-season/suicide series, extending the analysis to over 52,000 suicides across three nations. Examined not just suicide risk but method choice as a function of birth month. Significant associations were found, interpreted through neurodevelopmental mechanisms. The three-nation dataset represented a methodological advance over the prior England and Wales studies." },
+
+  { id:38, year:null, category:"dementia", title:"Passive Euthanasia in Dementia: Killing… Or Letting Die?", journal:"Survey Study", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A questionnaire survey of family carers of dementia patients examined ethical attitudes toward passive euthanasia — the withdrawal of life-sustaining treatment — including the factors influencing carer views.",
+    summary:"Survey-based study of family carers' attitudes toward end-of-life decision-making in dementia, specifically examining the ethical distinction between acts of omission and commission. Found a spectrum of views influenced by disease stage, perceived suffering, and personal values. Contributed to the bioethics literature on proxy decision-making in dementia at a time when UK legal frameworks were evolving." },
+
+  { id:39, year:null, category:"dementia", title:"Cholinesterase Inhibitors and Time to Care Home Placement: A Survival Analysis", journal:"NHS Clinical Study", coauthors:"Emad Salib and co-authors", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This study used survival analysis to test whether prescription of cholinesterase inhibitors in 2006 delayed care home placement among dementia patients over a four-year follow-up, comparing treated and untreated patients.",
+    summary:"Real-world NHS effectiveness study using survival analysis to examine whether cholinesterase inhibitors delay the point at which dementia patients require care home placement. Based on a cohort from 2006 with four-year follow-up. Findings contributed to local commissioning decisions and the broader debate about whether dementia drugs deliver benefits beyond cognitive symptom management." },
+
+  { id:40, year:null, category:"dementia", title:"Weather Parameters and Dementia Admissions in North Cheshire", journal:"Clinical Study", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This study examined associations between specific meteorological parameters — humidity, sunshine, and rainfall — and rates of inpatient admission for dementia-related behavioural disturbance in North Cheshire.",
+    summary:"Extension of the weather–dementia admissions research, examining specific meteorological parameters in greater detail. An underexplored strand of research investigating how environmental conditions interact with neurobiological vulnerability in dementia patients to produce clinically significant behavioural disturbance. Relevant to care planning and anticipatory staffing in inpatient dementia units." },
+
+  { id:41, year:null, category:"dementia", title:"Handedness and Dementia: A Literature Review", journal:"Literature Review", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A review of approximately ten studies from PsycInfo and MEDLINE examined the relationship between handedness and dementia risk and onset, finding evidence of higher left-handedness prevalence in early-onset dementia populations.",
+    summary:"Systematic review of the published literature on the association between handedness and dementia, covering approximately ten studies. Found a consistent pattern of higher left-handedness prevalence in early-onset dementia populations, interpreted in the context of neurodevelopmental theories of hemispheric lateralisation and cognitive reserve. Raised questions about whether non-right-handedness is a marker of developmental vulnerability." },
+
+  { id:42, year:null, category:"dementia", title:"Psychiatric Morbidity in Elderly with Sleep Disorders: Neglected, Undiagnosed or Overestimated?", journal:"Clinical Study", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This study examined the prevalence and clinical recognition of psychiatric morbidity among elderly patients presenting with sleep disorders, questioning whether comorbid psychiatric conditions are systematically overlooked in this population.",
+    summary:"An investigation into the relationship between sleep disorders and psychiatric morbidity in elderly patients. Argued that psychiatric comorbidity — particularly depression and anxiety — is frequently overlooked in elderly patients presenting primarily with sleep complaints. Contributed to the evidence base on integrated assessment approaches in old age psychiatry." },
+
+  { id:43, year:null, category:"transcultural", title:"Spiritual Healing in Elderly Psychiatric Patients: A Case-Control Study", journal:"Clinical Study", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"Conducted in an Egyptian psychiatric hospital, this case-control study investigated whether recourse to spiritual or religious healing was associated with the frequency of schizophrenic relapses among elderly inpatients.",
+    summary:"A cross-cultural study conducted in an Egyptian psychiatric setting, examining whether elderly patients who sought spiritual or religious healing had different rates of schizophrenic relapse from matched controls. Reflects Dr Salib's Egyptian background and interest in transcultural psychiatry. An early contribution to the literature on how religious help-seeking interacts with psychiatric illness management." },
+
+  { id:44, year:null, category:"transcultural", title:"Spiritual Care: Views of Mental Health Professionals and GPs in Warrington", journal:"Survey Study", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A questionnaire survey of mental health professionals and GPs at Hollins Park Hospital examined attitudes toward the role of spiritual care in psychiatric treatment, revealing a range of professional views on its appropriateness and effectiveness.",
+    summary:"Survey of healthcare professionals' attitudes toward spiritual care as a component of psychiatric treatment in a Warrington NHS setting. Found a wide range of views — from enthusiastic endorsement to scepticism — among clinicians from different disciplinary and cultural backgrounds. Contributed to debates about the integration of spiritual care into secular NHS psychiatric services." },
+
+  { id:45, year:null, category:"transcultural", title:"Hubris Syndrome and the Arab Spring: Shared Ideology or Folie Partagée?", journal:"BJPsych Bulletin (International Psychiatry), Vol 11 Issue 1", coauthors:"Salwa Khalil", url:"https://www.cambridge.org/core/journals/international-psychiatry/article/hubris-syndrome-and-the-arab-spring-shared-ideology-or-folie-partagee/80A43806D25A6950E0EF3D748D30B3F9",
+    abstract:"This paper applied Owen and Davidson's concept of hubris syndrome — an acquired personality disorder in leaders exercising power — to the political leaders of the Arab Spring, exploring whether their shared extreme behaviours constituted a folie partagée or a common syndrome.",
+    summary:"A pioneering application of psychiatric nosology to contemporary political events. Drawing on Owen and Davidson's formulation of hubris syndrome as an acquired personality change in powerful leaders, the authors applied the framework to Arab Spring leaders. Explored whether the shared extremist and grandiose behaviours of these leaders were best understood as a folie partagée or as independently arising manifestations of a common political-psychological syndrome." },
+
+  { id:46, year:null, category:"forensic", title:"Seclusion in Secure Mental Health: A Continuing Practice?", journal:"Clinical Study", coauthors:"Lawrence Savage", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This follow-up study to the 1998 five-year retrospective review examined whether seclusion practices in a secure psychiatric unit had changed over time, and whether outcomes for secluded patients differed from earlier cohorts.",
+    summary:"A follow-up to the influential 1998 seclusion audit, examining whether practice had evolved in response to policy guidance and the earlier findings. Assessed whether the diagnostic disparities in seclusion use — particularly the over-representation of personality disorder — had been addressed. Contributed to the ongoing clinical and policy debate about the place of seclusion in modern psychiatric care." },
+
+  { id:47, year:null, category:"suicide", title:"Suicide within 12 Months of Contact with Mental Health Services: The Elderly as a Separate Group", journal:"British Journal of Psychiatry (Correspondence)", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This correspondence argued that elderly individuals who die by suicide within 12 months of mental health service contact represent a clinically distinct subgroup requiring separate analysis and targeted preventive strategies.",
+    summary:"A letter to the British Journal of Psychiatry arguing that analyses of suicide following mental health service contact should disaggregate findings by age, as the elderly represent a distinct population with different clinical presentations, risk factors, and service-use patterns. Called for specific preventive strategies targeted at older patients following discharge from mental health services." },
+
+  { id:48, year:null, category:"transcultural", title:"Suicide in Puccini's Operas!", journal:"Literary Essay", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A literary-psychiatric essay examining the portrayal of suicide in Puccini's operatic works, analysing the psychological motivations of suicidal characters in Madama Butterfly, Tosca, and other works.",
+    summary:"A cultural and literary essay exploring the representation of suicide in the operas of Giacomo Puccini, including Madama Butterfly and Tosca. Analyses the psychological motivations and social circumstances of suicidal operatic characters through a psychiatric lens. An example of Dr Salib's broader intellectual range beyond empirical research, and a contribution to the literature on suicide in cultural narratives." },
+
+  { id:49, year:null, category:"dementia", title:"Long-term Low-Potency Opioid Use: Dependence and Clinical Outcomes", journal:"Literature Review", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A literature review examining the evidence on dependence risk and clinical outcomes associated with long-term use of low-potency opioid analgesics in elderly patients, relevant to pain management in old age psychiatry.",
+    summary:"A background literature review on the risks of dependency and adverse outcomes associated with long-term low-potency opioid prescribing, particularly relevant to elderly psychiatric patients with chronic pain. Contributed to clinical awareness of the complex interaction between pain management, opioid prescribing, and mental health in older adults." },
+
+  { id:50, year:null, category:"suicide", title:"Suicide: Previous Deliberate Self-Harm as a Risk Factor in Elderly Fatal Self-Harm", journal:"Matched Case-Control Study", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A matched case-comparison study examined whether a prior history of non-fatal deliberate self-harm constituted a significant risk factor for subsequent fatal self-harm in elderly individuals, compared to age-matched controls.",
+    summary:"A matched case-control analysis of prior self-harm as a predictor of fatal self-harm in elderly patients, complementing the 2001 paper on method continuity. Found that a history of deliberate self-harm was a significant independent risk factor for late-life suicide. Directly relevant to clinical risk assessment frameworks for older patients presenting with self-harm." },
+
+  { id:51, year:null, category:"suicide", title:"Childlessness as a Risk Factor in Elderly Suicide", journal:"Medicine, Science and the Law", coauthors:"G. El-Nimr; B. Habeeb; M. Theophanous", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This study examined childlessness as a social risk factor in elderly suicide using coroner data from Cheshire, arguing that the absence of children reduces protective social bonds and increases vulnerability to suicidal crisis in later life.",
+    summary:"An extended analysis of childlessness as a social risk factor for late-life suicide, examining 200 Cheshire coroner cases. Argued that the absence of children — and the social connections, obligations, and reciprocal care that parenthood generates — is a significant independent risk factor for suicide in old age. Contributed to the social epidemiology of elderly suicide and clinical risk assessment for socially isolated older patients." }
 ];
 
 let currentSort = { col: 'year', dir: 'desc' };
 let activeCategory = '';
 // expandedState: { id, type } or null
 let expandedState = null;
-
 const categoryLabels = {
   suicide:       'Suicide Epidemiology',
   dementia:      'Dementia & Alzheimer\'s',
@@ -969,8 +921,14 @@ function renderTable() {
   });
 
   data.sort((a, b) => {
+    // Null years always last
+    if (currentSort.col === 'year') {
+      if (!a.year && !b.year) return 0;
+      if (!a.year) return 1;
+      if (!b.year) return -1;
+      return currentSort.dir === 'asc' ? a.year - b.year : b.year - a.year;
+    }
     let va, vb;
-    if (currentSort.col === 'year')    { va = a.year;    vb = b.year; }
     if (currentSort.col === 'title')   { va = a.title.toLowerCase(); vb = b.title.toLowerCase(); }
     if (currentSort.col === 'journal') { va = a.journal.toLowerCase(); vb = b.journal.toLowerCase(); }
     if (va < vb) return currentSort.dir === 'asc' ? -1 : 1;
@@ -988,13 +946,13 @@ function renderTable() {
   tbody.innerHTML = data.map(p => `
     <tr class="main-row" data-id="${p.id}">
       <td class="title-cell">
-        <div class="year-badge">${p.year}</div>
+        <div class="year-badge">${p.year || 'n.d.'}</div>
         <div class="work-title">${p.title}</div>
       </td>
-      <td>${p.year}</td>
+      <td class="year-col">${p.year || 'n.d.'}</td>
       <td><span class="cat-badge ${getCatClass(p.category)}">${categoryLabels[p.category]}</span></td>
       <td class="journal-cell">${p.journal}</td>
-      <td style="font-size:.84rem;max-width:160px">${p.coauthors}</td>
+      <td class="coauth-col" style="font-size:.84rem;max-width:160px">${p.coauthors}</td>
       <td>
         <div class="action-btns">
           <button class="expand-btn" id="sum-btn-${p.id}" onclick="toggleExpand(${p.id},'summary',this)">Summary ↓</button>
