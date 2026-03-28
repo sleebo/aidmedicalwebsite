@@ -1,83 +1,1351 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr Emad Salib — Consultant Psychiatrist &amp; Researcher | Old Age Psychiatry, Warrington</title>
+  <meta name="description" content="Dr Emad Salib MB DPM MSc MRCPI FRCPsych — Consultant Psychiatrist and Honorary Senior Lecturer, University of Liverpool. Specialising in old age psychiatry, suicide epidemiology, and dementia research. 141+ peer-reviewed publications, over 1,600 citations." />
+  <meta name="keywords" content="Dr Emad Salib, Emad Salib, E Salib, consultant psychiatrist, old age psychiatry, Warrington, suicide epidemiology, dementia research, Alzheimer's, Hollins Park Hospital, Five Boroughs Partnership NHS Trust, University of Liverpool, forensic psychiatry, geriatric psychiatry, elderly suicide, psychiatry research UK" />
+  <meta name="author" content="Dr Emad Salib" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://aidmedical.co.uk/" />
+  <meta property="og:title" content="Dr Emad Salib — Consultant Psychiatrist &amp; Researcher" />
+  <meta property="og:description" content="Dr Emad Salib is a Consultant Psychiatrist and Honorary Senior Lecturer at the University of Liverpool, with 141+ peer-reviewed publications on old age psychiatry, suicide epidemiology, and dementia." />
+  <meta property="og:type" content="profile" />
+  <meta property="profile:first_name" content="Emad" />
+  <meta property="profile:last_name" content="Salib" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Dr Emad Salib — Consultant Psychiatrist" />
+  <meta name="twitter:description" content="Consultant Psychiatrist specialising in old age psychiatry, suicide epidemiology, and dementia. 141+ publications, 1,600+ citations." />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #0d2b45;
+      --teal:   #1a6b7c;
+      --teal-lt:#2a8fa3;
+      --gold:   #c9a84c;
+      --gold-lt:#e0bf76;
+      --offwhite:#f5f7fa;
+      --white:  #ffffff;
+      --gray-1: #e8ecf0;
+      --gray-2: #c9d0d9;
+      --gray-3: #8a95a3;
+      --gray-4: #4a5568;
+      --text:   #1a202c;
+      --shadow: 0 2px 12px rgba(0,0,0,.10);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,.14);
+      --radius: 10px;
+      --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-serif: Georgia, 'Times New Roman', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); color: var(--text); background: var(--offwhite); line-height: 1.6; }
+    a { color: var(--teal-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; }
 
-  <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    
-<meta name="description" content="Aid Medical Limited is a UK-based freelance statistical consultancy ,specialized and experienced in the application of statistics to medical research in Psychology, Nursing , Sociology, Epidemiology  and Market research in United Kingdom.  ">
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    .nav-brand {
+      font-size: 1.1rem; font-weight: 700; color: var(--white);
+      letter-spacing: .02em;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--gray-2); font-size: .92rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold-lt); text-decoration: none; }
 
-<meta name="keywords" content="statistical support,medical statistics ,research ,medical,statistician,medical statistics application,statistical methods ,aid,UK,data analysis,Database Management,Report Writing,SPSS,clinical audit,statistical help,thesis writing,Dissertation,clinical trials ,clinical audit,surveys,epidemiological research,psychiatric research,epidemiology ,psychology ,market research, healthcare delivery,freelance statistical consultancy ,statistical ,research design,computational ,Nursing , Sociology,NHS ,national health service,quality control ,quality measures,clinical ,audit,United Kingdom">
+    /* ── Hero ── */
+    #hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+      color: var(--white);
+      padding: 80px 2rem 72px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-avatar {
+      width: 140px; height: 140px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 3.5rem; font-weight: 700; color: var(--navy);
+      box-shadow: 0 0 0 6px rgba(201,168,76,.3);
+      position: relative; overflow: hidden;
+    }
+    .hero-avatar img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      border-radius: 50%;
+    }
+    #hero h1 { font-size: 2.6rem; font-weight: 700; letter-spacing: -.01em; }
+    #hero h1 span { color: var(--gold-lt); }
+    #hero .credentials {
+      margin-top: .6rem; font-size: 1rem; color: rgba(255,255,255,.75);
+      letter-spacing: .04em; font-weight: 400;
+    }
+    #hero .tagline {
+      margin-top: 1.2rem; font-size: 1.15rem;
+      color: rgba(255,255,255,.88); max-width: 640px; margin-inline: auto;
+    }
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; margin-top: 1.8rem;
+    }
+    .pill {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: .35rem 1rem; border-radius: 999px;
+      font-size: .82rem; color: rgba(255,255,255,.9);
+    }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 3rem;
+      margin-top: 2.5rem; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--gold-lt); }
+    .stat-label { font-size: .8rem; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .08em; }
 
-<meta name="robots" content="index, follow" />
-<meta name="Language" content="EN" />
-<meta name="rating" content="general"/>
-<meta name="country" content="United Kingdom"/>
+    /* ── Section wrapper ── */
+    section { padding: 72px 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-size: 1.9rem; font-weight: 700; color: var(--navy);
+      margin-bottom: .5rem;
+    }
+    .section-title::after {
+      content: ''; display: block; width: 48px; height: 4px;
+      background: var(--gold); border-radius: 2px; margin-top: .4rem;
+    }
+    .section-sub {
+      color: var(--gray-3); font-size: 1rem; margin-top: .5rem;
+      max-width: 640px;
+    }
 
-    <title>Statistical Support by Aid Medical </title>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-      <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+    /* ── About ── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      margin-top: 2.5rem; align-items: start;
+    }
+    .about-photo {
+      width: 220px; height: 260px; object-fit: cover; object-position: center top;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+      border: 4px solid var(--white);
+      outline: 2px solid var(--gray-2);
+      display: block; margin-bottom: 1.4rem;
+    }
+    .about-body { font-size: 1rem; color: var(--gray-4); }
+    .about-body p { margin-bottom: 1rem; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-aside { display: flex; flex-direction: column; gap: 1.2rem; }
+    .info-card {
+      background: var(--offwhite); border-radius: var(--radius);
+      padding: 1.2rem 1.4rem; border-left: 4px solid var(--teal);
+    }
+    .info-card h4 { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gray-3); margin-bottom: .5rem; }
+    .info-card p, .info-card ul { font-size: .92rem; color: var(--gray-4); }
+    .info-card ul { list-style: none; display: flex; flex-direction: column; gap: .3rem; }
+    .info-card li::before { content: '• '; color: var(--teal); }
+    .research-areas {
+      margin-top: 2rem;
+      display: flex; flex-wrap: wrap; gap: .6rem;
+    }
+    .area-tag {
+      background: var(--navy); color: var(--white);
+      padding: .4rem 1rem; border-radius: 999px;
+      font-size: .82rem; font-weight: 500;
+    }
 
-  <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html"><img src="amlogo.png" width="80px"/></a>
-    </div>
+    /* ── Works ── */
+    #works { background: var(--offwhite); }
+    .works-controls {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      align-items: center; margin: 2rem 0 1.5rem;
+    }
+    .search-wrap {
+      position: relative; flex: 1 1 260px;
+    }
+    .search-wrap svg {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      color: var(--gray-3); pointer-events: none;
+    }
+    .search-input {
+      width: 100%;
+      padding: .65rem 1rem .65rem 2.6rem;
+      border: 1.5px solid var(--gray-2); border-radius: var(--radius);
+      font-size: .93rem; background: var(--white); color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+    .search-input:focus { border-color: var(--teal-lt); box-shadow: 0 0 0 3px rgba(42,143,163,.15); }
+    select, .sort-select {
+      padding: .65rem 2.2rem .65rem 1rem;
+      border: 1.5px solid var(--gray-2); border-radius: var(--radius);
+      font-size: .9rem; background: var(--white); color: var(--text);
+      appearance: none; cursor: pointer; outline: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238a95a3' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right .7rem center;
+      transition: border-color .2s;
+    }
+    select:focus, .sort-select:focus { border-color: var(--teal-lt); }
+    .works-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem;
+    }
+    .works-count { font-size: .88rem; color: var(--gray-3); }
+    .works-count strong { color: var(--text); }
+    .category-tabs {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem;
+    }
+    .tab-btn {
+      padding: .4rem 1rem; border-radius: 999px; font-size: .82rem; font-weight: 500;
+      cursor: pointer; border: 1.5px solid var(--gray-2);
+      background: var(--white); color: var(--gray-4);
+      transition: all .2s;
+    }
+    .tab-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .tab-btn.active { background: var(--teal); border-color: var(--teal); color: var(--white); }
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-                <li><a href="background.html">Background</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Skills & Services">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    /* Table */
+    .table-wrap {
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); overflow: hidden;
+    }
+    .works-table { width: 100%; border-collapse: collapse; }
+    .works-table thead {
+      background: var(--navy); color: var(--white);
+    }
+    .works-table th {
+      padding: .85rem 1.1rem; text-align: left;
+      font-size: .8rem; text-transform: uppercase; letter-spacing: .06em;
+      font-weight: 600; white-space: nowrap; user-select: none;
+    }
+    .works-table th.sortable { cursor: pointer; }
+    .works-table th.sortable:hover { background: var(--teal); }
+    .sort-icon { margin-left: .3rem; opacity: .5; }
+    .sort-icon.active { opacity: 1; color: var(--gold-lt); }
+    .works-table tbody tr {
+      border-bottom: 1px solid var(--gray-1);
+      transition: background .15s;
+    }
+    .works-table tbody tr:last-child { border-bottom: none; }
+    .works-table tbody tr:hover { background: #f0f7fa; }
+    .works-table td {
+      padding: 1rem 1.1rem; font-size: .9rem; color: var(--gray-4);
+      vertical-align: top;
+    }
+    .works-table td.title-cell { color: var(--navy); font-weight: 600; max-width: 300px; }
+    .works-table td.title-cell .year-badge {
+      display: inline-block;
+      background: var(--gold); color: var(--navy);
+      font-size: .72rem; font-weight: 700;
+      padding: .1rem .45rem; border-radius: 4px; margin-bottom: .3rem;
+    }
+    .works-table td.title-cell .work-title { line-height: 1.35; }
+    .cat-badge {
+      display: inline-block; padding: .2rem .65rem; border-radius: 999px;
+      font-size: .74rem; font-weight: 600; white-space: nowrap;
+    }
+    .cat-suicide      { background: #fee2e2; color: #991b1b; }
+    .cat-dementia     { background: #dbeafe; color: #1e40af; }
+    .cat-forensic     { background: #fef3c7; color: #92400e; }
+    .cat-transcultural{ background: #d1fae5; color: #065f46; }
+    .cat-methodology  { background: #ede9fe; color: #5b21b6; }
+    .journal-cell { font-style: italic; font-size: .85rem; max-width: 180px; }
+    .action-btns { display: flex; flex-direction: column; gap: .4rem; min-width: 96px; }
+    .expand-btn {
+      background: none; border: 1px solid var(--gray-2); border-radius: 6px;
+      padding: .3rem .7rem; font-size: .78rem; cursor: pointer; color: var(--teal-lt);
+      transition: all .15s; text-align: center;
+    }
+    .expand-btn:hover { background: var(--teal); color: var(--white); border-color: var(--teal); }
+    .abstract-btn {
+      background: none; border: 1px solid var(--gold); border-radius: 6px;
+      padding: .3rem .7rem; font-size: .78rem; cursor: pointer; color: #92400e;
+      transition: all .15s; text-align: center;
+    }
+    .abstract-btn:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .paper-btn {
+      background: var(--navy); border: 1px solid var(--navy); border-radius: 6px;
+      padding: .3rem .7rem; font-size: .78rem; cursor: pointer; color: var(--white);
+      transition: all .15s; text-align: center; text-decoration: none;
+      display: block;
+    }
+    .paper-btn:hover { background: var(--teal); border-color: var(--teal); text-decoration: none; color: var(--white); }
+    .expand-row td {
+      background: #f8fafc;
+      padding: 1rem 1.4rem 1.2rem;
+      color: var(--gray-4); font-size: .88rem; line-height: 1.7;
+    }
+    .expand-row td .expand-inner {
+      border-left: 3px solid var(--teal-lt); padding-left: 1rem;
+    }
+    .expand-row td .expand-inner.abstract-mode {
+      border-left-color: var(--gold);
+    }
+    .expand-row td .expand-label {
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .07em;
+      color: var(--gray-3); font-weight: 700; margin-bottom: .4rem;
+    }
+    .expand-row td .meta-row {
+      margin-top: .6rem; font-size: .8rem; color: var(--gray-3);
+    }
+    .no-results {
+      text-align: center; padding: 3rem 1rem; color: var(--gray-3);
+      font-size: 1rem;
+    }
+
+    /* ── Contact ── */
+    #contact { background: var(--white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      margin-top: 2.5rem; align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .contact-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--navy); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 20px; height: 20px; stroke: var(--gold); }
+    .contact-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; color: var(--gray-3); margin-bottom: .2rem; }
+    .contact-value { font-size: .95rem; color: var(--gray-4); }
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    label { font-size: .82rem; font-weight: 600; color: var(--gray-4); }
+    input[type=text], input[type=email], textarea {
+      width: 100%;
+      padding: .7rem 1rem; border: 1.5px solid var(--gray-2);
+      border-radius: var(--radius); font-size: .93rem;
+      background: var(--offwhite); color: var(--text);
+      font-family: var(--font-sans);
+      transition: border-color .2s, box-shadow .2s; outline: none;
+    }
+    input[type=text]:focus, input[type=email]:focus, textarea:focus {
+      border-color: var(--teal-lt); background: var(--white);
+      box-shadow: 0 0 0 3px rgba(42,143,163,.12);
+    }
+    textarea { resize: vertical; min-height: 130px; }
+    .submit-btn {
+      background: var(--navy); color: var(--white);
+      padding: .85rem 2rem; border: none; border-radius: var(--radius);
+      font-size: .95rem; font-weight: 600; cursor: pointer;
+      transition: background .2s, transform .1s;
+      display: flex; align-items: center; gap: .5rem; width: fit-content;
+    }
+    .submit-btn:hover { background: var(--teal); }
+    .submit-btn:active { transform: scale(.98); }
+    .form-success {
+      background: #d1fae5; border: 1px solid #6ee7b7;
+      border-radius: var(--radius); padding: 1rem 1.2rem;
+      color: #065f46; font-size: .92rem; display: none;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,.5);
+      text-align: center; padding: 2rem;
+      font-size: .82rem;
+    }
+    footer strong { color: rgba(255,255,255,.8); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      section { padding: 48px 1rem; }
+      #hero { padding: 52px 1rem 44px; }
+      #hero h1 { font-size: 1.8rem; }
+      #hero .tagline { font-size: 1rem; }
+      .hero-stats { gap: 1.2rem; }
+      .stat-num { font-size: 1.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .works-controls { flex-direction: column; }
+      .works-controls select { width: 100%; }
+      .search-wrap { width: 100%; }
+      .category-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: .3rem; }
+      .category-tabs::-webkit-scrollbar { height: 3px; }
+      .category-tabs::-webkit-scrollbar-thumb { background: var(--gray-2); border-radius: 2px; }
+      /* Table → card layout */
+      .table-wrap { background: transparent; box-shadow: none; border-radius: 0; overflow: visible; }
+      .works-table { display: block; }
+      .works-table thead { display: none; }
+      .works-table tbody { display: flex; flex-direction: column; gap: .75rem; }
+      .works-table tbody tr.main-row {
+        display: block;
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 1rem;
+        border: none !important;
+      }
+      .works-table tbody tr.main-row:hover { background: var(--white); }
+      .works-table tbody tr.expand-row {
+        display: none;
+        background: #f8fafc;
+        border-radius: 0 0 var(--radius) var(--radius);
+        margin-top: -.75rem;
+        padding: 0 1rem .25rem;
+        box-shadow: var(--shadow);
+      }
+      .works-table tbody tr.expand-row[style*="display: table-row"],
+      .works-table tbody tr.expand-row:not([style*="display: none"]) { display: block !important; }
+      .works-table td { display: block; padding: .2rem 0; border: none !important; font-size: .88rem; }
+      .works-table td.title-cell { color: var(--navy); font-weight: 600; max-width: 100%; }
+      .works-table td.year-col { display: none; }
+      .works-table td.coauth-col::before { content: 'Authors: '; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gray-3); }
+      .works-table td.journal-cell { max-width: 100%; }
+      .works-table td.journal-cell::before { content: 'Journal: '; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gray-3); font-style: normal; }
+      .journal-cell { font-style: italic; }
+      .action-btns { flex-direction: row; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
+      .paper-btn, .expand-btn, .abstract-btn { font-size: .8rem; padding: .35rem .65rem; }
+      .expand-row td { padding: .75rem 0; }
+    }
+    @media (max-width: 480px) {
+      #hero h1 { font-size: 1.5rem; }
+      .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .about-photo { width: 160px; height: 190px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "#emad-salib",
+      "name": "Dr Emad Salib",
+      "givenName": "Emad",
+      "familyName": "Salib",
+      "honorificPrefix": "Dr",
+      "honorificSuffix": "MB DPM MSc MRCPI FRCPsych",
+      "jobTitle": "Consultant Psychiatrist",
+      "description": "Dr Emad Salib is a Consultant Psychiatrist and Honorary Senior Lecturer at the University of Liverpool, specialising in old age psychiatry, suicide epidemiology, and dementia research. He has authored 141+ peer-reviewed publications with over 1,600 academic citations.",
+      "affiliation": [
+        {
+          "@type": "MedicalOrganization",
+          "name": "Hollins Park Hospital",
+          "address": { "@type": "PostalAddress", "addressLocality": "Warrington", "postalCode": "WA2 8WA", "addressCountry": "GB" },
+          "parentOrganization": { "@type": "MedicalOrganization", "name": "Five Boroughs Partnership NHS Trust" }
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "University of Liverpool",
+          "address": { "@type": "PostalAddress", "addressLocality": "Liverpool", "addressCountry": "GB" }
+        }
+      ],
+      "knowsAbout": ["Old Age Psychiatry", "Suicide Epidemiology", "Dementia", "Alzheimer's Disease", "Forensic Psychiatry", "Transcultural Psychiatry", "Geriatric Psychiatry"],
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "MB" },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "DPM" },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "MSc" },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "MRCPI" },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "FRCPsych" }
+      ],
+      "worksFor": { "@type": "MedicalOrganization", "name": "Five Boroughs Partnership NHS Trust" },
+      "sameAs": ["https://www.researchgate.net/profile/Emad-Salib", "https://aidmedical.co.uk"]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Dr Emad Salib — Consultant Psychiatrist & Researcher",
+      "description": "Academic profile and publication list of Dr Emad Salib, Consultant Psychiatrist and Honorary Senior Lecturer, University of Liverpool.",
+      "about": { "@id": "#emad-salib" },
+      "keywords": "Dr Emad Salib, Emad Salib, consultant psychiatrist, old age psychiatry, Warrington, suicide epidemiology, dementia"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="nav-brand">Dr. <span>Emad Salib</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#works">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-      <h1 class="col-md-6 col-md-offset-1" class="mainTitle">Aid<span class="mainTitleSub">Medical</span></h1>
-    <div class="container">
-     <div id="test" class="row-fluid">
-         <div class="about-section col-md-7">
-         <p class="aboutP">Aid Medical is a <strong><a href="index.html">UK-based freelance statistical consultancy</a></strong> with experience in a wide range of areas.</p> 
-         
-      <p class="aboutP">Our speciality is the <strong><a href="services.html">application of statistics to medical research</a></strong>, but we are also experienced in the use of statistics in many other areas, including Psychology, Nursing, Sociology, Epidemiology and Market Research.</p>
-      
-      <p class="aboutP">We are happy to give advice on all statistical issues, and also to undertake detailed statistical analysis. The length of projects undertaken can range from a <strong><a href="contact.html">single hour of advice to the analysis of large and complex datasets.</a></strong></p>
-      
-      <p class="aboutP">Aid Medical's statistical support services are provided by Dr Emad Salib, a former hospital consultant with over <strong><a href="about.html">30 years of experience</a></strong> in medical statistics, research design and conducting research, as well as being a published author of over <strong><a href="background.html" >150 articles.</a></strong> </p>
-         
-         </div>
-      </div>
-        </div>
-  </body>
+<!-- ── Hero ── -->
+<section id="hero">
+  <div class="hero-avatar"><img src="dremad.jpg" alt="Dr. Emad Salib" /></div>
+  <h1>Dr. <span>Emad Salib</span></h1>
+  <p class="credentials">MB · DPM · MSc · MRCPI · FRCPsych</p>
+  <p class="tagline">Consultant Psychiatrist &amp; Honorary Senior Lecturer, University of Liverpool — advancing our understanding of elderly mental health, suicide epidemiology, and dementia.</p>
+  <div class="hero-pills">
+    <span class="pill">Old Age Psychiatry</span>
+    <span class="pill">Suicide Epidemiology</span>
+    <span class="pill">Dementia Research</span>
+    <span class="pill">Forensic Psychiatry</span>
+    <span class="pill">Transcultural Psychiatry</span>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">141+</div><div class="stat-label">Publications</div></div>
+    <div class="stat"><div class="stat-num">1,600+</div><div class="stat-label">Citations</div></div>
+    <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Years Practice</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Research Areas</div></div>
+  </div>
+</section>
 
+<!-- ── About ── -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Dr. Salib</h2>
+    <p class="section-sub">Practitioner, researcher, and educator with a career dedicated to improving psychiatric care for vulnerable populations.</p>
+
+    <div class="about-grid">
+      <div class="about-body">
+        <img src="dremad.jpg" alt="Dr. Emad Salib" class="about-photo" />
+        <p>Dr. Emad Salib is a Consultant Psychiatrist and Clinical Director with decades of distinguished clinical and academic service across NHS hospitals in Warrington and St Helens, England. Holding appointments at both Hollins Park Hospital (Five Boroughs Partnership NHS Trust) and Peasley Cross Hospital, he has long exemplified the practitioner-researcher model — conducting substantive, nationally recognised academic work from a community and regional clinical base.</p>
+
+        <p>Throughout his career, Dr. Salib has maintained a dual commitment to direct patient care in elderly and general adult psychiatry and to rigorous epidemiological and clinical research. His work is grounded in real-world data — coroner's inquests, hospital records, national mortality statistics — giving his findings immediate translational relevance for clinicians, policymakers, and public health professionals.</p>
+
+        <p>Among his most cited contributions is a landmark 2003 paper in the <em>British Journal of Psychiatry</em> demonstrating that suicide rates in England and Wales fell significantly in the immediate aftermath of the September 11, 2001 terrorist attacks — a finding interpreted through Durkheim's theory of social integration and widely cited in disaster psychiatry literature. A follow-up study examined the 7 July 2005 London bombings with similar methodology.</p>
+
+        <p>In the field of dementia, Dr. Salib co-validated the Mental Alternation Test (MAT) as a rapid, practical screening tool for primary care — work that influenced its adoption in the Canadian Longitudinal Study on Aging. He also contributed important negative evidence to the contested aluminium-Alzheimer's debate through a case-control study and a comprehensive literature review.</p>
+
+        <p>As Honorary Senior Lecturer at the University of Liverpool, Dr. Salib has shaped the next generation of psychiatrists while remaining deeply committed to his patients. His research spans suicide in the elderly, weather and mental health, transcultural psychiatry, forensic practices, and social dimensions of psychiatric illness — always with a focus on improving clinical understanding and patient outcomes.</p>
+
+        <div class="research-areas">
+          <span class="area-tag">Elderly Suicide</span>
+          <span class="area-tag">Dementia &amp; Alzheimer's</span>
+          <span class="area-tag">Suicide Epidemiology</span>
+          <span class="area-tag">Forensic Psychiatry</span>
+          <span class="area-tag">Transcultural Psychiatry</span>
+          <span class="area-tag">Statistical Methodology</span>
+          <span class="area-tag">Weather &amp; Mental Health</span>
+        </div>
+      </div>
+
+      <div class="about-aside">
+        <div class="info-card">
+          <h4>Qualifications</h4>
+          <ul>
+            <li>MB (Bachelor of Medicine)</li>
+            <li>DPM (Diploma in Psychological Medicine)</li>
+            <li>MSc (Master of Science)</li>
+            <li>MRCPI (Member, Royal College of Physicians of Ireland)</li>
+            <li>FRCPsych (Fellow, Royal College of Psychiatrists)</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h4>Clinical Affiliations</h4>
+          <ul>
+            <li>Consultant Psychiatrist &amp; Clinical Director, Hollins Park Hospital, Warrington</li>
+            <li>Stewart Assessment Unit, Peasley Cross Hospital, St Helens</li>
+            <li>Five Boroughs Partnership NHS Trust</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h4>Academic Affiliation</h4>
+          <p>Honorary Senior Lecturer, University of Liverpool (previously Honorary Research Fellow)</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Research Impact</h4>
+          <ul>
+            <li>141+ peer-reviewed publications</li>
+            <li>1,600+ academic citations</li>
+            <li>Published in <em>British Journal of Psychiatry</em>, <em>International Journal of Geriatric Psychiatry</em>, <em>Medicine, Science and the Law</em>, and more</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Works ── -->
+<section id="works">
+  <div class="container">
+    <h2 class="section-title">Publications &amp; Research</h2>
+    <p class="section-sub">Browse, search, and filter Dr. Salib's peer-reviewed works across psychiatry, epidemiology, and clinical research.</p>
+
+    <!-- Controls -->
+    <div class="works-controls">
+      <div class="search-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input class="search-input" id="searchInput" type="text" placeholder="Search title, journal, or keyword…" />
+      </div>
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="suicide">Suicide Epidemiology</option>
+        <option value="dementia">Dementia &amp; Alzheimer's</option>
+        <option value="forensic">Forensic Psychiatry</option>
+        <option value="transcultural">Transcultural &amp; Social</option>
+        <option value="methodology">Methodology</option>
+      </select>
+      <select id="sortSelect">
+        <option value="year-desc">Year: Newest First</option>
+        <option value="year-asc">Year: Oldest First</option>
+        <option value="title-asc">Title: A–Z</option>
+        <option value="title-desc">Title: Z–A</option>
+        <option value="journal-asc">Journal: A–Z</option>
+      </select>
+    </div>
+
+    <div class="category-tabs">
+      <button class="tab-btn active" data-cat="">All</button>
+      <button class="tab-btn" data-cat="suicide">Suicide Epidemiology</button>
+      <button class="tab-btn" data-cat="dementia">Dementia &amp; Alzheimer's</button>
+      <button class="tab-btn" data-cat="forensic">Forensic Psychiatry</button>
+      <button class="tab-btn" data-cat="transcultural">Transcultural &amp; Social</button>
+      <button class="tab-btn" data-cat="methodology">Methodology</button>
+    </div>
+
+    <div class="works-meta">
+      <span class="works-count">Showing <strong id="resultCount">93</strong> of <strong id="totalCount">93</strong> publications</span>
+    </div>
+
+    <div class="table-wrap">
+      <table class="works-table" id="worksTable">
+        <thead>
+          <tr>
+            <th class="sortable" data-col="title">Title <span class="sort-icon" id="icon-title">↕</span></th>
+            <th class="sortable" data-col="year">Year <span class="sort-icon" id="icon-year">↕</span></th>
+            <th>Category</th>
+            <th class="sortable" data-col="journal">Journal / Publisher <span class="sort-icon" id="icon-journal">↕</span></th>
+            <th>Co-Authors</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-sub">For clinical enquiries, academic collaboration, or research correspondence.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Clinical Address</div>
+            <div class="contact-value">Hollins Park Hospital<br>Winwick, Warrington WA2 8WA<br>Five Boroughs Partnership NHS Trust</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Academic Affiliation</div>
+            <div class="contact-value">Honorary Senior Lecturer<br>University of Liverpool<br>Faculty of Health &amp; Life Sciences</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Research Profile</div>
+            <div class="contact-value">ResearchGate: Emad Salib<br>141 publications · 1,600+ citations</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Enquiry Types</div>
+            <div class="contact-value">Research collaboration · Peer review · Clinical referrals · Media &amp; press · Academic supervision</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" placeholder="jane.smith@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="organisation">Organisation / Institution</label>
+            <input type="text" id="organisation" placeholder="University of…" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" style="padding:.7rem 2.2rem .7rem 1rem">
+              <option value="">Select an enquiry type…</option>
+              <option>Research Collaboration</option>
+              <option>Peer Review Request</option>
+              <option>Clinical Referral</option>
+              <option>Media &amp; Press Enquiry</option>
+              <option>Academic Supervision</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" placeholder="Please describe your enquiry in detail…" required></textarea>
+          </div>
+          <div class="form-success" id="formSuccess">
+            Thank you for your message. Dr. Salib's team will respond within 3–5 working days.
+          </div>
+          <button type="submit" class="submit-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <p><strong>Dr. Emad Salib</strong> · MB DPM MSc MRCPI FRCPsych · Consultant Psychiatrist &amp; Honorary Senior Lecturer, University of Liverpool</p>
+  <p style="margin-top:.4rem">Hollins Park Hospital, Winwick, Warrington WA2 8WA · Five Boroughs Partnership NHS Trust</p>
+  <p style="margin-top:.4rem">© 2024 Dr. Emad Salib. All rights reserved.</p>
+</footer>
+
+<script>
+const publications = [
+  { id:1, year:1997, category:"suicide", title:"Weather Conditions and Suicide", journal:"British Journal of Psychiatry, 170: 473–477", coauthors:"N. Gray", pmid:"9004338", url:"https://pubmed.ncbi.nlm.nih.gov/9004338/",
+    abstract:"This study examined the relationship between specific meteorological variables and weekly suicide counts in North Cheshire. Significant positive correlations were found between suicide and hours of sunshine, and negative correlations with relative humidity.",
+    summary:"One of Dr Salib's earliest epidemiological studies, correlating weather variables with suicide counts using local Cheshire data. Found that sunshine and temperature were positively associated with suicide rates while humidity was protective. Laid the groundwork for subsequent larger-scale environmental studies of suicidal behaviour." },
+
+  { id:2, year:1997, category:"suicide", title:"Elderly Suicide and Weather Conditions: Is There a Link?", journal:"Int J Geriatric Psychiatry, 12(9): 937–941", coauthors:"Emad Salib (sole author)", pmid:"9309473", url:"https://pubmed.ncbi.nlm.nih.gov/9309473/",
+    abstract:"This paper specifically examined weather as a precipitant of suicide among elderly individuals in North Cheshire, extending earlier general population findings to an older age cohort. Seasonal and meteorological patterns in elderly fatal self-harm were analysed.",
+    summary:"Focused specifically on the elderly subgroup, this study examined whether the weather–suicide associations observed in the general population were replicated in older adults. The findings underscored the particular vulnerability of elderly individuals to environmental triggers of suicidal behaviour and contributed to an emerging evidence base on late-life suicide risk factors." },
+
+  { id:3, year:1997, category:"forensic", title:"Coroner's Verdicts in the Elderly: A Suicide or an Open Verdict?", journal:"Int J Geriatric Psychiatry, 12(4): 481–483", coauthors:"Emad Salib (sole author)", pmid:"9178054", url:"https://pubmed.ncbi.nlm.nih.gov/9178054/",
+    abstract:"This paper examined the frequency of open verdicts versus suicide verdicts in coroner's inquests involving elderly decedents, and the factors influencing which verdict was returned. The misclassification of elderly suicides as undetermined deaths is explored.",
+    summary:"An important methodological contribution examining how coroner's verdicts are assigned in elderly deaths. Argued that elderly suicides are systematically undercounted because coroners are more likely to record open verdicts for older decedents — a finding with major implications for interpreting national elderly suicide statistics." },
+
+  { id:4, year:1997, category:"forensic", title:"Unexpected Death of Psychiatric Patients: Suicide, Misadventure, Accident or Unsolved Mystery?", journal:"Medicine, Science and the Law, 37(3)", coauthors:"Ann Joseph; Sheila Cawley", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A seven-year retrospective review of unexpected deaths among psychiatric inpatients, examining the coroner's classification of cause across suicide, misadventure, accident, and open verdicts. The study explored the clinical and administrative factors associated with each verdict type.",
+    summary:"Reviewed unexpected deaths of psychiatric inpatients over seven years, examining the range of coroner's verdicts returned and the circumstances surrounding each death. Raised questions about the reliability of mortality statistics for psychiatric populations and the adequacy of psychiatric unit safety procedures in preventing accidental and self-inflicted deaths." },
+
+  { id:5, year:1998, category:"forensic", title:"Practice of Seclusion: A Five-Year Retrospective Review in North Cheshire", journal:"Medicine, Science and the Law, 38(4): 321–327", coauthors:"A G Ahmed; Mike Cope", pmid:"9808944", url:"https://pubmed.ncbi.nlm.nih.gov/9808944/",
+    abstract:"A five-year retrospective audit of seclusion use at a regional secure psychiatric unit found that 15.3% of admissions involved seclusion, with patients diagnosed with personality disorder accounting for a disproportionate 44.2% of episodes despite forming only 11.4% of the population.",
+    summary:"Landmark audit of seclusion practices at a North Cheshire secure unit. Key finding: patients with personality disorder — a minority of the patient population — accounted for nearly half of all seclusion episodes, while those with defined mental illness were secluded far less frequently. Raised important questions about whether seclusion serves therapeutic or disciplinary functions, and whether it is applied equitably across diagnostic groups." },
+
+  { id:6, year:1998, category:"forensic", title:"Audit of the Use of Nurses' Holding Power Under Section 5(4) of the Mental Health Act 1983", journal:"Medicine, Science and the Law, 38(3)", coauthors:"Emad Salib (sole author)", url:"https://journals.sagepub.com/doi/abs/10.1177/002580249803800308",
+    abstract:"An audit of the clinical use of the nurses' emergency holding power under Section 5(4) of the Mental Health Act 1983, examining frequency, appropriateness, and subsequent disposition of detained patients across a psychiatric unit.",
+    summary:"Systematic audit of how nursing staff applied the emergency detention power under s5(4) MHA 1983, which allows a nurse to detain an informal patient for up to six hours. Examined whether the power was applied appropriately, how often it led to a formal medical assessment, and what training implications arose. An important contribution to NHS governance of statutory detention powers." },
+
+  { id:7, year:1998, category:"transcultural", title:"The Khat Users: A Study of Khat Chewing in Liverpool's Somali Men", journal:"Medicine, Science and the Law, 38(2)", coauthors:"A G Ahmed", url:"https://journals.sagepub.com/doi/abs/10.1177/002580249803800215",
+    abstract:"A case-control study compared psychiatric morbidity (GHQ) and social characteristics between 105 regular khat-chewing Somali men in Liverpool and age-matched non-users. No significant difference in psychiatric morbidity was found between the groups.",
+    summary:"Investigated khat use within Liverpool's Somali immigrant community, comparing regular chewers to matched non-users on psychological wellbeing, social function, and health perceptions. Challenged widespread assumptions linking khat to psychiatric disorder by finding no significant difference in GHQ morbidity scores. Contributed evidence to UK policy debates on whether khat should be classified as a controlled substance." },
+
+  { id:8, year:1999, category:"dementia", title:"Does the Weather Influence Dementia Admissions?", journal:"Int J Geriatric Psychiatry, 14(11): 925–935", coauthors:"N. Sharp", pmid:"10556863", url:"https://pubmed.ncbi.nlm.nih.gov/10556863/",
+    abstract:"This study examined associations between meteorological variables — humidity, sunshine, temperature variation, and rainfall — and rates of hospital admission for dementia in North Cheshire. Significant relationships were found between specific weather parameters and admission frequency.",
+    summary:"The first published study to investigate whether weather conditions affect hospital admission rates for dementia. Found statistically significant associations between certain meteorological variables and increased behavioural disturbance requiring inpatient admission in dementia patients. Raised clinical and biological questions about environmental triggers of agitation in patients with cognitive impairment." },
+
+  { id:9, year:1999, category:"forensic", title:"Seclusion in Psychiatry", journal:"Nursing Standard, 13(50): 34–37", coauthors:"Lawrence Savage", pmid:"10661207", url:"https://pubmed.ncbi.nlm.nih.gov/10661207/",
+    abstract:"This study examined the continuing use of seclusion in a psychiatric unit, assessing clinical outcomes, staff perceptions, and whether seclusion constituted a safe and effective intervention for patients with severe behavioural disturbance.",
+    summary:"Follow-up to the 1998 seclusion audit, examining ongoing practices and outcomes. For a defined subset of patients with severe, treatment-resistant behavioural disturbance, seclusion was found to be a safe and clinically justifiable intervention. Engaged with the debate about whether seclusion should be abolished in NHS settings, offering a measured defence of its judicious continued use." },
+
+  { id:10, year:2000, category:"suicide", title:"Fatal Self-Harm in the Elderly: Methods Compared to Young Adults", journal:"Int J Geriatric Psychiatry, 15(9): 848–852", coauthors:"G. Tadros", pmid:"10984732", url:"https://pubmed.ncbi.nlm.nih.gov/10984732/",
+    abstract:"A comparative coroner-based study contrasted the methods used in fatal self-harm between elderly and younger adult decedents, examining whether older individuals chose more lethal or irreversible methods.",
+    summary:"Compared methods of fatal self-harm between elderly and younger adults using coroner data, finding that older individuals tended to choose methods of higher lethality. This supports the clinical observation that suicidal intent is typically more resolved in late-life suicide, with less ambivalence and a lower likelihood of rescue. Informed guidelines on risk assessment in elderly patients presenting with suicidal ideation." },
+
+  { id:11, year:2001, category:"suicide", title:"History of Deliberate Self Harm May Predict Methods of Fatal Self Harm in the Elderly", journal:"Medicine, Science and the Law, 41(2): 107–110", coauthors:"G. El-Nimr; M. Yacoub", pmid:"11368389", url:"https://pubmed.ncbi.nlm.nih.gov/11368389/",
+    abstract:"This study examined whether elderly individuals who died by suicide had a history of non-fatal deliberate self-harm, and whether prior methods predicted the method used in the fatal act. A significant association between prior and final method was identified.",
+    summary:"Investigated whether a history of non-fatal self-harm in elderly patients predicts the method ultimately used in a fatal act. Found a statistically significant correspondence between earlier and later methods, suggesting that method continuity is an important clinical risk indicator. Informed assessment of elderly patients with a history of self-harm." },
+
+  { id:12, year:2002, category:"suicide", title:"Month of Birth and Suicide: An Exploratory Study", journal:"Int J Psychiatry in Clinical Practice, 6(1): 39–44", coauthors:"Emad Salib (sole author)", pmid:"24931890", url:"https://pubmed.ncbi.nlm.nih.gov/24931890/",
+    abstract:"Using 12 years of Cheshire coroner data, this exploratory study examined whether birth month was associated with risk and method of suicide. A higher rate of violent suicide, particularly hanging, was found among individuals born in summer months.",
+    summary:"Preliminary investigation of seasonal birth patterns and suicide risk using local Cheshire data. Found evidence of a summer birth excess in violent suicides, particularly hanging. This study provided the methodological template for the much larger national replication published in the British Journal of Psychiatry in 2006 with co-author Mario Cortina-Borja." },
+
+  { id:13, year:2002, category:"suicide", title:"Intimation of Intent in Elderly Fatal Self-Harm: Do the Elderly Who Leave Suicide Notes Differ From Those Who Do Not?", journal:"Int J Psychiatry in Clinical Practice, 6(3): 155–161", coauthors:"J. Maximous", pmid:"24945202", url:"https://pubmed.ncbi.nlm.nih.gov/24945202/",
+    abstract:"This study compared clinical and sociodemographic characteristics between elderly suicide decedents who left notes and those who did not, examining whether note-leaving was associated with greater lethality of method or prior communication of intent.",
+    summary:"Examined whether elderly individuals who leave suicide notes represent a clinically distinct subgroup from those who do not. Found that note-writers were more likely to have communicated suicidal intent prior to death. Contributed to clinical understanding of the significance of suicide notes in risk assessment for older patients." },
+
+  { id:14, year:2002, category:"suicide", title:"The Significance of Suicide Notes in the Elderly", journal:"Aging and Mental Health, 6(2): 186–190", coauthors:"Emad Salib (sole author)", pmid:"12028889", url:"https://pubmed.ncbi.nlm.nih.gov/12028889/",
+    abstract:"Analysing ten years of Cheshire coroner data, this study examined the prevalence and clinical significance of suicide notes among elderly decedents. Notes were found in a minority of cases and were associated with specific clinical characteristics.",
+    summary:"A dedicated analysis of suicide notes left by elderly individuals, using 10 years of Cheshire coroner data. Explored what notes reveal about the psychological state of older suicides and whether their presence or absence carries clinical significance. One of very few studies to focus specifically on suicide note characteristics in a geriatric population." },
+
+  { id:15, year:2002, category:"suicide", title:"Their Last Words: A Review of Suicide Notes in the Elderly", journal:"Medicine, Science and the Law, 42(4): 334–338", coauthors:"G. El-Nimr; M. Yacoub", pmid:"12487519", url:"https://pubmed.ncbi.nlm.nih.gov/12487519/",
+    abstract:"This study reviewed the content and themes of suicide notes left by elderly decedents, categorising the expressed motivations, emotions, and communications to survivors. Themes of hopelessness, physical illness, and farewell messages were prominent.",
+    summary:"Qualitative and quantitative analysis of the content of suicide notes left by elderly suicide decedents in Cheshire. Identified recurring themes — physical illness, hopelessness, expressions of love for family, and apologetic statements — that shed light on the subjective experience of suicidal crisis in late life. Offered clinical insights into the distinct phenomenology of elderly suicide." },
+
+  { id:16, year:2002, category:"dementia", title:"Mental Alternation Test (MAT): A Rapid and Valid Screening Tool for Dementia in Primary Care", journal:"Int J Geriatric Psychiatry, 17(12): 1157–1161", coauthors:"Justin McCarthy", pmid:"12461766", url:"https://pubmed.ncbi.nlm.nih.gov/12461766/",
+    abstract:"The Mental Alternation Test (MAT) was validated against the MMSE in 172 patients in Warrington, demonstrating high sensitivity and specificity at a cut-off of fewer than 15 correct alternations in 30 seconds for the detection of dementia.",
+    summary:"Co-validated the Mental Alternation Test (MAT) as a rapid, bedside primary care screening tool for dementia. The MAT requires patients to alternate between naming letters and numbers sequentially; it can be administered without equipment in under a minute. This paper established its sensitivity/specificity profile and has had lasting influence — the MAT was adopted into the cognitive assessment battery of the Canadian Longitudinal Study on Aging." },
+
+  { id:17, year:2003, category:"suicide", title:"Effect of 11 September 2001 on Suicide and Homicide in England and Wales", journal:"British Journal of Psychiatry, 183: 207–212", coauthors:"Emad Salib (sole author)", pmid:"12948992", url:"https://pubmed.ncbi.nlm.nih.gov/12948992/",
+    abstract:"Monthly suicide and homicide rates in England and Wales were examined for the 22 years preceding September 2001. Suicide rates in September 2001 were significantly lower than in any comparable month over the prior 22 years, consistent with Durkheim's social cohesion hypothesis.",
+    summary:"One of Dr Salib's most widely cited papers. Demonstrated that suicide rates in England and Wales fell significantly in the weeks following 9/11, interpreted through Durkheim's theory of social integration — that shared national trauma temporarily increases group cohesion and reduces self-directed violence. Became a foundational paper in disaster psychiatry and attracted major international media coverage." },
+
+  { id:18, year:2003, category:"methodology", title:"Astrological Birth Signs in Suicide: Hypothesis or Speculation?", journal:"Medicine, Science and the Law, 43(2): 111–114", coauthors:"Emad Salib (sole author)", pmid:"12741653", url:"https://pubmed.ncbi.nlm.nih.gov/12741653/",
+    abstract:"Using Cheshire suicide data, this paper tested whether astrological birth signs were associated with suicide rates, framing the exercise as a methodological critique of over-interpretation of seasonal birth patterns in psychiatric research. No significant astrology–suicide association was found.",
+    summary:"A methodologically innovative paper using astrology as a satirical vehicle to interrogate statistical reasoning in birth-season suicide research. By demonstrating that astrological signs (which track calendar months) show no significant association with suicide, the paper challenged researchers to consider the biological plausibility of birth-month findings more rigorously before drawing causal conclusions." },
+
+  { id:19, year:2003, category:"methodology", title:"Lies… Damned Lies… and Suicide Statistics!", journal:"Medicine, Science and the Law, 43(4): 315–316", coauthors:"Noir Thomas", pmid:"14655962", url:"https://pubmed.ncbi.nlm.nih.gov/14655962/",
+    abstract:"This methodological paper critically examined the reliability and validity of official suicide statistics in England and Wales, focusing on coroner variation, misclassification, and systemic under-reporting across jurisdictions.",
+    summary:"A provocative and important critique of the suicide statistics used as outcome measures in public health and clinical research. Argued that coroner variation, inconsistent application of the legal standard of proof, and systematic under-recording of suicides among the elderly mean that published statistics are significant underestimates. Called for standardised national coroner reporting frameworks. Title alludes to the aphorism attributed to Mark Twain." },
+
+  { id:20, year:2000, category:"dementia", title:"Risk Factors in Clinically Diagnosed Alzheimer's Disease: A Retrospective Hospital-Based Case Control Study in Warrington", journal:"Aging &amp; Mental Health, 4(3)", coauthors:"Emad Salib (sole author)", url:"https://www.tandfonline.com/doi/abs/10.1080/713649926",
+    abstract:"A retrospective case-control study of 198 Alzheimer's disease patients compared to 340 controls in Warrington examined demographic, occupational, and lifestyle risk factors, including aluminium occupational exposure. No significant association with aluminium was identified.",
+    summary:"Large case-control study based at Warrington examining risk factors for clinically diagnosed Alzheimer's disease. Compared 198 cases to 340 age-matched controls across a range of potential risk factors. Contributed important negative evidence on occupational aluminium exposure as a risk factor. Preceded and informed the aluminium-Alzheimer's literature review also conducted by Dr Salib." },
+
+  { id:21, year:2004, category:"suicide", title:"Gender in Elderly Suicide: Analysis of Coroner's Inquests of 200 Cases of Elderly Suicide in Cheshire 1989–2001", journal:"Medicine, Science and the Law", coauthors:"G. El-Nimr; S. Rahim; B. Habeeb", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This paper compared male and female elderly suicide cases from 200 coroner's inquests in Cheshire, examining gender differences in method, prior contact with services, psychiatric history, and circumstantial factors.",
+    summary:"Gender-stratified analysis of 200 elderly suicide cases drawn from Cheshire coroner's inquests. Found significant gender differences in method preference, prior psychiatric contact, and precipitating factors. Contributed to clinical awareness that elderly male and female suicides represent distinct clinical presentations requiring different preventive strategies." },
+
+  { id:22, year:2004, category:"forensic", title:"Hospital Post Mortems in Psychiatry — Mortue Vivos Docent?!", journal:"Unpublished/Conference", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This paper examined declining hospital post-mortem rates in psychiatric settings, arguing that reduced autopsy practice limits clinical learning from unexpected inpatient deaths.",
+    summary:"A commentary examining the steady decline in hospital post-mortem rates in psychiatric settings, lamenting its effect on clinical learning and quality improvement. The Latin title — 'the dead teach the living' — captures the paper's argument that autopsy findings in unexpected psychiatric deaths offer irreplaceable insights into disease mechanisms, medication effects, and clinical decision-making." },
+
+  { id:23, year:2005, category:"suicide", title:"Elderly Suicide: An Analysis of Coroner's Inquests into Two Hundred Cases in Cheshire 1989–2001", journal:"Medicine, Science and the Law, 45(1): 71–80", coauthors:"S. Rahim; G. El-Nimr; B. Habeeb", url:"https://journals.sagepub.com/doi/10.1258/rsmmsl.45.1.71",
+    abstract:"Two hundred consecutive elderly suicide cases in Cheshire (1989–2001) were analysed from coroner's inquest records. Elderly suicides were characterised by high method lethality, low rates of prior warning, and high rates of comorbid physical illness and depression.",
+    summary:"Comprehensive analysis of 200 elderly suicide cases over 13 years in Cheshire, using coroner's inquest records as the primary data source. One of the most detailed clinical characterisations of late-life suicide in the UK. Found that elderly suicide is marked by less warning, higher lethality, and greater physical comorbidity than suicide in younger populations — a pattern described as 'an index of widespread disorder and discontent.'" },
+
+  { id:24, year:2005, category:"suicide", title:"Trends in Suicide by Drowning in the Elderly in England and Wales 1979–2001", journal:"Int J Geriatric Psychiatry, 20(2): 175–181", coauthors:"Emad Salib (sole author)", url:"https://onlinelibrary.wiley.com/doi/10.1002/gps.1211",
+    abstract:"This study analysed 22 years of national ONS data to describe trends in suicide by drowning among elderly individuals in England and Wales, identifying distinct patterns by sex, age group, and location.",
+    summary:"Time-series analysis of drowning as a method of elderly suicide across England and Wales, drawing on 22 years of ONS mortality data. Found that drowning accounts for a disproportionate share of elderly suicide deaths and displays distinct trends by sex. Provided the epidemiological foundation for subsequent work on the overlap between drowning, undetermined deaths, and dementia." },
+
+  { id:25, year:2005, category:"suicide", title:"Suicide and Undetermined Death by Drowning", journal:"Int J Psychiatry in Clinical Practice, 9(2): 107–115", coauthors:"N. Agnew", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This study analysed suicide and undetermined deaths by drowning in England and Wales between 1979 and 2001, examining the extent to which undetermined drowning verdicts represent hidden suicides and the factors associated with open versus suicide verdicts.",
+    summary:"Investigated the relationship between suicide and open-verdict drowning deaths, examining 22 years of national data. Many drowning deaths cannot be definitively classified as suicide or accident, resulting in open verdicts. This study argued that a proportion of undetermined drowning deaths are misclassified suicides, and that this particularly affects the elderly, compounding under-counting of late-life suicide." },
+
+  { id:26, year:2005, category:"suicide", title:"Childlessness in Elderly Suicide: An Analysis of Coroner's Inquests of 200 Cases in Cheshire 1989–2001", journal:"Medicine, Science and the Law", coauthors:"G. El-Nimr; B. Habeeb; M. Theophanous", pmid:"15296243", url:"https://pubmed.ncbi.nlm.nih.gov/15296243/",
+    abstract:"This study examined whether childlessness was over-represented among 200 elderly suicide cases compared to age-matched living controls, exploring social isolation as a risk factor in late-life suicide.",
+    summary:"Explored childlessness as a social risk factor for suicide in later life, using coroner data from 200 Cheshire elderly suicide cases. Found that childlessness was disproportionately represented among elderly suicide decedents, suggesting that the absence of familial social networks and reciprocal care obligations increases vulnerability to suicidal crisis in old age." },
+
+  { id:27, year:2005, category:"suicide", title:"Primary Care and Suicide Prevention in the Elderly", journal:"Commentary", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This commentary examined the role of primary care practitioners in identifying and preventing suicide in elderly patients, reviewing the evidence on GP contact prior to elderly suicide and the barriers to effective screening in this population.",
+    summary:"A clinical commentary reviewing the evidence that elderly individuals who die by suicide have frequently contacted their GP in the weeks before death, and exploring why these contacts so often fail to trigger appropriate intervention. Argued for better training of GPs in elderly suicide risk assessment and more systematic primary care suicide prevention strategies." },
+
+  { id:28, year:2005, category:"suicide", title:"Potentially Preventable Suicide", journal:"British Journal of Psychiatry, 187(2): 190–191", coauthors:"M. Theophanous", url:"https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry",
+    abstract:"This letter argued that a substantial proportion of suicides among people in recent contact with mental health services might be preventable, examining evidence on contact frequency, risk assessment quality, and post-discharge follow-up.",
+    summary:"A correspondence letter in the British Journal of Psychiatry responding to research on suicide following mental health service contact. Argued that systematic improvements in post-discharge follow-up and risk assessment could prevent a meaningful proportion of suicides, and called for more detailed analysis of service-contact patterns in elderly suicide decedents." },
+
+  { id:29, year:2006, category:"suicide", title:"Effect of Month of Birth on the Risk of Suicide", journal:"British Journal of Psychiatry, 188: 416–422", coauthors:"M. Cortina-Borja", pmid:"16648527", url:"https://pubmed.ncbi.nlm.nih.gov/16648527/",
+    abstract:"This study analysed 26,915 suicides registered in England and Wales between 1979 and 2001 — the largest sample ever applied to this question — finding a statistically significant spring–summer excess in suicide births, interpreted through the foetal origins hypothesis.",
+    summary:"The definitive large-scale study of birth season and suicide risk, co-authored with UCL biostatistician Mario Cortina-Borja. Analysed 26,915 suicides across 22 years — the largest dataset in any such study globally at the time of publication. Found a statistically significant spring–summer birth excess among suicide decedents. Results interpreted in the context of neurodevelopmental and foetal programming hypotheses." },
+
+  { id:30, year:2006, category:"suicide", title:"Effect of 7 July 2005 London Bombings on Suicide in England and Wales", journal:"British Journal of Psychiatry", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This preliminary analysis examined national suicide data for the weeks following the 7 July 2005 London bombings, testing the hypothesis that shared social trauma reduces suicide rates through increased collective solidarity.",
+    summary:"A preliminary analysis of the 7/7 bombings and national suicide rates, preceding the fuller study published with Cortina-Borja in 2009. Applied the methodological framework of the 9/11 study to the London bombings context, contributing to the evidence base on how terrorist events affect population mental health at a macro-epidemiological level." },
+
+  { id:31, year:2007, category:"methodology", title:"Hot Weather and Suicide: A Real Risk or Statistical Illusion?", journal:"British Journal of Psychiatry, 191(6): 560", coauthors:"M. Cortina-Borja; D. Anderson", url:"https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry",
+    abstract:"This e-letter critiqued the statistical methodology of a published study reporting an association between hot weather and elevated suicide rates, arguing that confounding by seasonality and inadequate statistical controls may have produced a spurious finding.",
+    summary:"A methodological response letter by Dr Salib and colleagues challenging a published report on hot weather and suicide. Using robust statistical arguments, the authors demonstrated that the apparent weather–suicide relationship may be an artefact of inadequate seasonal adjustment, contributing to an important methodological debate about causal inference in environmental suicide research." },
+
+  { id:32, year:2007, category:"methodology", title:"John Edward Barclay: Obituary", journal:"Psychiatric Bulletin, 31(10): 400", coauthors:"Emad Salib (sole author)", url:"https://doi.org/10.1192/pb.bp.107.017467",
+    abstract:"An obituary for Dr John Edward Barclay, published in the Psychiatric Bulletin of the Royal College of Psychiatrists.",
+    summary:"An obituary published in the Royal College of Psychiatrists' Psychiatric Bulletin. Reflects Dr Salib's standing within the UK psychiatric community and his connection to colleagues in the North West England psychiatric establishment." },
+
+  { id:33, year:2007, category:"dementia", title:"Diagnosing Visual Hallucinations in an Elderly Patient", journal:"Progress in Neurology and Psychiatry, 11(8)", coauthors:"M. Saoud; M. Theophanous", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A case-based clinical paper examining the differential diagnosis of visual hallucinations in an elderly patient, discussing the distinction between Lewy body dementia, Parkinson's disease dementia, and other causes of late-life hallucinations.",
+    summary:"A clinical case study and review examining the differential diagnosis of visual hallucinations in elderly patients. Explored the distinction between Lewy body dementia, Parkinson's disease dementia, late-onset psychosis, and delirium as causes of visual hallucinations in older adults. Aimed at practising clinicians managing complex presentations in old age psychiatry." },
+
+  { id:34, year:2007, category:"methodology", title:"Friday the 13th and Suicide", journal:"RCPsych Congress Poster, Edinburgh", coauthors:"M. Saoud; M. Theophanous; F. Lindon", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A conference poster examining whether suicide rates are elevated on Friday the 13th, framed as a statistical test of cultural superstition and an exploration of date-specific suicide clustering.",
+    summary:"A tongue-in-cheek epidemiological investigation — in the spirit of the astrological signs paper — testing whether Friday the 13th is associated with elevated suicide rates. Presented as a Royal College of Psychiatrists Congress poster. Uses the cultural superstition as a vehicle for examining statistical clustering and methodological pitfalls in date-specific event studies." },
+
+  { id:35, year:2009, category:"suicide", title:"Effect of July 7th 2005 on Suicide in England and Wales", journal:"British Journal of Psychiatry, 194: 80–85", coauthors:"M. Cortina-Borja", pmid:"19118332", url:"https://pubmed.ncbi.nlm.nih.gov/19118332/",
+    abstract:"Using national ONS mortality data, this study tested whether the 7 July 2005 London bombings produced a significant reduction in suicide rates comparable to that observed after 9/11. A modest but non-significant reduction was found.",
+    summary:"The full peer-reviewed study examining the impact of the 7/7 London bombings on national suicide rates, co-authored with Mario Cortina-Borja. Found a weaker effect than the 9/11 study, attributed to the more localised nature of the attacks and their occurrence within the context of ongoing international conflict. Together with the 9/11 paper, this study constitutes a key contribution to the sociology of disaster and suicide." },
+
+  { id:36, year:2009, category:"suicide", title:"Dementia: Suicide by Drowning", journal:"British Journal of Psychiatry, 194(6): 562–563", coauthors:"Emad Salib (sole author)", pmid:"19478304", url:"https://pubmed.ncbi.nlm.nih.gov/19478304/",
+    abstract:"This correspondence examined the intersection of dementia and death by drowning, exploring the clinical and risk management implications of self-drowning in cognitively impaired individuals.",
+    summary:"A focused commentary on the dangerous combination of dementia and access to water, drawing on Dr Salib's prior epidemiological work on drowning trends in elderly populations. Highlighted the need for targeted means restriction and environmental safety measures in the care of dementia patients who live near rivers, canals, or the sea. Contributed to the sparse literature on dementia-specific suicide risk management." },
+
+  { id:37, year:2010, category:"suicide", title:"An Association between Month of Birth and Method of Suicide", journal:"Int J Psychiatry in Clinical Practice, 14(1): 8–17", coauthors:"M. Cortina-Borja", pmid:"24917227", url:"https://pubmed.ncbi.nlm.nih.gov/24917227/",
+    abstract:"This study used over 52,000 suicides from England, Wales, and Scotland (1979–2001) to examine whether the method of suicide varies by the decedent's month of birth, finding significant associations between birth season and method choice.",
+    summary:"The largest study in the birth-season/suicide series, extending the analysis to over 52,000 suicides across three nations. Examined not just suicide risk but method choice as a function of birth month. Significant associations were found, interpreted through neurodevelopmental mechanisms. The three-nation dataset represented a methodological advance over the prior England and Wales studies." },
+
+  { id:38, year:2001, category:"dementia", title:"Passive Euthanasia in Dementia: Killing… Or Letting Die?", journal:"Medicine, Science and the Law, 41(3): 237–240", coauthors:"G. Tadros", pmid:"11506347", url:"https://pubmed.ncbi.nlm.nih.gov/11506347/",
+    abstract:"A questionnaire survey of family carers of dementia patients examined ethical attitudes toward passive euthanasia — the withdrawal of life-sustaining treatment — including the factors influencing carer views.",
+    summary:"Survey-based study of family carers' attitudes toward end-of-life decision-making in dementia, specifically examining the ethical distinction between acts of omission and commission. Found a spectrum of views influenced by disease stage, perceived suffering, and personal values. Contributed to the bioethics literature on proxy decision-making in dementia at a time when UK legal frameworks were evolving." },
+
+  { id:39, year:null, category:"dementia", title:"Cholinesterase Inhibitors and Time to Care Home Placement: A Survival Analysis", journal:"NHS Clinical Study", coauthors:"Emad Salib and co-authors", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This study used survival analysis to test whether prescription of cholinesterase inhibitors in 2006 delayed care home placement among dementia patients over a four-year follow-up, comparing treated and untreated patients.",
+    summary:"Real-world NHS effectiveness study using survival analysis to examine whether cholinesterase inhibitors delay the point at which dementia patients require care home placement. Based on a cohort from 2006 with four-year follow-up. Findings contributed to local commissioning decisions and the broader debate about whether dementia drugs deliver benefits beyond cognitive symptom management." },
+
+  { id:40, year:null, category:"dementia", title:"Weather Parameters and Dementia Admissions in North Cheshire", journal:"Clinical Study", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This study examined associations between specific meteorological parameters — humidity, sunshine, and rainfall — and rates of inpatient admission for dementia-related behavioural disturbance in North Cheshire.",
+    summary:"Extension of the weather–dementia admissions research, examining specific meteorological parameters in greater detail. An underexplored strand of research investigating how environmental conditions interact with neurobiological vulnerability in dementia patients to produce clinically significant behavioural disturbance. Relevant to care planning and anticipatory staffing in inpatient dementia units." },
+
+  { id:41, year:null, category:"dementia", title:"Handedness and Dementia: A Literature Review", journal:"Literature Review", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A review of approximately ten studies from PsycInfo and MEDLINE examined the relationship between handedness and dementia risk and onset, finding evidence of higher left-handedness prevalence in early-onset dementia populations.",
+    summary:"Systematic review of the published literature on the association between handedness and dementia, covering approximately ten studies. Found a consistent pattern of higher left-handedness prevalence in early-onset dementia populations, interpreted in the context of neurodevelopmental theories of hemispheric lateralisation and cognitive reserve. Raised questions about whether non-right-handedness is a marker of developmental vulnerability." },
+
+  { id:42, year:1999, category:"dementia", title:"Psychiatric Morbidity in Elderly with Sleep Disorders: Neglected, Undiagnosed or Overestimated?", journal:"Int J Geriatric Psychiatry, 14(12): 1076–1077", coauthors:"G. Tadros; S. Cawley", pmid:"10607977", url:"https://pubmed.ncbi.nlm.nih.gov/10607977/",
+    abstract:"This study examined the prevalence and clinical recognition of psychiatric morbidity among elderly patients presenting with sleep disorders, questioning whether comorbid psychiatric conditions are systematically overlooked in this population.",
+    summary:"An investigation into the relationship between sleep disorders and psychiatric morbidity in elderly patients. Argued that psychiatric comorbidity — particularly depression and anxiety — is frequently overlooked in elderly patients presenting primarily with sleep complaints. Contributed to the evidence base on integrated assessment approaches in old age psychiatry." },
+
+  { id:43, year:2001, category:"transcultural", title:"Spiritual Healing in Elderly Psychiatric Patients: A Case-Control Study in an Egyptian Psychiatric Hospital", journal:"Aging &amp; Mental Health, 5(4): 366–370", coauthors:"S. Youakim", pmid:"11767985", url:"https://pubmed.ncbi.nlm.nih.gov/11767985/",
+    abstract:"Conducted in an Egyptian psychiatric hospital, this case-control study investigated whether recourse to spiritual or religious healing was associated with the frequency of schizophrenic relapses among elderly inpatients.",
+    summary:"A cross-cultural study conducted in an Egyptian psychiatric setting, examining whether elderly patients who sought spiritual or religious healing had different rates of schizophrenic relapse from matched controls. Reflects Dr Salib's Egyptian background and interest in transcultural psychiatry. An early contribution to the literature on how religious help-seeking interacts with psychiatric illness management." },
+
+  { id:44, year:null, category:"transcultural", title:"Spiritual Care: Views of Mental Health Professionals and GPs in Warrington", journal:"Survey Study", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A questionnaire survey of mental health professionals and GPs at Hollins Park Hospital examined attitudes toward the role of spiritual care in psychiatric treatment, revealing a range of professional views on its appropriateness and effectiveness.",
+    summary:"Survey of healthcare professionals' attitudes toward spiritual care as a component of psychiatric treatment in a Warrington NHS setting. Found a wide range of views — from enthusiastic endorsement to scepticism — among clinicians from different disciplinary and cultural backgrounds. Contributed to debates about the integration of spiritual care into secular NHS psychiatric services." },
+
+  { id:45, year:null, category:"transcultural", title:"Hubris Syndrome and the Arab Spring: Shared Ideology or Folie Partagée?", journal:"BJPsych Bulletin (International Psychiatry), Vol 11 Issue 1", coauthors:"Salwa Khalil", url:"https://www.cambridge.org/core/journals/international-psychiatry/article/hubris-syndrome-and-the-arab-spring-shared-ideology-or-folie-partagee/80A43806D25A6950E0EF3D748D30B3F9",
+    abstract:"This paper applied Owen and Davidson's concept of hubris syndrome — an acquired personality disorder in leaders exercising power — to the political leaders of the Arab Spring, exploring whether their shared extreme behaviours constituted a folie partagée or a common syndrome.",
+    summary:"A pioneering application of psychiatric nosology to contemporary political events. Drawing on Owen and Davidson's formulation of hubris syndrome as an acquired personality change in powerful leaders, the authors applied the framework to Arab Spring leaders. Explored whether the shared extremist and grandiose behaviours of these leaders were best understood as a folie partagée or as independently arising manifestations of a common political-psychological syndrome." },
+
+  { id:46, year:null, category:"forensic", title:"Seclusion in Secure Mental Health: A Continuing Practice?", journal:"Clinical Study", coauthors:"Lawrence Savage", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This follow-up study to the 1998 five-year retrospective review examined whether seclusion practices in a secure psychiatric unit had changed over time, and whether outcomes for secluded patients differed from earlier cohorts.",
+    summary:"A follow-up to the influential 1998 seclusion audit, examining whether practice had evolved in response to policy guidance and the earlier findings. Assessed whether the diagnostic disparities in seclusion use — particularly the over-representation of personality disorder — had been addressed. Contributed to the ongoing clinical and policy debate about the place of seclusion in modern psychiatric care." },
+
+  { id:47, year:1999, category:"suicide", title:"Suicide within 12 Months of Contact with Mental Health Services: The Elderly as a Separate Group", journal:"BMJ, 319(7222): 1434", coauthors:"G. Tadros", pmid:"10610168", url:"https://pubmed.ncbi.nlm.nih.gov/10610168/",
+    abstract:"This correspondence argued that elderly individuals who die by suicide within 12 months of mental health service contact represent a clinically distinct subgroup requiring separate analysis and targeted preventive strategies.",
+    summary:"A letter to the British Journal of Psychiatry arguing that analyses of suicide following mental health service contact should disaggregate findings by age, as the elderly represent a distinct population with different clinical presentations, risk factors, and service-use patterns. Called for specific preventive strategies targeted at older patients following discharge from mental health services." },
+
+  { id:48, year:2002, category:"transcultural", title:"Suicide in Puccini's Operas!", journal:"Medicine, Science and the Law, 42(1): 27–29", coauthors:"Emad Salib (sole author)", pmid:"11848137", url:"https://pubmed.ncbi.nlm.nih.gov/11848137/",
+    abstract:"A literary-psychiatric essay examining the portrayal of suicide in Puccini's operatic works, analysing the psychological motivations of suicidal characters in Madama Butterfly, Tosca, and other works.",
+    summary:"A cultural and literary essay exploring the representation of suicide in the operas of Giacomo Puccini, including Madama Butterfly and Tosca. Analyses the psychological motivations and social circumstances of suicidal operatic characters through a psychiatric lens. An example of Dr Salib's broader intellectual range beyond empirical research, and a contribution to the literature on suicide in cultural narratives." },
+
+  { id:49, year:null, category:"dementia", title:"Long-term Low-Potency Opioid Use: Dependence and Clinical Outcomes", journal:"Literature Review", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A literature review examining the evidence on dependence risk and clinical outcomes associated with long-term use of low-potency opioid analgesics in elderly patients, relevant to pain management in old age psychiatry.",
+    summary:"A background literature review on the risks of dependency and adverse outcomes associated with long-term low-potency opioid prescribing, particularly relevant to elderly psychiatric patients with chronic pain. Contributed to clinical awareness of the complex interaction between pain management, opioid prescribing, and mental health in older adults." },
+
+  { id:50, year:null, category:"suicide", title:"Suicide: Previous Deliberate Self-Harm as a Risk Factor in Elderly Fatal Self-Harm", journal:"Matched Case-Control Study", coauthors:"Emad Salib (sole author)", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"A matched case-comparison study examined whether a prior history of non-fatal deliberate self-harm constituted a significant risk factor for subsequent fatal self-harm in elderly individuals, compared to age-matched controls.",
+    summary:"A matched case-control analysis of prior self-harm as a predictor of fatal self-harm in elderly patients, complementing the 2001 paper on method continuity. Found that a history of deliberate self-harm was a significant independent risk factor for late-life suicide. Directly relevant to clinical risk assessment frameworks for older patients presenting with self-harm." },
+
+  { id:51, year:null, category:"suicide", title:"Childlessness as a Risk Factor in Elderly Suicide", journal:"Medicine, Science and the Law", coauthors:"G. El-Nimr; B. Habeeb; M. Theophanous", url:"https://www.researchgate.net/profile/Emad-Salib/publications",
+    abstract:"This study examined childlessness as a social risk factor in elderly suicide using coroner data from Cheshire, arguing that the absence of children reduces protective social bonds and increases vulnerability to suicidal crisis in later life.",
+    summary:"An extended analysis of childlessness as a social risk factor for late-life suicide, examining 200 Cheshire coroner cases. Argued that the absence of children — and the social connections, obligations, and reciprocal care that parenthood generates — is a significant independent risk factor for suicide in old age. Contributed to the social epidemiology of elderly suicide and clinical risk assessment for socially isolated older patients." },
+
+  { id:52, year:1988, category:"forensic", title:"Subacute Sclerosing Panencephalitis Presenting as a Schizophrenia-Like State with Bizarre Dysmorphophobic Features", journal:"British Journal of Psychiatry, 152: 709–710", coauthors:"Emad Salib (sole author)", pmid:"3167453", url:"https://pubmed.ncbi.nlm.nih.gov/3167453/",
+    abstract:"A case report describing a 21-year-old patient presenting with a schizophrenia-like state with bizarre dysmorphophobic features who was subsequently found to have subacute sclerosing panencephalitis (SSPE), a rare progressive neurological disorder.",
+    summary:"Dr Salib's earliest identified PubMed-indexed publication. A case report from Winwick Hospital, Warrington, describing a young adult presenting with what appeared to be a schizophrenic illness but was eventually diagnosed as SSPE. Contributed to awareness of atypical neurological conditions mimicking primary psychiatric disorders." },
+
+  { id:53, year:1996, category:"forensic", title:"Predictors of Coroner's Verdict: A Logistic Regression Model", journal:"Medicine, Science and the Law, 36(3): 237–241", coauthors:"Emad Salib (sole author)", pmid:"8918092", url:"https://pubmed.ncbi.nlm.nih.gov/8918092/",
+    abstract:"A logistic regression model was developed to identify demographic and circumstantial predictors of coroner's verdict (suicide versus open verdict) in Cheshire. Factors predicting a suicide verdict included male sex, note-leaving, and method lethality.",
+    summary:"A methodological contribution applying logistic regression to coroner's inquest data from Cheshire to predict which cases are likely to receive a suicide versus an open verdict. Identified key demographic and circumstantial predictors. Laid important groundwork for subsequent research on misclassification of elderly suicide as undetermined deaths." },
+
+  { id:54, year:1996, category:"methodology", title:"Predicting Which Psychiatric Patients Are at Risk of Suicide", journal:"BMJ, 313(7061): 884", coauthors:"A. Joseph", pmid:"8870602", url:"https://pubmed.ncbi.nlm.nih.gov/8870602/",
+    abstract:"A letter to the BMJ commenting on the limitations of the Care Programme Approach in targeting suicide risk, arguing that this framework does not adequately focus on clinical need for services among high-risk psychiatric patients.",
+    summary:"A critical commentary letter in the BMJ on the limitations of risk stratification in mental health services, written from clinical experience in Warrington. Contributed to the UK debate on suicide prevention policy and the adequacy of the Care Programme Approach framework." },
+
+  { id:55, year:1996, category:"dementia", title:"A Case-Control Study of Alzheimer's Disease and Aluminium Occupation", journal:"British Journal of Psychiatry, 168(2): 244–249", coauthors:"V. Hillier", pmid:"8837919", url:"https://pubmed.ncbi.nlm.nih.gov/8837919/",
+    abstract:"A case-control study examined the association between occupational exposure to aluminium and the risk of developing Alzheimer's disease in a Warrington population. No significant association between aluminium occupation and Alzheimer's risk was found.",
+    summary:"A key contribution to the aluminium–Alzheimer's debate, one of the most contested environmental hypotheses in dementia research of the 1990s. Co-authored with epidemiologist V. Hillier, the study applied rigorous case-control methodology and found no significant association with occupational aluminium exposure, adding important negative evidence to a field dominated by conflicting findings." },
+
+  { id:56, year:1997, category:"dementia", title:"A Case-Control Study of Smoking and Alzheimer's Disease", journal:"Int J Geriatric Psychiatry, 12(3): 295–300", coauthors:"V. Hillier", pmid:"9152711", url:"https://pubmed.ncbi.nlm.nih.gov/9152711/",
+    abstract:"A case-control study examined the relationship between cigarette smoking history and the risk of clinically diagnosed Alzheimer's disease in Warrington, assessing whether smoking was protective or harmful.",
+    summary:"Investigated the contested relationship between smoking and Alzheimer's disease. Earlier epidemiological studies had suggested a protective effect of nicotine; this study examined that hypothesis rigorously in a Warrington population. An important contribution to dementia risk-factor epidemiology during a period of active scientific debate about the neuropharmacology of nicotinic receptors and cognitive function." },
+
+  { id:57, year:1997, category:"dementia", title:"Head Injury and the Risk of Alzheimer's Disease: A Case-Control Study", journal:"Int J Geriatric Psychiatry, 12(3): 363–368", coauthors:"V. Hillier", pmid:"9152722", url:"https://pubmed.ncbi.nlm.nih.gov/9152722/",
+    abstract:"A case-control study investigated whether a history of head injury increased the risk of developing clinically diagnosed Alzheimer's disease in a Warrington population.",
+    summary:"Examined head injury as a risk factor for Alzheimer's disease — a hypothesis with biological plausibility given the overlap in pathology between traumatic brain injury and Alzheimer's. Part of a series of risk-factor studies conducted with V. Hillier in Warrington, contributing to the broader evidence base on environmental and lifestyle determinants of dementia." },
+
+  { id:58, year:1997, category:"forensic", title:"Brief Psychiatric Admissions: A Review", journal:"Nursing Standard, 12(10): 34–35", coauthors:"S. Cawley; S. Praveen", pmid:"9431096", url:"https://pubmed.ncbi.nlm.nih.gov/9431096/",
+    abstract:"A review examining the clinical rationale, outcomes, and appropriate use of brief inpatient psychiatric admissions, with reference to local practice in North Cheshire.",
+    summary:"A clinically focused review of brief psychiatric admissions, examining when short inpatient stays are appropriate and what outcomes they produce. Contributed to nursing and clinical practice literature at a time when NHS psychiatric bed numbers were under pressure and the appropriateness of brief admissions was actively debated." },
+
+  { id:59, year:1998, category:"forensic", title:"Detention of In-Patients Under Section 5(2) of the Mental Health Act 1983", journal:"Medicine, Science and the Law, 38(1): 10–16", coauthors:"B. Iparragirre", pmid:"9481073", url:"https://pubmed.ncbi.nlm.nih.gov/9481073/",
+    abstract:"This audit examined use of Section 5(2) — the doctor's holding power — across a psychiatric unit, examining frequency, clinical appropriateness, subsequent formal assessment outcomes, and the characteristics of detained patients.",
+    summary:"Systematic audit of Section 5(2) doctor's holding powers in a psychiatric unit. Examined whether the power was applied appropriately, the rate of conversion to formal detention, and patient characteristics. Part of a series of Mental Health Act audit studies that established Dr Salib as an authority on statutory detention in NHS psychiatry." },
+
+  { id:60, year:1998, category:"transcultural", title:"The Khat-Chewing Elderly", journal:"Int J Geriatric Psychiatry, 13(7): 493–494", coauthors:"A G Ahmed", pmid:"9695040", url:"https://pubmed.ncbi.nlm.nih.gov/9695040/",
+    abstract:"A short report examining khat use specifically among elderly members of Liverpool's Somali community, exploring age-related differences in patterns of use and associated health outcomes.",
+    summary:"A companion publication to the larger khat study, focusing specifically on elderly Somali khat users. Examined whether older khat chewers presented differently in terms of health consequences and patterns of use compared to younger users. Part of an early evidence base on substance use in ethnic minority elderly populations in the UK." },
+
+  { id:61, year:1998, category:"forensic", title:"Autopsy in Geriatric Psychiatry", journal:"Int J Geriatric Psychiatry, 13(11): 747–748", coauthors:"Emad Salib (sole author)", pmid:"9850870", url:"https://pubmed.ncbi.nlm.nih.gov/9850870/",
+    abstract:"An editorial examining the declining rate of hospital post-mortem examinations in geriatric psychiatry settings and the implications for clinical learning, quality improvement, and understanding of psychiatric disease processes.",
+    summary:"Editorial commentary on the worrying decline in autopsy rates in geriatric psychiatry. Argued that post-mortem examination of elderly psychiatric inpatients yields irreplaceable clinical information about disease mechanisms, medication effects, and missed diagnoses. Preceded and informed the 2000 retrospective review of autopsy findings in North Cheshire." },
+
+  { id:62, year:1998, category:"dementia", title:"Alzheimer's Disease and the Aluminium Connection: A Literature Review", journal:"Int J Psychiatry in Clinical Practice, 2(3): 181–188", coauthors:"Emad Salib (sole author)", pmid:"24940975", url:"https://pubmed.ncbi.nlm.nih.gov/24940975/",
+    abstract:"A comprehensive literature review synthesised the evidence on aluminium exposure — occupational, dietary, and via drinking water — as a potential cause or accelerant of Alzheimer's disease, concluding that the evidence was inconclusive.",
+    summary:"A comprehensive review of the aluminium–Alzheimer's hypothesis, summarising the state of evidence from occupational studies, water contamination incidents, and experimental data. Concluded that while aluminium may play a role in Alzheimer's pathology, the epidemiological evidence was insufficient to establish causality. Complemented the empirical case-control studies conducted with V. Hillier." },
+
+  { id:63, year:1998, category:"methodology", title:"Anaesthesia in ECT", journal:"Int J Psychiatry in Clinical Practice, 2(4): 283–285", coauthors:"A. Hussein", pmid:"24927093", url:"https://pubmed.ncbi.nlm.nih.gov/24927093/",
+    abstract:"A clinical review of anaesthetic techniques and agents used in electroconvulsive therapy, examining their effects on seizure threshold, duration, and clinical outcomes.",
+    summary:"A practical clinical review of anaesthetic considerations in electroconvulsive therapy, relevant to psychiatrists and anaesthetists working collaboratively in ECT suites. Contributed to the evidence base on optimising anaesthetic protocols for ECT, particularly regarding seizure quality and patient safety." },
+
+  { id:64, year:1998, category:"dementia", title:"A Dementia Story with a Happier Ending", journal:"Int J Psychiatry in Clinical Practice, 2(1): 65–66", coauthors:"S. Praveen", pmid:"24946251", url:"https://pubmed.ncbi.nlm.nih.gov/24946251/",
+    abstract:"A brief case report describing a patient initially presenting with apparent dementia who was subsequently found to have a treatable cause, highlighting the importance of systematic investigation to exclude reversible dementias.",
+    summary:"A short case report emphasising the importance of excluding reversible causes of apparent dementia before accepting a diagnosis of irreversible neurodegenerative disease. A clinical teaching case with direct implications for diagnostic practice in old age psychiatry and primary care." },
+
+  { id:65, year:1999, category:"dementia", title:"'Silent Dependence Syndrome' in Old Age", journal:"Int J Geriatric Psychiatry, 14(1): 72–74", coauthors:"I. Edwards", pmid:"10029939", url:"https://pubmed.ncbi.nlm.nih.gov/10029939/",
+    abstract:"A letter describing 'silent dependence syndrome' — a pattern in which elderly patients develop covert analgesic or sedative dependence without disclosure to clinicians — and its implications for assessment and treatment.",
+    summary:"Described a clinically important phenomenon whereby elderly patients develop hidden dependence on analgesics or sedatives without reporting it to their doctors. Highlighted the barriers to disclosure in older patients and the consequent risks of under-recognition of dependence in old age psychiatry and primary care settings." },
+
+  { id:66, year:1999, category:"forensic", title:"A Review of 100 Applications of Section 5(4) Mental Health Act", journal:"Nursing Standard, 13(20): 37–40", coauthors:"N. Pym; C. Bell", pmid:"10085934", url:"https://pubmed.ncbi.nlm.nih.gov/10085934/",
+    abstract:"An audit of 100 consecutive applications of the nurses' holding power under Section 5(4) of the Mental Health Act 1983, examining clinical appropriateness, subsequent outcomes, and training implications for nursing staff.",
+    summary:"Larger-scale follow-up to the earlier Section 5(4) audit, examining 100 consecutive applications in a Warrington psychiatric unit. Assessed appropriateness of application, conversion rates to formal medical detention, and whether nursing training on the use of the power was adequate. Contributed directly to staff training and clinical governance." },
+
+  { id:67, year:1999, category:"forensic", title:"Psychiatric Disorders in First-Degree Relatives of Patients with Opiate Dependence", journal:"Medicine, Science and the Law, 39(3): 219–227", coauthors:"A G Ahmed; E. Ruben", pmid:"10466316", url:"https://pubmed.ncbi.nlm.nih.gov/10466316/",
+    abstract:"This study examined the prevalence of psychiatric disorders among first-degree relatives of opiate-dependent patients compared to matched controls, exploring the family aggregation of psychiatric morbidity in substance misuse populations.",
+    summary:"A family study of psychiatric morbidity in the relatives of opiate-dependent patients. Found elevated rates of psychiatric disorder among first-degree relatives, consistent with genetic and environmental transmission models of both addiction and psychiatric vulnerability. Part of wider collaborative work on substance misuse and psychiatric comorbidity in the Warrington catchment area." },
+
+  { id:68, year:1999, category:"methodology", title:"The Moon and Mental Health", journal:"Medicine, Science and the Law, 39(3): 260–261", coauthors:"N. Gray; J. Bentley", pmid:"10466322", url:"https://pubmed.ncbi.nlm.nih.gov/10466322/",
+    abstract:"A short communication examining whether lunar phase is associated with mental health presentations or psychiatric admissions, contributing to the long-running debate about lunar effects on human behaviour.",
+    summary:"A methodological communication examining the popular belief that the full moon affects mental health and psychiatric behaviour. In the tradition of Dr Salib's methodological papers testing culturally salient hypotheses with rigorous statistical methods, this paper examined lunar phase and psychiatric presentations, contributing evidence to the 'lunar lunacy' debate." },
+
+  { id:69, year:1999, category:"methodology", title:"Amiodarone-Induced Depression", journal:"British Journal of Psychiatry, 174: 366–367", coauthors:"A. Ambrose", pmid:"10533558", url:"https://pubmed.ncbi.nlm.nih.gov/10533558/",
+    abstract:"A letter to the British Journal of Psychiatry reporting a case series of depressive episodes arising in patients on amiodarone therapy, and reviewing the proposed mechanisms of amiodarone-induced mood disturbance.",
+    summary:"A clinical correspondence letter reporting cases of depression associated with amiodarone, a commonly used antiarrhythmic drug. Contributed to clinical awareness of the neuropsychiatric side-effects of cardiac medications in elderly patients, where polypharmacy and cardiac comorbidity are common." },
+
+  { id:70, year:1999, category:"forensic", title:"Who Needs a Mother and Baby Unit?", journal:"Nursing Standard, 13(46): 33–36", coauthors:"S. Cawley; L. Griffiths; G. Brier", pmid:"10614389", url:"https://pubmed.ncbi.nlm.nih.gov/10614389/",
+    abstract:"This study examined the clinical characteristics of mothers admitted to or referred for mother and baby psychiatric units, exploring the criteria for admission and the appropriate configuration of perinatal mental health services.",
+    summary:"A clinically focused study on the population of women with severe perinatal mental illness who require mother and baby unit (MBU) admission, examining what characteristics distinguish those needing MBU care from those who can be managed in community settings. Contributed to the evidence base on perinatal mental health service design." },
+
+  { id:71, year:2000, category:"forensic", title:"Autopsy in Elderly Psychiatric Inpatients: A Retrospective Review 1980–1996", journal:"Medicine, Science and the Law, 40(1): 20–27", coauthors:"G. Tadros; A. Ambrose", pmid:"10689857", url:"https://pubmed.ncbi.nlm.nih.gov/10689857/",
+    abstract:"A retrospective review of autopsy findings from 17 years of elderly psychiatric inpatient deaths in North Cheshire (1980–1996) examined cause of death, discrepancies between clinical diagnosis and post-mortem findings, and the declining rate of autopsy over time.",
+    summary:"Comprehensive retrospective study of post-mortem findings in elderly psychiatric inpatients across 17 years. Found clinically significant discrepancies between ante-mortem clinical diagnoses and post-mortem findings in a proportion of cases, demonstrating the ongoing diagnostic value of autopsy in psychiatric settings. Directly supported the argument for maintaining autopsy rates made in the 1998 editorial." },
+
+  { id:72, year:2000, category:"forensic", title:"Detention of Elderly Psychiatric Inpatients Under Section 5(2) of the Mental Health Act 1983", journal:"Medicine, Science and the Law, 40(2): 158–163", coauthors:"G. Tadros; A. Ambrose; M. Allington", pmid:"10821028", url:"https://pubmed.ncbi.nlm.nih.gov/10821028/",
+    abstract:"This study examined patterns of Section 5(2) use specifically among elderly psychiatric inpatients, comparing the clinical characteristics, outcomes, and appropriateness of detention in this age group versus younger adult populations.",
+    summary:"Age-specific analysis of the doctor's holding power under Section 5(2) MHA 1983, examining whether elderly inpatients were detained appropriately and whether outcomes differed from younger patients. Part of the comprehensive series of Mental Health Act audit studies conducted by Dr Salib and colleagues from Winwick and Hollins Park Hospitals." },
+
+  { id:73, year:2000, category:"suicide", title:"Brain Weight in Suicide: An Exploratory Study", journal:"British Journal of Psychiatry, 177: 257–261", coauthors:"G. Tadros", pmid:"11040888", url:"https://pubmed.ncbi.nlm.nih.gov/11040888/",
+    abstract:"Post-mortem brain weights from 73 suicide cases were compared to controls, examining whether brain weight — as a proxy for brain volume and developmental history — differed between suicide decedents and those dying by other causes.",
+    summary:"An innovative exploratory study examining post-mortem brain weight in suicide cases versus controls, framed in the context of neurodevelopmental theories of suicide risk. Found differences in brain weight distribution between groups. The study drew on the North Cheshire post-mortem database and contributed to biological psychiatry approaches to understanding suicide vulnerability." },
+
+  { id:74, year:2000, category:"suicide", title:"Do Elderly Victims of Fatal Self-Harm with History of Deliberate Self-Harm Use the Same Methods?", journal:"Int J Geriatric Psychiatry, 15(11): 1073–1074", coauthors:"G. Tadros", pmid:"11113989", url:"https://pubmed.ncbi.nlm.nih.gov/11113989/",
+    abstract:"A letter examining whether elderly individuals with a prior history of deliberate self-harm tend to use the same or different methods when they subsequently die by suicide, providing further evidence on method continuity in late-life suicide.",
+    summary:"Correspondence extending the findings on method continuity in elderly suicide, addressing the clinical question of whether the method used in prior non-fatal self-harm predicts the eventual fatal method. Found significant method continuity, reinforcing the clinical relevance of detailed self-harm history-taking in elderly patients presenting to psychiatric services." },
+
+  { id:75, year:2000, category:"dementia", title:"Carers' Assessment of Patients on Donepezil — How Reliable?", journal:"Int J Geriatric Psychiatry, 15(12): 1155–1157", coauthors:"M. Allington", pmid:"11180476", url:"https://pubmed.ncbi.nlm.nih.gov/11180476/",
+    abstract:"This study examined the reliability of carer assessments of cognitive and functional change in donepezil-treated dementia patients, comparing carer ratings to clinician assessments and standardised cognitive testing.",
+    summary:"Examined the reliability of informal carer assessments as outcome measures for cholinesterase inhibitor treatment in dementia. Found systematic biases in carer ratings, raising methodological concerns about the use of carer-reported outcomes as primary endpoints in dementia drug trials. Relevant to both clinical practice and the interpretation of cholinesterase inhibitor clinical trial data." },
+
+  { id:76, year:2000, category:"dementia", title:"Risk Factors for Alzheimer's Disease", journal:"Elder Care, 11(10): 12–15", coauthors:"Emad Salib (sole author)", pmid:"11215971", url:"https://pubmed.ncbi.nlm.nih.gov/11215971/",
+    abstract:"A clinician-focused review summarising the epidemiological evidence on risk factors for Alzheimer's disease, written for a nursing and allied health professional audience.",
+    summary:"A practitioner-focused review of Alzheimer's disease risk factors published in Elder Care, a journal targeting nursing and allied health professionals working with older people. Translated the epidemiological research evidence into accessible clinical guidance, bridging the gap between academic research and frontline care practice." },
+
+  { id:77, year:2000, category:"forensic", title:"Audit of Emergency Detention", journal:"Elder Care, 11(9): 14–17", coauthors:"J. Brown; A. Khalil", pmid:"11216280", url:"https://pubmed.ncbi.nlm.nih.gov/11216280/",
+    abstract:"An audit of emergency detention episodes under the Mental Health Act in an elderly care psychiatry unit, examining the appropriateness of applications, subsequent assessments, and outcomes.",
+    summary:"Audit of emergency detention in an elderly psychiatry setting, examining whether emergency holding powers were applied appropriately and what happened to patients following detention. Published in Elder Care for a nursing and care professional audience, contributing to clinical governance in elderly mental health services." },
+
+  { id:78, year:2000, category:"dementia", title:"Long-Term Analgesics and Older People — A Hidden Addiction?", journal:"Nursing Older People, 12(6): 16–19", coauthors:"I. Edwards", pmid:"12008417", url:"https://pubmed.ncbi.nlm.nih.gov/12008417/",
+    abstract:"This article examined the risk of covert dependence on low-potency opioid and non-opioid analgesics among elderly patients on long-term pain management regimes, arguing that dependence is systematically under-recognised in this age group.",
+    summary:"A practitioner-focused article examining hidden analgesic dependence in older people, published in Nursing Older People. Highlighted the clinical challenge of identifying dependence in elderly patients who normalise chronic medication use and are reluctant to report problems. Contributed to the evidence base on pain management and iatrogenic substance dependence in old age." },
+
+  { id:79, year:2001, category:"suicide", title:"National Service Framework and Suicide", journal:"British Journal of Psychiatry, 178: 278–279", coauthors:"Emad Salib (sole author)", pmid:"11230044", url:"https://pubmed.ncbi.nlm.nih.gov/11230044/",
+    abstract:"A letter commenting on the suicide reduction targets set in the National Service Framework for Mental Health, examining the reliability of suicide statistics as an outcome measure and challenging whether the targets could meaningfully be met.",
+    summary:"A policy commentary responding to the UK National Service Framework for Mental Health's suicide reduction targets. Drawing on his research into the reliability of official suicide statistics, Dr Salib challenged whether these targets were methodologically sound, given systematic undercounting of suicides — particularly in the elderly population." },
+
+  { id:80, year:2001, category:"dementia", title:"Carers' Views on Passive Euthanasia", journal:"Int J Geriatric Psychiatry, 16(2): 230–231", coauthors:"G. Tadros", pmid:"11241731", url:"https://pubmed.ncbi.nlm.nih.gov/11241731/",
+    abstract:"A letter reporting on family carers' attitudes toward passive euthanasia in dementia, drawing on survey data and examining the ethical and clinical implications of carer views for end-of-life decision-making.",
+    summary:"Companion letter to the fuller passive euthanasia paper, presenting key findings from carer survey data on attitudes toward withholding life-sustaining treatment in advanced dementia. Contributed to the growing UK bioethics literature on proxy decision-making and end-of-life care in the dementia context." },
+
+  { id:81, year:2001, category:"suicide", title:"Elderly Suicide and Attempted Suicide: One Syndrome", journal:"Medicine, Science and the Law, 41(3): 250–255", coauthors:"G. Tadros; S. Cawley", pmid:"11506349", url:"https://pubmed.ncbi.nlm.nih.gov/11506349/",
+    abstract:"This paper argued against the conventional clinical distinction between attempted and completed suicide in the elderly, presenting evidence that late-life suicidal behaviour — fatal and non-fatal — represents a continuum rather than categorically distinct phenomena.",
+    summary:"A conceptual and empirical challenge to the clinical distinction between attempted and completed suicide in older people. Argued that the high lethality and intentionality of elderly self-harm behaviours means that attempted and completed suicide in late life are better understood as a single syndrome, differing only in outcome. Has implications for risk assessment and service configuration for elderly patients following self-harm." },
+
+  { id:82, year:2001, category:"methodology", title:"Suicide Rate in Healthcare: A Reliable Index or Misleading Statistics?", journal:"Medicine, Science and the Law, 41(2): 93–96", coauthors:"N. Agnew; G. Tadros", pmid:"11368403", url:"https://pubmed.ncbi.nlm.nih.gov/11368403/",
+    abstract:"This paper critically examined whether the suicide rate among people in contact with mental health services is a reliable and valid index of healthcare quality, arguing that methodological problems undermine its use as a performance indicator.",
+    summary:"A methodological critique of using suicide rates in mental health service users as a healthcare quality indicator. Argued that variations in suicide verdicts, catchment population differences, and the under-recording of elderly suicide create systematic biases that make this metric unreliable as a performance measure. Informed the broader debate on appropriate mental health service outcome indicators." },
+
+  { id:83, year:2001, category:"suicide", title:"Does Month of Birth Influence Elderly Suicide?", journal:"Int J Geriatric Psychiatry, 16(12): 1175–1177", coauthors:"Emad Salib (sole author)", pmid:"11748778", url:"https://pubmed.ncbi.nlm.nih.gov/11748778/",
+    abstract:"A letter examining whether the birth-month excess in suicide observed in the general population is also present in elderly suicide decedents, using Cheshire coroner data.",
+    summary:"A targeted analysis of birth-month patterns specifically in elderly suicide, contributing a geriatric-specific perspective to the birth-season/suicide research programme. Examined whether the spring–summer birth excess found in general population suicide studies is equally pronounced in late-life suicide, with implications for neurodevelopmental theories of elderly suicide vulnerability." },
+
+  { id:84, year:2002, category:"dementia", title:"Analgesics in the Elderly", journal:"Aging &amp; Mental Health, 6(1): 88–92", coauthors:"I. Edwards", pmid:"11827628", url:"https://pubmed.ncbi.nlm.nih.gov/11827628/",
+    abstract:"A review of analgesic prescribing in elderly patients, examining the risks and benefits of different analgesic classes, the under-treatment of pain in cognitively impaired older patients, and the particular challenges of long-term analgesic use in this population.",
+    summary:"A comprehensive review of analgesic prescribing in elderly patients, highlighting the dual risks of undertreating pain and creating iatrogenic dependence. Addressed the particular challenge of pain assessment in cognitively impaired patients and the pharmacological considerations unique to older adults. Part of the collaborative output with I. Edwards on analgesics and dependence in old age." },
+
+  { id:85, year:2002, category:"methodology", title:"Relative Humidity and Affective Disorders", journal:"Int J Psychiatry in Clinical Practice, 6(3): 147–153", coauthors:"N. Sharp", pmid:"24945201", url:"https://pubmed.ncbi.nlm.nih.gov/24945201/",
+    abstract:"This study examined whether relative humidity is associated with the frequency or severity of affective disorders, including depression and mania, extending earlier work on weather parameters and psychiatric presentations.",
+    summary:"Extended the weather–mental health research programme to affective disorders specifically, examining whether humidity — found to be associated with suicide and dementia admissions in earlier studies — is also associated with affective disorder presentations. Part of a coherent strand of research on environmental determinants of psychiatric morbidity in North Cheshire." },
+
+  { id:86, year:2002, category:"forensic", title:"Elder Abuse and Elderly Abusers", journal:"Medicine, Science and the Law, 42(2): 147–148", coauthors:"T. Appleton; A. Pembleton", pmid:"12033469", url:"https://pubmed.ncbi.nlm.nih.gov/12033469/",
+    abstract:"A letter examining the clinical and forensic characteristics of elder abuse cases, including the characteristics of both victims and perpetrators in reported cases from a North West England psychiatric service.",
+    summary:"A short clinical letter on elder abuse, examining the profile of both abusers and victims encountered in a psychiatric service context. Contributed to the clinical literature on the identification, reporting, and forensic aspects of elder abuse at a time when awareness of elder maltreatment was growing in NHS settings." },
+
+  { id:87, year:2002, category:"suicide", title:"Brain Weight in Suicide Revisited", journal:"British Journal of Psychiatry, 181: 441–442", coauthors:"Emad Salib (sole author)", pmid:"12411275", url:"https://pubmed.ncbi.nlm.nih.gov/12411275/",
+    abstract:"A follow-up letter to the 2000 brain weight paper, responding to commentaries and extending the analysis with additional data from the North Cheshire post-mortem database.",
+    summary:"A follow-up to the 2000 brain weight in suicide study, responding to critical commentaries and presenting additional analyses. Part of the ongoing scientific exchange around the biological correlates of suicidal behaviour, contributing to the nascent literature on brain morphology and suicide risk." },
+
+  { id:88, year:2003, category:"suicide", title:"Telephone Support and Suicide Prevention", journal:"British Journal of Psychiatry, 182: 266", coauthors:"G. El-Nimr", pmid:"12611792", url:"https://pubmed.ncbi.nlm.nih.gov/12611792/",
+    abstract:"A letter examining the evidence on telephone support and crisis line services as a component of suicide prevention, considering the particular applicability of such services to elderly and isolated individuals.",
+    summary:"Correspondence examining telephone-based suicide prevention interventions, reviewing evidence on their effectiveness. Considered the particular value of telephone support for elderly individuals who may be socially isolated and unable to access in-person services — a theme consistent with Dr Salib's broader interest in the social epidemiology of elderly suicide." },
+
+  { id:89, year:2003, category:"transcultural", title:"Suicide Terrorism: A Case of Folie à Plusieurs?", journal:"British Journal of Psychiatry, 182: 475–476", coauthors:"Emad Salib (sole author)", pmid:"12777336", url:"https://pubmed.ncbi.nlm.nih.gov/12777336/",
+    abstract:"This editorial applied the psychiatric concept of folie à plusieurs — shared psychotic disorder — to the phenomenon of suicide terrorism, exploring whether the ideology and behaviour of terrorist cells might be understood within a psychiatric framework.",
+    summary:"A provocative editorial in the British Journal of Psychiatry examining suicide terrorism through a psychiatric lens, written in the aftermath of the 9/11 attacks. Applied the concept of folie à plusieurs to terrorist group dynamics, exploring whether shared extremist ideology and suicidal violence might have analogues in psychiatric experience. Stimulated debate about the boundaries of psychiatric explanation for political violence." },
+
+  { id:90, year:2003, category:"transcultural", title:"In Search of a Good Death: Spiritual Care of Dying Patients", journal:"BMJ, 327(7408): 224", coauthors:"G. El-Nimr; L. Green", pmid:"12881283", url:"https://pubmed.ncbi.nlm.nih.gov/12881283/",
+    abstract:"A letter in the BMJ responding to research on spiritual care at end of life, arguing that healthcare professionals need better preparation to address the spiritual needs of dying patients across different cultural and religious backgrounds.",
+    summary:"A clinical correspondence letter in the BMJ on the provision of spiritual care to dying patients. Argued for better training of NHS healthcare professionals in addressing spiritual needs, drawing on perspectives from the multicultural Warrington catchment area. Reflected the transcultural dimension of Dr Salib's clinical practice and research interests." },
+
+  { id:91, year:2004, category:"forensic", title:"Does Hospital Environment Influence the Use of Section 5(2)?", journal:"Medicine, Science and the Law, 44(1): 90", coauthors:"L. Green", pmid:"14984222", url:"https://pubmed.ncbi.nlm.nih.gov/14984222/",
+    abstract:"A letter examining whether differences in ward environment, staffing levels, and clinical culture between hospital settings influence the frequency and appropriateness of Section 5(2) doctor's holding power applications.",
+    summary:"A letter to Medicine, Science and the Law examining the role of environmental and organisational factors in driving Section 5(2) use. Raised the important question of whether holding power application rates reflect genuine clinical need or are partly a function of ward culture and institutional factors — relevant to clinical governance and training." },
+
+  { id:92, year:2005, category:"transcultural", title:"Mental Health of Older World Leaders", journal:"Int J Geriatric Psychiatry, 20(12): 1115–1117", coauthors:"Emad Salib (sole author)", pmid:"16315153", url:"https://pubmed.ncbi.nlm.nih.gov/16315153/",
+    abstract:"An editorial examining the psychiatric and cognitive health of elderly world leaders, discussing the clinical and policy implications of age-related cognitive decline in those holding high political office.",
+    summary:"An editorial examining the mental and cognitive health of older world leaders — a topic with obvious relevance to geopolitical risk and democratic accountability. Engaged with the literature on late-life cognitive decline and personality change in powerful individuals, complementing the later paper on hubris syndrome and the Arab Spring." },
+
+  { id:93, year:2007, category:"suicide", title:"High Female Suicide Rates: Ecological Fallacy or Sad Reality?", journal:"British Journal of Psychiatry, 190: 273–274", coauthors:"G. Tadros", pmid:"17329759", url:"https://pubmed.ncbi.nlm.nih.gov/17329759/",
+    abstract:"A letter responding to published data on female suicide rates in certain countries, critically examining whether apparently elevated female rates reflect real differences or methodological artefacts such as differential classification of undetermined deaths.",
+    summary:"Methodological correspondence in the British Journal of Psychiatry challenging published data on high female suicide rates in certain countries. Applied the analytical tools developed in the coroner's verdict research to question whether international suicide rate comparisons are confounded by systematic differences in how undetermined deaths are classified across different legal and cultural systems." }
+];
+
+let currentSort = { col: 'year', dir: 'desc' };
+let activeCategory = '';
+// expandedState: { id, type } or null
+let expandedState = null;
+const categoryLabels = {
+  suicide:       'Suicide Epidemiology',
+  dementia:      'Dementia & Alzheimer\'s',
+  forensic:      'Forensic Psychiatry',
+  transcultural: 'Transcultural & Social',
+  methodology:   'Methodology'
+};
+
+function getCatClass(cat) { return 'cat-' + cat; }
+
+function renderTable() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const catFilter = activeCategory;
+  const tbody = document.getElementById('tableBody');
+
+  let data = publications.filter(p => {
+    const matchCat = !catFilter || p.category === catFilter;
+    const matchQ = !query ||
+      p.title.toLowerCase().includes(query) ||
+      p.journal.toLowerCase().includes(query) ||
+      p.coauthors.toLowerCase().includes(query) ||
+      p.summary.toLowerCase().includes(query) ||
+      (p.abstract || '').toLowerCase().includes(query) ||
+      String(p.year).includes(query);
+    return matchCat && matchQ;
+  });
+
+  data.sort((a, b) => {
+    // Null years always last
+    if (currentSort.col === 'year') {
+      if (!a.year && !b.year) return 0;
+      if (!a.year) return 1;
+      if (!b.year) return -1;
+      return currentSort.dir === 'asc' ? a.year - b.year : b.year - a.year;
+    }
+    let va, vb;
+    if (currentSort.col === 'title')   { va = a.title.toLowerCase(); vb = b.title.toLowerCase(); }
+    if (currentSort.col === 'journal') { va = a.journal.toLowerCase(); vb = b.journal.toLowerCase(); }
+    if (va < vb) return currentSort.dir === 'asc' ? -1 : 1;
+    if (va > vb) return currentSort.dir === 'asc' ? 1 : -1;
+    return 0;
+  });
+
+  document.getElementById('resultCount').textContent = data.length;
+  document.getElementById('totalCount').textContent = publications.length;
+
+  if (data.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="6"><div class="no-results">No publications match your search. Try different keywords or clear the filter.</div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = data.map(p => `
+    <tr class="main-row" data-id="${p.id}">
+      <td class="title-cell">
+        <div class="year-badge">${p.year || 'n.d.'}</div>
+        <div class="work-title">${p.title}</div>
+      </td>
+      <td class="year-col">${p.year || 'n.d.'}</td>
+      <td><span class="cat-badge ${getCatClass(p.category)}">${categoryLabels[p.category]}</span></td>
+      <td class="journal-cell">${p.journal}</td>
+      <td class="coauth-col" style="font-size:.84rem;max-width:160px">${p.coauthors}</td>
+      <td>
+        <div class="action-btns">
+          <button class="expand-btn" id="sum-btn-${p.id}" onclick="toggleExpand(${p.id},'summary',this)">Summary ↓</button>
+          <button class="abstract-btn" id="abs-btn-${p.id}" onclick="toggleExpand(${p.id},'abstract',this)">Abstract ↓</button>
+          <a class="paper-btn" href="${p.url || '#'}" target="_blank" rel="noopener">View Paper ↗</a>
+        </div>
+      </td>
+    </tr>
+    <tr class="expand-row" id="expand-${p.id}" style="display:none">
+      <td colspan="6">
+        <div class="expand-inner" id="expand-inner-${p.id}">
+          <div class="expand-label" id="expand-label-${p.id}"></div>
+          <p id="expand-text-${p.id}"></p>
+          <div class="meta-row">
+            <strong>Journal:</strong> ${p.journal}
+            ${p.pmid ? ` &middot; <strong>PMID:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/" target="_blank" rel="noopener">${p.pmid}</a>` : ''}
+          </div>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+
+  // Restore open state after re-render
+  if (expandedState) {
+    const p = publications.find(x => x.id === expandedState.id);
+    if (p && data.find(x => x.id === p.id)) {
+      _openExpand(p, expandedState.type);
+    } else {
+      expandedState = null;
+    }
+  }
+}
+
+function toggleExpand(id, type, btn) {
+  const row = document.getElementById('expand-' + id);
+  const p = publications.find(x => x.id === id);
+  if (!row || !p) return;
+
+  const isOpen = row.style.display !== 'none';
+  const isSameType = expandedState && expandedState.id === id && expandedState.type === type;
+
+  // Always close all first
+  _closeAll();
+
+  if (!isOpen || !isSameType) {
+    _openExpand(p, type);
+  }
+}
+
+function _openExpand(p, type) {
+  const row = document.getElementById('expand-' + p.id);
+  const inner = document.getElementById('expand-inner-' + p.id);
+  const label = document.getElementById('expand-label-' + p.id);
+  const text  = document.getElementById('expand-text-' + p.id);
+  const sumBtn = document.getElementById('sum-btn-' + p.id);
+  const absBtn = document.getElementById('abs-btn-' + p.id);
+  if (!row) return;
+
+  if (type === 'abstract') {
+    label.textContent = 'Abstract';
+    text.textContent = p.abstract || 'Abstract not available.';
+    inner.classList.add('abstract-mode');
+    if (absBtn) absBtn.textContent = 'Abstract ↑';
+  } else {
+    label.textContent = 'Summary';
+    text.textContent = p.summary;
+    inner.classList.remove('abstract-mode');
+    if (sumBtn) sumBtn.textContent = 'Summary ↑';
+  }
+  row.style.display = '';
+  expandedState = { id: p.id, type };
+}
+
+function _closeAll() {
+  document.querySelectorAll('.expand-row').forEach(r => r.style.display = 'none');
+  document.querySelectorAll('.expand-btn').forEach(b => b.textContent = 'Summary ↓');
+  document.querySelectorAll('.abstract-btn').forEach(b => b.textContent = 'Abstract ↓');
+  expandedState = null;
+}
+
+// Search
+document.getElementById('searchInput').addEventListener('input', renderTable);
+
+// Category filter dropdown
+document.getElementById('categoryFilter').addEventListener('change', function() {
+  activeCategory = this.value;
+  // Sync tabs
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.cat === activeCategory);
+  });
+  renderTable();
+});
+
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    activeCategory = this.dataset.cat;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('categoryFilter').value = activeCategory;
+    renderTable();
+  });
+});
+
+// Sort select
+document.getElementById('sortSelect').addEventListener('change', function() {
+  const [col, dir] = this.value.split('-');
+  currentSort = { col, dir };
+  updateSortIcons();
+  renderTable();
+});
+
+// Column header sort
+document.querySelectorAll('.works-table th.sortable').forEach(th => {
+  th.addEventListener('click', function() {
+    const col = this.dataset.col;
+    if (currentSort.col === col) {
+      currentSort.dir = currentSort.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+      currentSort = { col, dir: col === 'year' ? 'desc' : 'asc' };
+    }
+    // Sync dropdown
+    const selVal = `${currentSort.col}-${currentSort.dir}`;
+    const sel = document.getElementById('sortSelect');
+    if ([...sel.options].some(o => o.value === selVal)) sel.value = selVal;
+    updateSortIcons();
+    renderTable();
+  });
+});
+
+function updateSortIcons() {
+  ['title', 'year', 'journal'].forEach(col => {
+    const icon = document.getElementById('icon-' + col);
+    if (!icon) return;
+    if (currentSort.col === col) {
+      icon.textContent = currentSort.dir === 'asc' ? '↑' : '↓';
+      icon.classList.add('active');
+    } else {
+      icon.textContent = '↕';
+      icon.classList.remove('active');
+    }
+  });
+}
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const fields = ['firstName', 'lastName', 'email', 'message'];
+  let valid = true;
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.style.borderColor = '#ef4444'; valid = false; }
+    else el.style.borderColor = '';
+  });
+  if (!valid) return;
+  document.getElementById('formSuccess').style.display = 'block';
+  this.reset();
+  setTimeout(() => { document.getElementById('formSuccess').style.display = 'none'; }, 6000);
+});
+
+// Init
+updateSortIcons();
+renderTable();
+</script>
+</body>
 </html>
