@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Emad Salib — Consultant Psychiatrist</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #0d2b45;
+      --teal:   #1a6b7c;
+      --teal-lt:#2a8fa3;
+      --gold:   #c9a84c;
+      --gold-lt:#e0bf76;
+      --offwhite:#f5f7fa;
+      --white:  #ffffff;
+      --gray-1: #e8ecf0;
+      --gray-2: #c9d0d9;
+      --gray-3: #8a95a3;
+      --gray-4: #4a5568;
+      --text:   #1a202c;
+      --shadow: 0 2px 12px rgba(0,0,0,.10);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,.14);
+      --radius: 10px;
+      --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-serif: Georgia, 'Times New Roman', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); color: var(--text); background: var(--offwhite); line-height: 1.6; }
+    a { color: var(--teal-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    .nav-brand {
+      font-size: 1.1rem; font-weight: 700; color: var(--white);
+      letter-spacing: .02em;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--gray-2); font-size: .92rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold-lt); text-decoration: none; }
+
+    /* ── Hero ── */
+    #hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+      color: var(--white);
+      padding: 80px 2rem 72px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-avatar {
+      width: 140px; height: 140px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 3.5rem; font-weight: 700; color: var(--navy);
+      box-shadow: 0 0 0 6px rgba(201,168,76,.3);
+      position: relative;
+    }
+    #hero h1 { font-size: 2.6rem; font-weight: 700; letter-spacing: -.01em; }
+    #hero h1 span { color: var(--gold-lt); }
+    #hero .credentials {
+      margin-top: .6rem; font-size: 1rem; color: rgba(255,255,255,.75);
+      letter-spacing: .04em; font-weight: 400;
+    }
+    #hero .tagline {
+      margin-top: 1.2rem; font-size: 1.15rem;
+      color: rgba(255,255,255,.88); max-width: 640px; margin-inline: auto;
+    }
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; margin-top: 1.8rem;
+    }
+    .pill {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: .35rem 1rem; border-radius: 999px;
+      font-size: .82rem; color: rgba(255,255,255,.9);
+    }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 3rem;
+      margin-top: 2.5rem; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--gold-lt); }
+    .stat-label { font-size: .8rem; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .08em; }
+
+    /* ── Section wrapper ── */
+    section { padding: 72px 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-size: 1.9rem; font-weight: 700; color: var(--navy);
+      margin-bottom: .5rem;
+    }
+    .section-title::after {
+      content: ''; display: block; width: 48px; height: 4px;
+      background: var(--gold); border-radius: 2px; margin-top: .4rem;
+    }
+    .section-sub {
+      color: var(--gray-3); font-size: 1rem; margin-top: .5rem;
+      max-width: 640px;
+    }
+
+    /* ── About ── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      margin-top: 2.5rem; align-items: start;
+    }
+    .about-body { font-size: 1rem; color: var(--gray-4); }
+    .about-body p { margin-bottom: 1rem; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-aside { display: flex; flex-direction: column; gap: 1.2rem; }
+    .info-card {
+      background: var(--offwhite); border-radius: var(--radius);
+      padding: 1.2rem 1.4rem; border-left: 4px solid var(--teal);
+    }
+    .info-card h4 { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gray-3); margin-bottom: .5rem; }
+    .info-card p, .info-card ul { font-size: .92rem; color: var(--gray-4); }
+    .info-card ul { list-style: none; display: flex; flex-direction: column; gap: .3rem; }
+    .info-card li::before { content: '• '; color: var(--teal); }
+    .research-areas {
+      margin-top: 2rem;
+      display: flex; flex-wrap: wrap; gap: .6rem;
+    }
+    .area-tag {
+      background: var(--navy); color: var(--white);
+      padding: .4rem 1rem; border-radius: 999px;
+      font-size: .82rem; font-weight: 500;
+    }
+
+    /* ── Works ── */
+    #works { background: var(--offwhite); }
+    .works-controls {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      align-items: center; margin: 2rem 0 1.5rem;
+    }
+    .search-wrap {
+      position: relative; flex: 1 1 260px;
+    }
+    .search-wrap svg {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      color: var(--gray-3); pointer-events: none;
+    }
+    .search-input {
+      width: 100%;
+      padding: .65rem 1rem .65rem 2.6rem;
+      border: 1.5px solid var(--gray-2); border-radius: var(--radius);
+      font-size: .93rem; background: var(--white); color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+    .search-input:focus { border-color: var(--teal-lt); box-shadow: 0 0 0 3px rgba(42,143,163,.15); }
+    select, .sort-select {
+      padding: .65rem 2.2rem .65rem 1rem;
+      border: 1.5px solid var(--gray-2); border-radius: var(--radius);
+      font-size: .9rem; background: var(--white); color: var(--text);
+      appearance: none; cursor: pointer; outline: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238a95a3' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right .7rem center;
+      transition: border-color .2s;
+    }
+    select:focus, .sort-select:focus { border-color: var(--teal-lt); }
+    .works-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem;
+    }
+    .works-count { font-size: .88rem; color: var(--gray-3); }
+    .works-count strong { color: var(--text); }
+    .category-tabs {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem;
+    }
+    .tab-btn {
+      padding: .4rem 1rem; border-radius: 999px; font-size: .82rem; font-weight: 500;
+      cursor: pointer; border: 1.5px solid var(--gray-2);
+      background: var(--white); color: var(--gray-4);
+      transition: all .2s;
+    }
+    .tab-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .tab-btn.active { background: var(--teal); border-color: var(--teal); color: var(--white); }
+
+    /* Table */
+    .table-wrap {
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); overflow: hidden;
+    }
+    .works-table { width: 100%; border-collapse: collapse; }
+    .works-table thead {
+      background: var(--navy); color: var(--white);
+    }
+    .works-table th {
+      padding: .85rem 1.1rem; text-align: left;
+      font-size: .8rem; text-transform: uppercase; letter-spacing: .06em;
+      font-weight: 600; white-space: nowrap; user-select: none;
+    }
+    .works-table th.sortable { cursor: pointer; }
+    .works-table th.sortable:hover { background: var(--teal); }
+    .sort-icon { margin-left: .3rem; opacity: .5; }
+    .sort-icon.active { opacity: 1; color: var(--gold-lt); }
+    .works-table tbody tr {
+      border-bottom: 1px solid var(--gray-1);
+      transition: background .15s;
+    }
+    .works-table tbody tr:last-child { border-bottom: none; }
+    .works-table tbody tr:hover { background: #f0f7fa; }
+    .works-table td {
+      padding: 1rem 1.1rem; font-size: .9rem; color: var(--gray-4);
+      vertical-align: top;
+    }
+    .works-table td.title-cell { color: var(--navy); font-weight: 600; max-width: 300px; }
+    .works-table td.title-cell .year-badge {
+      display: inline-block;
+      background: var(--gold); color: var(--navy);
+      font-size: .72rem; font-weight: 700;
+      padding: .1rem .45rem; border-radius: 4px; margin-bottom: .3rem;
+    }
+    .works-table td.title-cell .work-title { line-height: 1.35; }
+    .cat-badge {
+      display: inline-block; padding: .2rem .65rem; border-radius: 999px;
+      font-size: .74rem; font-weight: 600; white-space: nowrap;
+    }
+    .cat-suicide      { background: #fee2e2; color: #991b1b; }
+    .cat-dementia     { background: #dbeafe; color: #1e40af; }
+    .cat-forensic     { background: #fef3c7; color: #92400e; }
+    .cat-transcultural{ background: #d1fae5; color: #065f46; }
+    .cat-methodology  { background: #ede9fe; color: #5b21b6; }
+    .journal-cell { font-style: italic; font-size: .85rem; max-width: 180px; }
+    .action-btns { display: flex; flex-direction: column; gap: .4rem; min-width: 96px; }
+    .expand-btn {
+      background: none; border: 1px solid var(--gray-2); border-radius: 6px;
+      padding: .3rem .7rem; font-size: .78rem; cursor: pointer; color: var(--teal-lt);
+      transition: all .15s; text-align: center;
+    }
+    .expand-btn:hover { background: var(--teal); color: var(--white); border-color: var(--teal); }
+    .abstract-btn {
+      background: none; border: 1px solid var(--gold); border-radius: 6px;
+      padding: .3rem .7rem; font-size: .78rem; cursor: pointer; color: #92400e;
+      transition: all .15s; text-align: center;
+    }
+    .abstract-btn:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .paper-btn {
+      background: var(--navy); border: 1px solid var(--navy); border-radius: 6px;
+      padding: .3rem .7rem; font-size: .78rem; cursor: pointer; color: var(--white);
+      transition: all .15s; text-align: center; text-decoration: none;
+      display: block;
+    }
+    .paper-btn:hover { background: var(--teal); border-color: var(--teal); text-decoration: none; color: var(--white); }
+    .expand-row td {
+      background: #f8fafc;
+      padding: 1rem 1.4rem 1.2rem;
+      color: var(--gray-4); font-size: .88rem; line-height: 1.7;
+    }
+    .expand-row td .expand-inner {
+      border-left: 3px solid var(--teal-lt); padding-left: 1rem;
+    }
+    .expand-row td .expand-inner.abstract-mode {
+      border-left-color: var(--gold);
+    }
+    .expand-row td .expand-label {
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .07em;
+      color: var(--gray-3); font-weight: 700; margin-bottom: .4rem;
+    }
+    .expand-row td .meta-row {
+      margin-top: .6rem; font-size: .8rem; color: var(--gray-3);
+    }
+    .no-results {
+      text-align: center; padding: 3rem 1rem; color: var(--gray-3);
+      font-size: 1rem;
+    }
+
+    /* ── Contact ── */
+    #contact { background: var(--white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      margin-top: 2.5rem; align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .contact-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--navy); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 20px; height: 20px; stroke: var(--gold); }
+    .contact-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; color: var(--gray-3); margin-bottom: .2rem; }
+    .contact-value { font-size: .95rem; color: var(--gray-4); }
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    label { font-size: .82rem; font-weight: 600; color: var(--gray-4); }
+    input[type=text], input[type=email], textarea {
+      width: 100%;
+      padding: .7rem 1rem; border: 1.5px solid var(--gray-2);
+      border-radius: var(--radius); font-size: .93rem;
+      background: var(--offwhite); color: var(--text);
+      font-family: var(--font-sans);
+      transition: border-color .2s, box-shadow .2s; outline: none;
+    }
+    input[type=text]:focus, input[type=email]:focus, textarea:focus {
+      border-color: var(--teal-lt); background: var(--white);
+      box-shadow: 0 0 0 3px rgba(42,143,163,.12);
+    }
+    textarea { resize: vertical; min-height: 130px; }
+    .submit-btn {
+      background: var(--navy); color: var(--white);
+      padding: .85rem 2rem; border: none; border-radius: var(--radius);
+      font-size: .95rem; font-weight: 600; cursor: pointer;
+      transition: background .2s, transform .1s;
+      display: flex; align-items: center; gap: .5rem; width: fit-content;
+    }
+    .submit-btn:hover { background: var(--teal); }
+    .submit-btn:active { transform: scale(.98); }
+    .form-success {
+      background: #d1fae5; border: 1px solid #6ee7b7;
+      border-radius: var(--radius); padding: 1rem 1.2rem;
+      color: #065f46; font-size: .92rem; display: none;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,.5);
+      text-align: center; padding: 2rem;
+      font-size: .82rem;
+    }
+    footer strong { color: rgba(255,255,255,.8); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      #hero h1 { font-size: 1.9rem; }
+      .hero-stats { gap: 1.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .works-table th:nth-child(4),
+      .works-table td:nth-child(4) { display: none; }
+      .works-table th:nth-child(5),
+      .works-table td:nth-child(5) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="nav-brand">Dr. <span>Emad Salib</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#works">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero ── -->
+<section id="hero">
+  <div class="hero-avatar">ES</div>
+  <h1>Dr. <span>Emad Salib</span></h1>
+  <p class="credentials">MB · DPM · MSc · MRCPI · FRCPsych</p>
+  <p class="tagline">Consultant Psychiatrist &amp; Honorary Senior Lecturer, University of Liverpool — advancing our understanding of elderly mental health, suicide epidemiology, and dementia.</p>
+  <div class="hero-pills">
+    <span class="pill">Old Age Psychiatry</span>
+    <span class="pill">Suicide Epidemiology</span>
+    <span class="pill">Dementia Research</span>
+    <span class="pill">Forensic Psychiatry</span>
+    <span class="pill">Transcultural Psychiatry</span>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">141+</div><div class="stat-label">Publications</div></div>
+    <div class="stat"><div class="stat-num">1,600+</div><div class="stat-label">Citations</div></div>
+    <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Years Practice</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Research Areas</div></div>
+  </div>
+</section>
+
+<!-- ── About ── -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Dr. Salib</h2>
+    <p class="section-sub">Practitioner, researcher, and educator with a career dedicated to improving psychiatric care for vulnerable populations.</p>
+
+    <div class="about-grid">
+      <div class="about-body">
+        <p>Dr. Emad Salib is a Consultant Psychiatrist and Clinical Director with decades of distinguished clinical and academic service across NHS hospitals in Warrington and St Helens, England. Holding appointments at both Hollins Park Hospital (Five Boroughs Partnership NHS Trust) and Peasley Cross Hospital, he has long exemplified the practitioner-researcher model — conducting substantive, nationally recognised academic work from a community and regional clinical base.</p>
+
+        <p>Throughout his career, Dr. Salib has maintained a dual commitment to direct patient care in elderly and general adult psychiatry and to rigorous epidemiological and clinical research. His work is grounded in real-world data — coroner's inquests, hospital records, national mortality statistics — giving his findings immediate translational relevance for clinicians, policymakers, and public health professionals.</p>
+
+        <p>Among his most cited contributions is a landmark 2003 paper in the <em>British Journal of Psychiatry</em> demonstrating that suicide rates in England and Wales fell significantly in the immediate aftermath of the September 11, 2001 terrorist attacks — a finding interpreted through Durkheim's theory of social integration and widely cited in disaster psychiatry literature. A follow-up study examined the 7 July 2005 London bombings with similar methodology.</p>
+
+        <p>In the field of dementia, Dr. Salib co-validated the Mental Alternation Test (MAT) as a rapid, practical screening tool for primary care — work that influenced its adoption in the Canadian Longitudinal Study on Aging. He also contributed important negative evidence to the contested aluminium-Alzheimer's debate through a case-control study and a comprehensive literature review.</p>
+
+        <p>As Honorary Senior Lecturer at the University of Liverpool, Dr. Salib has shaped the next generation of psychiatrists while remaining deeply committed to his patients. His research spans suicide in the elderly, weather and mental health, transcultural psychiatry, forensic practices, and social dimensions of psychiatric illness — always with a focus on improving clinical understanding and patient outcomes.</p>
+
+        <div class="research-areas">
+          <span class="area-tag">Elderly Suicide</span>
+          <span class="area-tag">Dementia &amp; Alzheimer's</span>
+          <span class="area-tag">Suicide Epidemiology</span>
+          <span class="area-tag">Forensic Psychiatry</span>
+          <span class="area-tag">Transcultural Psychiatry</span>
+          <span class="area-tag">Statistical Methodology</span>
+          <span class="area-tag">Weather &amp; Mental Health</span>
+        </div>
+      </div>
+
+      <div class="about-aside">
+        <div class="info-card">
+          <h4>Qualifications</h4>
+          <ul>
+            <li>MB (Bachelor of Medicine)</li>
+            <li>DPM (Diploma in Psychological Medicine)</li>
+            <li>MSc (Master of Science)</li>
+            <li>MRCPI (Member, Royal College of Physicians of Ireland)</li>
+            <li>FRCPsych (Fellow, Royal College of Psychiatrists)</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h4>Clinical Affiliations</h4>
+          <ul>
+            <li>Consultant Psychiatrist &amp; Clinical Director, Hollins Park Hospital, Warrington</li>
+            <li>Stewart Assessment Unit, Peasley Cross Hospital, St Helens</li>
+            <li>Five Boroughs Partnership NHS Trust</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h4>Academic Affiliation</h4>
+          <p>Honorary Senior Lecturer, University of Liverpool (previously Honorary Research Fellow)</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Research Impact</h4>
+          <ul>
+            <li>141+ peer-reviewed publications</li>
+            <li>1,600+ academic citations</li>
+            <li>Published in <em>British Journal of Psychiatry</em>, <em>International Journal of Geriatric Psychiatry</em>, <em>Medicine, Science and the Law</em>, and more</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Works ── -->
+<section id="works">
+  <div class="container">
+    <h2 class="section-title">Publications &amp; Research</h2>
+    <p class="section-sub">Browse, search, and filter Dr. Salib's peer-reviewed works across psychiatry, epidemiology, and clinical research.</p>
+
+    <!-- Controls -->
+    <div class="works-controls">
+      <div class="search-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input class="search-input" id="searchInput" type="text" placeholder="Search title, journal, or keyword…" />
+      </div>
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="suicide">Suicide Epidemiology</option>
+        <option value="dementia">Dementia &amp; Alzheimer's</option>
+        <option value="forensic">Forensic Psychiatry</option>
+        <option value="transcultural">Transcultural &amp; Social</option>
+        <option value="methodology">Methodology</option>
+      </select>
+      <select id="sortSelect">
+        <option value="year-desc">Year: Newest First</option>
+        <option value="year-asc">Year: Oldest First</option>
+        <option value="title-asc">Title: A–Z</option>
+        <option value="title-desc">Title: Z–A</option>
+        <option value="journal-asc">Journal: A–Z</option>
+      </select>
+    </div>
+
+    <div class="category-tabs">
+      <button class="tab-btn active" data-cat="">All</button>
+      <button class="tab-btn" data-cat="suicide">Suicide Epidemiology</button>
+      <button class="tab-btn" data-cat="dementia">Dementia &amp; Alzheimer's</button>
+      <button class="tab-btn" data-cat="forensic">Forensic Psychiatry</button>
+      <button class="tab-btn" data-cat="transcultural">Transcultural &amp; Social</button>
+      <button class="tab-btn" data-cat="methodology">Methodology</button>
+    </div>
+
+    <div class="works-meta">
+      <span class="works-count">Showing <strong id="resultCount">26</strong> of <strong>26</strong> publications</span>
+    </div>
+
+    <div class="table-wrap">
+      <table class="works-table" id="worksTable">
+        <thead>
+          <tr>
+            <th class="sortable" data-col="title">Title <span class="sort-icon" id="icon-title">↕</span></th>
+            <th class="sortable" data-col="year">Year <span class="sort-icon" id="icon-year">↕</span></th>
+            <th>Category</th>
+            <th class="sortable" data-col="journal">Journal / Publisher <span class="sort-icon" id="icon-journal">↕</span></th>
+            <th>Co-Authors</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-sub">For clinical enquiries, academic collaboration, or research correspondence.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Clinical Address</div>
+            <div class="contact-value">Hollins Park Hospital<br>Winwick, Warrington WA2 8WA<br>Five Boroughs Partnership NHS Trust</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Academic Affiliation</div>
+            <div class="contact-value">Honorary Senior Lecturer<br>University of Liverpool<br>Faculty of Health &amp; Life Sciences</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Research Profile</div>
+            <div class="contact-value">ResearchGate: Emad Salib<br>141 publications · 1,600+ citations</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Enquiry Types</div>
+            <div class="contact-value">Research collaboration · Peer review · Clinical referrals · Media &amp; press · Academic supervision</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" placeholder="jane.smith@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="organisation">Organisation / Institution</label>
+            <input type="text" id="organisation" placeholder="University of…" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" style="padding:.7rem 2.2rem .7rem 1rem">
+              <option value="">Select an enquiry type…</option>
+              <option>Research Collaboration</option>
+              <option>Peer Review Request</option>
+              <option>Clinical Referral</option>
+              <option>Media &amp; Press Enquiry</option>
+              <option>Academic Supervision</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" placeholder="Please describe your enquiry in detail…" required></textarea>
+          </div>
+          <div class="form-success" id="formSuccess">
+            Thank you for your message. Dr. Salib's team will respond within 3–5 working days.
+          </div>
+          <button type="submit" class="submit-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <p><strong>Dr. Emad Salib</strong> · MB DPM MSc MRCPI FRCPsych · Consultant Psychiatrist &amp; Honorary Senior Lecturer, University of Liverpool</p>
+  <p style="margin-top:.4rem">Hollins Park Hospital, Winwick, Warrington WA2 8WA · Five Boroughs Partnership NHS Trust</p>
+  <p style="margin-top:.4rem">© 2024 Dr. Emad Salib. All rights reserved.</p>
+</footer>
+
+<script>
+const publications = [
+  {
+    id: 1,
+    title: "Effect of 11 September 2001 on Suicide and Homicide in England and Wales",
+    year: 2003,
+    category: "suicide",
+    journal: "British Journal of Psychiatry",
+    coauthors: "Emad Salib (sole author)",
+    pmid: "12948992",
+    url: "https://pubmed.ncbi.nlm.nih.gov/12948992/",
+    abstract: "Monthly suicide and homicide rates in England and Wales were examined for the 22 years preceding and including September 2001 using Office for National Statistics mortality data. Suicide rates in September 2001 were significantly lower than in any comparable month over the prior 22 years, consistent with Durkheim's theory that major social crises temporarily enhance group cohesion and reduce self-directed violence.",
+    summary: "Examined whether the 9/11 terrorist attacks affected suicide and homicide rates in England and Wales by analysing 22 years of national mortality data. Found that suicides in September 2001 were significantly lower than any September recorded in the prior 22 years. Interpreted through Durkheim's theory of social integration — national tragedies temporarily reduce suicide by increasing group cohesion and collective solidarity. Became a foundational paper in disaster psychiatry literature."
+  },
+  {
+    id: 2,
+    title: "Effect of 7 July 2005 Terrorist Attacks in London on Suicide in England and Wales",
+    year: 2009,
+    category: "suicide",
+    journal: "British Journal of Psychiatry",
+    coauthors: "Emad Salib & Mario Cortina-Borja",
+    pmid: "19118332",
+    url: "https://pubmed.ncbi.nlm.nih.gov/19118332/",
+    abstract: "This study tested whether the 7 July 2005 London bombings produced a measurable reduction in suicide rates in England and Wales, replicating the methodology of a prior study of the 9/11 attacks. A modest but non-significant reduction was observed, providing only weak support for Durkheim's social integration hypothesis.",
+    summary: "A methodological follow-up to the 9/11 study, examining whether the 7 July 2005 London bombings produced a similar reduction in suicide rates. Found a comparable — though weaker — effect, only partially supporting Durkheim's theory of collective integration. The more localised nature of the 7/7 attacks and its context within ongoing international conflict may explain the attenuated result."
+  },
+  {
+    id: 3,
+    title: "Effect of Month of Birth on the Risk of Suicide",
+    year: 2006,
+    category: "suicide",
+    journal: "British Journal of Psychiatry",
+    coauthors: "Emad Salib & Mario Cortina-Borja",
+    pmid: "16648527",
+    url: "https://pubmed.ncbi.nlm.nih.gov/16648527/",
+    abstract: "This study analysed 26,915 suicides registered in England and Wales between 1979 and 2001 to determine whether month of birth is associated with subsequent suicide risk. Statistically significant seasonal birth patterns were identified, making this the largest study of birth season and suicide risk at the time of publication.",
+    summary: "One of the largest statistical studies of birth-season and suicide risk ever conducted, analysing 26,915 suicides over 22 years in England and Wales. Investigated whether an individual's month of birth is associated with subsequent suicide risk, controlling for population distributions. At the time of publication, this represented the most statistically powered study of its kind globally."
+  },
+  {
+    id: 4,
+    title: "Month of Birth and Suicide: An Exploratory Study",
+    year: 2002,
+    category: "suicide",
+    journal: "International Journal of Psychiatry in Clinical Practice",
+    coauthors: "Emad Salib (sole author)",
+    url: "https://www.tandfonline.com/doi/abs/10.1080/136515002753489407",
+    abstract: "Using coroner data for 1,273 suicides in Cheshire between 1989 and 2000, this exploratory study examined whether birth month was associated with suicide risk and method. A higher rate of violent suicide, particularly hanging, was found among individuals born in summer months.",
+    summary: "Preliminary investigation using 12 years of Cheshire suicide data to explore whether seasonal birth patterns are associated with suicide risk. Found an increased risk of violent suicide — particularly hanging — among those born in summer months. Provided the methodological foundation for the larger national study published in 2006."
+  },
+  {
+    id: 5,
+    title: "An Association Between Month of Birth and Method of Suicide",
+    year: 2014,
+    category: "suicide",
+    journal: "Published Study",
+    coauthors: "Emad Salib (sole author)",
+    pmid: "24917227",
+    url: "https://pubmed.ncbi.nlm.nih.gov/24917227/",
+    abstract: "This study examined data from over 52,000 suicides in England, Wales, and Scotland (1979–2001) to determine whether the method of suicide varies systematically by the decedent's month of birth. Significant associations were identified between birth month and specific methods of suicide.",
+    summary: "Extended the birth-season/suicide line of research to examine whether the specific method chosen for self-harm varies by month of birth. Used a dataset of over 52,000 suicides drawn from England, Wales, and Scotland across 21 years — the largest sample applied to this question. Findings contribute to understanding the biological and neurodevelopmental mechanisms linking early neurodevelopment to adult suicidal behaviour."
+  },
+  {
+    id: 6,
+    title: "Elderly Suicide: An Analysis of Coroner's Inquests into Two Hundred Cases in Cheshire 1989–2001",
+    year: 2005,
+    category: "suicide",
+    journal: "Medicine, Science and the Law",
+    coauthors: "Sahar Rahim, George El-Nimr, Bassem Habeeb",
+    url: "https://journals.sagepub.com/doi/10.1258/rsmmsl.45.1.71",
+    abstract: "Two hundred consecutive elderly suicide cases in Cheshire (1989–2001) were analysed using coroner's inquest records to characterise the clinical and demographic features of late-life suicide. Elderly suicides were marked by high lethality, low rates of prior communication of intent, and high rates of comorbid physical illness and depression.",
+    summary: "A systematic analysis of 200 elderly suicide cases using coroner's inquest records in Cheshire over 13 years. Found that late-life suicide is characterised by less advance warning, higher lethality of chosen methods, and greater prevalence of comorbid depression and physical illness compared to suicide in younger populations. Described elderly suicide as 'an index of widespread disorder and discontent.' One of the most detailed clinical characterisations of late-life suicide in the UK."
+  },
+  {
+    id: 7,
+    title: "Intimation of Intent in Elderly Fatal Self-Harm: Do the Elderly Who Leave Suicide Notes Differ from Those Who Do Not?",
+    year: 2002,
+    category: "suicide",
+    journal: "Published Study",
+    coauthors: "Emad Salib (sole author)",
+    pmid: "24945202",
+    url: "https://pubmed.ncbi.nlm.nih.gov/24945202/",
+    abstract: "This study examined 200 elderly suicide cases to determine whether those who left suicide notes differed clinically or sociodemographically from those who did not. Note-writers were more likely to have communicated suicidal intent prior to death and to have used more lethal methods.",
+    summary: "Explored suicide notes as clinical markers of suicidal severity and intent among elderly patients. Examined whether elderly individuals who leave suicide notes differ clinically, sociodemographically, or in terms of method lethality from those who do not. Findings inform clinical assessment of suicide risk in older patients and challenge assumptions about planning and intent."
+  },
+  {
+    id: 8,
+    title: "Weather Conditions and Fatal Self-Harm in North Cheshire 1989–1993",
+    year: 1996,
+    category: "suicide",
+    journal: "British Journal of Psychiatry",
+    coauthors: "Emad Salib (sole author)",
+    url: "https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/abs/weather-conditions-and-fatal-selfharm-in-north-cheshire-19891993/1B4620D4AE339185E8A1647A89750407",
+    abstract: "Meteorological data were correlated with fatal self-harm rates in North Cheshire over a five-year period (1989–1993). Significant positive associations were found between fatal self-harm and hours of sunshine and diurnal temperature range.",
+    summary: "Analysed five years of fatal self-harm data against multiple meteorological variables in North Cheshire. Found small but statistically significant positive correlations between fatal self-harm and hours of sunshine and diurnal temperature variation. Concluded that weather interacts with biological and social variables to influence suicidal behaviour, with elevated rates observed during fine early-summer weather. An early contribution to the environmental determinants of suicide."
+  },
+  {
+    id: 9,
+    title: "Astrological Birth Signs in Suicide: Hypothesis or Speculation?",
+    year: 2003,
+    category: "suicide",
+    journal: "Medicine, Science and the Law",
+    coauthors: "Emad Salib (sole author)",
+    pmid: "12741653",
+    url: "https://journals.sagepub.com/doi/10.1258/rsmmsl.43.2.111",
+    abstract: "Using 1,273 suicides in Cheshire, this paper examined whether astrological birth signs were associated with suicide rates, framing the analysis as a methodological critique of seasonal birth research in psychiatry. No significant associations between sun signs and suicide were found.",
+    summary: "An exploratory epidemiological study examining whether astrological birth signs carry any statistically meaningful association with suicide. Framed explicitly as a methodological and epidemiological thought experiment, the paper interrogates the statistical reasoning behind birth-season research more broadly and uses astrology as a satirical lens to critique over-interpretation of seasonal patterns in suicide data."
+  },
+  {
+    id: 10,
+    title: "Trends in Suicide by Drowning in the Elderly in England and Wales 1979–2001",
+    year: 2005,
+    category: "suicide",
+    journal: "International Journal of Geriatric Psychiatry",
+    coauthors: "Emad Salib (sole author)",
+    url: "https://onlinelibrary.wiley.com/doi/10.1002/gps.1211",
+    abstract: "This study analysed 22 years of national mortality data (1979–2001) to describe trends in suicide by drowning among elderly individuals in England and Wales. Drowning accounted for a disproportionate share of elderly suicide deaths, with distinct patterns by sex and age group.",
+    summary: "Presented time-series data on drowning as a method of elderly suicide across England and Wales over 22 years. Examined age-specific and sex-specific patterns and temporal trends. Contributed to the evidence base on the clinical and environmental factors associated with the choice of drowning as a method in late-life suicide, including its intersection with cognitive impairment."
+  },
+  {
+    id: 11,
+    title: "Dementia: Suicide by Drowning",
+    year: 2009,
+    category: "suicide",
+    journal: "British Journal of Psychiatry",
+    coauthors: "Emad Salib (sole author)",
+    pmid: "19478304",
+    url: "https://pubmed.ncbi.nlm.nih.gov/19478304/",
+    abstract: "This correspondence examines the clinical and risk management implications of self-drowning in patients with dementia, drawing on epidemiological data from England and Wales. The findings highlight the need for means restriction strategies in the care of dementia patients with access to open water.",
+    summary: "A focused commentary on the intersection of dementia and death by drowning, exploring the clinical and risk management implications for psychiatrists and care home staff. Contributes to the sparse literature on self-harm risk and means restriction in patients with dementia, and draws on Dr. Salib's prior epidemiological work on drowning trends in the elderly."
+  },
+  {
+    id: 12,
+    title: "Alzheimer's Disease and the Aluminium Connection: A Literature Review",
+    year: 1998,
+    category: "dementia",
+    journal: "International Journal of Psychiatry in Clinical Practice",
+    coauthors: "Emad Salib (sole author)",
+    url: "https://www.tandfonline.com/doi/abs/10.3109/13651509809115354",
+    abstract: "This review synthesised 35 years of research on the aluminium-Alzheimer's disease hypothesis across four domains: brain aluminium levels, uptake studies, aluminium-related neurodegeneration, and chronic exposure studies. The evidence was found to be inconclusive, with major methodological limitations preventing definitive causal conclusions.",
+    summary: "A systematic review of 35 years of published research on the proposed aluminium–Alzheimer's disease link, surveying four domains: post-mortem brain aluminium studies, aluminium uptake studies, aluminium-related neurodegeneration models, and chronic human exposure studies. Concluded that the cumulative evidence remains inconclusive and that methodological inconsistencies make definitive causal claims premature. Provided a balanced synthesis at a time when the aluminium hypothesis remained hotly debated."
+  },
+  {
+    id: 13,
+    title: "A Case-Control Study of Alzheimer's Disease and Aluminium Occupation",
+    year: 1999,
+    category: "dementia",
+    journal: "British Journal of Psychiatry",
+    coauthors: "Emad Salib (sole author)",
+    url: "https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/abs/casecontrol-study-of-alzheimers-disease-and-aluminium-occupation/A3FD380BF6E797608C6112F179999862",
+    abstract: "A case-control study compared 198 Alzheimer's disease patients with 340 controls on occupational history of aluminium exposure in North Cheshire. No significant association was found between aluminium-related occupations and Alzheimer's disease risk.",
+    summary: "Compared 198 Alzheimer's disease patients to 340 matched controls (other dementias and non-demented patients) on occupational history, specifically examining lifetime exposure to aluminium-related industries. Found that 11.1% of Alzheimer's patients reported aluminium-related occupations, but this did not significantly exceed control rates. Contributed important negative evidence to the aluminium-Alzheimer's debate and called for more rigorous biomarker-based exposure assessments."
+  },
+  {
+    id: 14,
+    title: "Risk Factors for Alzheimer's Disease",
+    year: 2000,
+    category: "dementia",
+    journal: "Nursing Older People",
+    coauthors: "Emad Salib (sole author)",
+    url: "https://pubmed.ncbi.nlm.nih.gov/?term=salib+emad+%22risk+factors%22+alzheimer",
+    abstract: "This review article summarised the established and emerging risk factors for Alzheimer's disease for a nursing and primary care audience, covering genetic, vascular, environmental, and lifestyle determinants. The review emphasised translating epidemiological evidence into practical clinical guidance.",
+    summary: "An accessible clinical review of established and emerging risk factors for Alzheimer's disease, targeted at nursing and primary care audiences. Covers age, genetics, vascular risk factors, head injury, educational attainment, and environmental exposures. Reflects Dr. Salib's commitment to translating complex research findings into practical guidance for frontline healthcare workers caring for older patients."
+  },
+  {
+    id: 15,
+    title: "Handedness and Dementia: A Literature Review",
+    year: 2001,
+    category: "dementia",
+    journal: "Literature Review",
+    coauthors: "Emad Salib (sole author)",
+    url: "https://www.researchgate.net/profile/Emad-Salib",
+    abstract: "A review of approximately 10 studies from PsycInfo and MEDLINE examined the relationship between hand preference and dementia risk and onset. Evidence of higher left-handedness prevalence in early-onset dementia populations was identified, with implications for neurodevelopmental theories of cognitive reserve.",
+    summary: "Reviewed approximately 10 studies from PsycInfo and MEDLINE on the relationship between handedness (left vs. right) and dementia risk and presentation. Identified findings suggesting a higher prevalence of left-handedness in early-onset dementia populations. Placed findings within the context of neurodevelopmental theories of lateralisation and cognitive reserve, acknowledging methodological limitations across the reviewed studies."
+  },
+  {
+    id: 16,
+    title: "Does the Weather Influence Dementia Admissions?",
+    year: 1999,
+    category: "dementia",
+    journal: "International Journal of Geriatric Psychiatry",
+    coauthors: "Emad Salib & Nicola Sharp",
+    url: "https://pubmed.ncbi.nlm.nih.gov/?term=salib+emad+%22dementia+admissions%22+weather",
+    abstract: "This study examined the association between meteorological variables and hospital admission rates for dementia in North Cheshire. Significant relationships were found between specific weather parameters and rates of behavioural disturbance requiring inpatient admission.",
+    summary: "The first published study to examine the relationship between weather parameters — humidity, sunshine, temperature variation, and rainfall — and hospital admission rates for dementia in North Cheshire. Found significant associations between specific meteorological variables and admission frequency. Raised questions about the biological and social mechanisms linking environmental conditions to behavioural disturbance in dementia patients."
+  },
+  {
+    id: 17,
+    title: "Mental Alternation Test (MAT): A Rapid and Valid Screening Tool for Dementia in Primary Care",
+    year: 2002,
+    category: "dementia",
+    journal: "International Journal of Geriatric Psychiatry",
+    coauthors: "Emad Salib & Justin McCarthy",
+    pmid: "12461766",
+    url: "https://pubmed.ncbi.nlm.nih.gov/12461766/",
+    abstract: "The Mental Alternation Test (MAT) was validated as a rapid screening tool for dementia in primary care settings against the Mini-Mental State Examination, using 172 patients in Warrington. The MAT demonstrated high sensitivity and specificity at a cut-off of fewer than 15 correct alternations in 30 seconds.",
+    summary: "Validated the Mental Alternation Test (MAT) as a rapid bedside screening tool for dementia, comparing its performance against the Mini-Mental State Examination (MMSE) in clinically diagnosed dementia and non-dementia controls in Warrington. Established sensitivity/specificity cut-off scores (max score 52; cut-off < 15 correct alternations in 30 seconds). This paper had lasting clinical impact — the MAT was subsequently incorporated into the cognitive battery of the Canadian Longitudinal Study on Aging, one of the world's largest aging cohort studies."
+  },
+  {
+    id: 18,
+    title: "Passive Euthanasia in Dementia: Killing… Or Letting Die?",
+    year: 2003,
+    category: "dementia",
+    journal: "Survey Study",
+    coauthors: "Emad Salib (sole author)",
+    url: "https://www.researchgate.net/profile/Emad-Salib",
+    abstract: "This study surveyed family carers of dementia patients on their ethical attitudes toward passive euthanasia, including withdrawal of nutrition and life-sustaining treatment. Findings revealed a spectrum of views influenced by disease stage, perceived patient suffering, and personal and religious values.",
+    summary: "Surveyed a sample of family carers of dementia patients on their ethical attitudes toward passive euthanasia — the withdrawal or withholding of life-sustaining treatment. Explored the factors influencing carer views, including perceived patient suffering, disease stage, and personal values. Contributes to the bioethics literature on end-of-life decision-making in dementia care at a time when UK policy on the topic was evolving."
+  },
+  {
+    id: 19,
+    title: "Cholinesterase Inhibitors and Time to Care Home Placement",
+    year: 2008,
+    category: "dementia",
+    journal: "NHS Clinical Study",
+    coauthors: "Emad Salib and co-authors",
+    url: "https://www.researchgate.net/profile/Emad-Salib",
+    abstract: "This study used survival analysis to examine whether prescription of cholinesterase inhibitors in 2006 was associated with delayed placement of dementia patients in care homes over a four-year follow-up period. The findings suggested a modest delay in institutionalisation among treated patients.",
+    summary: "Examined whether prescribing cholinesterase inhibitors (ChEIs) in 2006 delayed institutional placement of dementia patients into care homes. Used survival analysis over a four-year follow-up period, comparing ChEI-prescribed patients to those who were not prescribed. Findings contributed to local NHS commissioning decisions and the broader evidence base on the real-world effectiveness of dementia pharmacotherapy beyond its cognitive effects."
+  },
+  {
+    id: 20,
+    title: "Practice of Seclusion: A Five-Year Retrospective Review in North Cheshire",
+    year: 1998,
+    category: "forensic",
+    journal: "Medicine, Science and the Law",
+    coauthors: "Emad Salib, A.G. Ahmed & Mike Cope",
+    url: "https://journals.sagepub.com/doi/10.1177/002580249803800408",
+    abstract: "A five-year retrospective audit reviewed 186 episodes of seclusion involving 94 patients at a regional secure unit in North Cheshire, examining patient characteristics and diagnostic patterns. Patients with personality disorder accounted for a disproportionate 44.2% of seclusion episodes despite comprising only 11.4% of the patient population.",
+    summary: "A five-year retrospective audit of seclusion use at a regional secure psychiatric unit in North Cheshire. Of 614 total admissions, 94 patients (15.3%) were secluded on 186 occasions. Crucially, patients with personality disorder (11.4% of the patient population) accounted for 44.2% of all seclusions, while patients with a defined mental illness (55% of the population) accounted for only 35%. Highlighted diagnostic disparities in seclusion use and raised questions about whether seclusion functions as a therapeutic or administrative intervention."
+  },
+  {
+    id: 21,
+    title: "Seclusion in Psychiatry: Continuing Use",
+    year: 2000,
+    category: "forensic",
+    journal: "Published Study",
+    coauthors: "Lawrence Savage & Emad Salib",
+    pmid: "10661207",
+    url: "https://pubmed.ncbi.nlm.nih.gov/10661207/",
+    abstract: "This study examined ongoing seclusion use in a secure psychiatric unit, analysing clinical outcomes and staff perceptions. For a subset of patients with severe, persistent behavioural disturbance, seclusion was found to be a safe and effective intervention.",
+    summary: "Examined the continuing use of seclusion in a secure mental health unit, tracking outcomes and clinical justifications over a follow-up period. Concluded that for a defined subset of patients with severe, treatment-resistant behavioural disturbance, regular seclusion use remains a safe and effective intervention for protecting patients and staff. Engaged with the then-ongoing policy debate about whether seclusion should be abolished in NHS settings."
+  },
+  {
+    id: 22,
+    title: "Audit of the Use of Nurses' Holding Power Under Section 5(4) of the Mental Health Act 1983",
+    year: 1998,
+    category: "forensic",
+    journal: "Medicine, Science and the Law",
+    coauthors: "Emad Salib (sole author)",
+    url: "https://journals.sagepub.com/doi/abs/10.1177/002580249803800308",
+    abstract: "This audit reviewed the frequency, clinical context, and appropriateness of nurses' use of the holding power under Section 5(4) of the Mental Health Act 1983 in a psychiatric inpatient unit. Findings informed training and governance recommendations for appropriate application of the legislation.",
+    summary: "A clinical audit of the application of Section 5(4) of the Mental Health Act 1983, the nurses' holding power permitting detention of an informal inpatient pending a medical review. Evaluated the appropriateness, frequency, and clinical context of its use across a psychiatric unit. Identified patterns in when and how the power was invoked, contributing to best-practice guidance for nursing staff and hospital governance bodies."
+  },
+  {
+    id: 23,
+    title: "The Khat Users: A Study of Khat Chewing in Liverpool's Somali Men",
+    year: 1998,
+    category: "transcultural",
+    journal: "Medicine, Science and the Law",
+    coauthors: "A.G. Ahmed & Emad Salib",
+    url: "https://journals.sagepub.com/doi/abs/10.1177/002580249803800215",
+    abstract: "A comparative study examined khat-chewing patterns, psychiatric morbidity (GHQ), and social characteristics of 105 Somali men in Liverpool, comparing regular khat users to age-matched non-users. No significant difference in psychiatric morbidity was found, challenging assumptions about khat's mental health risks.",
+    summary: "Examined the demographic, social, and psychological characteristics of regular khat users compared to matched non-users within Liverpool's Somali immigrant community. Measured psychiatric morbidity using the General Health Questionnaire (GHQ). Found that khat users did not exhibit significantly higher psychiatric morbidity than non-users, differing mainly in nicotine use patterns and perceptions of khat's social harms. Challenged alarmist narratives about khat use and contributed to the evidence base informing UK drugs policy debates."
+  },
+  {
+    id: 24,
+    title: "Hubris Syndrome and the Arab Spring: Shared Ideology or Folie Partagée?",
+    year: 2014,
+    category: "transcultural",
+    journal: "International Psychiatry",
+    coauthors: "Salwa Khalil & Emad Salib",
+    url: "https://www.cambridge.org/core/journals/international-psychiatry/article/hubris-syndrome-and-the-arab-spring-shared-ideology-or-folie-partagee/80A43806D25A6950E0EF3D748D30B3F9",
+    abstract: "This paper applied Owen and Davidson's concept of hubris syndrome — an acquired personality disorder in powerful leaders — to the political leaders of the Arab Spring uprisings. The authors explored whether the shared extremist behaviours of these leaders constituted a folie partagée or a recognisable political-psychiatric syndrome.",
+    summary: "Applied the concept of hubris syndrome — an acquired personality disorder theorised to affect political leaders in power (Owen & Davidson, 2009) — to the leaders of the Arab Spring uprisings. Explored whether the shared extreme ideological behaviours exhibited by these leaders constituted a folie partagée (shared madness) or a common political-psychological syndrome with biological and environmental determinants. A pioneering application of psychiatric nosology to contemporary political science."
+  },
+  {
+    id: 25,
+    title: "Spiritual Healing in Elderly Psychiatric Patients",
+    year: 1997,
+    category: "transcultural",
+    journal: "Clinical Study",
+    coauthors: "Emad Salib (sole author)",
+    url: "https://www.researchgate.net/profile/Emad-Salib",
+    abstract: "This study investigated the association between recourse to spiritual healing and the frequency of schizophrenic relapses in elderly Egyptian psychiatric inpatients. Findings highlighted the complex interaction between religious and cultural practices and psychiatric relapse in transcultural settings.",
+    summary: "Investigated whether recourse to spiritual or religious healing was associated with the frequency of schizophrenic relapses in a sample of elderly Egyptian psychiatric inpatients. Conducted in an Egyptian psychiatric hospital setting, the study reflects Dr. Salib's cross-cultural background and interest in how religious and cultural practices intersect with psychiatric illness management. An early contribution to the transcultural psychiatry literature on spirituality and mental illness."
+  },
+  {
+    id: 26,
+    title: "Lies… Damned Lies… and Suicide Statistics!",
+    year: 2003,
+    category: "methodology",
+    journal: "Medicine, Science and the Law",
+    coauthors: "Emad Salib & Noir Thomas",
+    url: "https://journals.sagepub.com/doi/abs/10.1258/rsmmsl.43.4.315",
+    abstract: "This methodological paper critically examined the reliability and validity of official suicide statistics in England and Wales, focusing on coroner variation, misclassification, and systemic under-reporting. The authors argued that published suicide statistics require cautious interpretation due to fundamental inconsistencies in how verdicts are recorded.",
+    summary: "A critical methodological analysis of the reliability and validity of official suicide statistics in England and Wales. Examined how suicide verdicts are reached by coroners, the variation in reporting standards across jurisdictions, and the systematic biases that may lead to under-counting or miscategorisation of suicide deaths. Argued that published national suicide statistics cannot be interpreted uncritically and called for standardised coroner reporting frameworks. The title references the famous aphorism often attributed to Mark Twain."
+  }
+];
+
+let currentSort = { col: 'year', dir: 'desc' };
+let activeCategory = '';
+// expandedState: { id, type } or null
+let expandedState = null;
+
+const categoryLabels = {
+  suicide:       'Suicide Epidemiology',
+  dementia:      'Dementia & Alzheimer\'s',
+  forensic:      'Forensic Psychiatry',
+  transcultural: 'Transcultural & Social',
+  methodology:   'Methodology'
+};
+
+function getCatClass(cat) { return 'cat-' + cat; }
+
+function renderTable() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const catFilter = activeCategory;
+  const tbody = document.getElementById('tableBody');
+
+  let data = publications.filter(p => {
+    const matchCat = !catFilter || p.category === catFilter;
+    const matchQ = !query ||
+      p.title.toLowerCase().includes(query) ||
+      p.journal.toLowerCase().includes(query) ||
+      p.coauthors.toLowerCase().includes(query) ||
+      p.summary.toLowerCase().includes(query) ||
+      (p.abstract || '').toLowerCase().includes(query) ||
+      String(p.year).includes(query);
+    return matchCat && matchQ;
+  });
+
+  data.sort((a, b) => {
+    let va, vb;
+    if (currentSort.col === 'year')    { va = a.year;    vb = b.year; }
+    if (currentSort.col === 'title')   { va = a.title.toLowerCase(); vb = b.title.toLowerCase(); }
+    if (currentSort.col === 'journal') { va = a.journal.toLowerCase(); vb = b.journal.toLowerCase(); }
+    if (va < vb) return currentSort.dir === 'asc' ? -1 : 1;
+    if (va > vb) return currentSort.dir === 'asc' ? 1 : -1;
+    return 0;
+  });
+
+  document.getElementById('resultCount').textContent = data.length;
+
+  if (data.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="6"><div class="no-results">No publications match your search. Try different keywords or clear the filter.</div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = data.map(p => `
+    <tr class="main-row" data-id="${p.id}">
+      <td class="title-cell">
+        <div class="year-badge">${p.year}</div>
+        <div class="work-title">${p.title}</div>
+      </td>
+      <td>${p.year}</td>
+      <td><span class="cat-badge ${getCatClass(p.category)}">${categoryLabels[p.category]}</span></td>
+      <td class="journal-cell">${p.journal}</td>
+      <td style="font-size:.84rem;max-width:160px">${p.coauthors}</td>
+      <td>
+        <div class="action-btns">
+          <button class="expand-btn" id="sum-btn-${p.id}" onclick="toggleExpand(${p.id},'summary',this)">Summary ↓</button>
+          <button class="abstract-btn" id="abs-btn-${p.id}" onclick="toggleExpand(${p.id},'abstract',this)">Abstract ↓</button>
+          <a class="paper-btn" href="${p.url || '#'}" target="_blank" rel="noopener">View Paper ↗</a>
+        </div>
+      </td>
+    </tr>
+    <tr class="expand-row" id="expand-${p.id}" style="display:none">
+      <td colspan="6">
+        <div class="expand-inner" id="expand-inner-${p.id}">
+          <div class="expand-label" id="expand-label-${p.id}"></div>
+          <p id="expand-text-${p.id}"></p>
+          <div class="meta-row">
+            <strong>Journal:</strong> ${p.journal}
+            ${p.pmid ? ` &middot; <strong>PMID:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/" target="_blank" rel="noopener">${p.pmid}</a>` : ''}
+          </div>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+
+  // Restore open state after re-render
+  if (expandedState) {
+    const p = publications.find(x => x.id === expandedState.id);
+    if (p && data.find(x => x.id === p.id)) {
+      _openExpand(p, expandedState.type);
+    } else {
+      expandedState = null;
+    }
+  }
+}
+
+function toggleExpand(id, type, btn) {
+  const row = document.getElementById('expand-' + id);
+  const p = publications.find(x => x.id === id);
+  if (!row || !p) return;
+
+  const isOpen = row.style.display !== 'none';
+  const isSameType = expandedState && expandedState.id === id && expandedState.type === type;
+
+  // Always close all first
+  _closeAll();
+
+  if (!isOpen || !isSameType) {
+    _openExpand(p, type);
+  }
+}
+
+function _openExpand(p, type) {
+  const row = document.getElementById('expand-' + p.id);
+  const inner = document.getElementById('expand-inner-' + p.id);
+  const label = document.getElementById('expand-label-' + p.id);
+  const text  = document.getElementById('expand-text-' + p.id);
+  const sumBtn = document.getElementById('sum-btn-' + p.id);
+  const absBtn = document.getElementById('abs-btn-' + p.id);
+  if (!row) return;
+
+  if (type === 'abstract') {
+    label.textContent = 'Abstract';
+    text.textContent = p.abstract || 'Abstract not available.';
+    inner.classList.add('abstract-mode');
+    if (absBtn) absBtn.textContent = 'Abstract ↑';
+  } else {
+    label.textContent = 'Summary';
+    text.textContent = p.summary;
+    inner.classList.remove('abstract-mode');
+    if (sumBtn) sumBtn.textContent = 'Summary ↑';
+  }
+  row.style.display = '';
+  expandedState = { id: p.id, type };
+}
+
+function _closeAll() {
+  document.querySelectorAll('.expand-row').forEach(r => r.style.display = 'none');
+  document.querySelectorAll('.expand-btn').forEach(b => b.textContent = 'Summary ↓');
+  document.querySelectorAll('.abstract-btn').forEach(b => b.textContent = 'Abstract ↓');
+  expandedState = null;
+}
+
+// Search
+document.getElementById('searchInput').addEventListener('input', renderTable);
+
+// Category filter dropdown
+document.getElementById('categoryFilter').addEventListener('change', function() {
+  activeCategory = this.value;
+  // Sync tabs
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.cat === activeCategory);
+  });
+  renderTable();
+});
+
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    activeCategory = this.dataset.cat;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('categoryFilter').value = activeCategory;
+    renderTable();
+  });
+});
+
+// Sort select
+document.getElementById('sortSelect').addEventListener('change', function() {
+  const [col, dir] = this.value.split('-');
+  currentSort = { col, dir };
+  updateSortIcons();
+  renderTable();
+});
+
+// Column header sort
+document.querySelectorAll('.works-table th.sortable').forEach(th => {
+  th.addEventListener('click', function() {
+    const col = this.dataset.col;
+    if (currentSort.col === col) {
+      currentSort.dir = currentSort.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+      currentSort = { col, dir: col === 'year' ? 'desc' : 'asc' };
+    }
+    // Sync dropdown
+    const selVal = `${currentSort.col}-${currentSort.dir}`;
+    const sel = document.getElementById('sortSelect');
+    if ([...sel.options].some(o => o.value === selVal)) sel.value = selVal;
+    updateSortIcons();
+    renderTable();
+  });
+});
+
+function updateSortIcons() {
+  ['title', 'year', 'journal'].forEach(col => {
+    const icon = document.getElementById('icon-' + col);
+    if (!icon) return;
+    if (currentSort.col === col) {
+      icon.textContent = currentSort.dir === 'asc' ? '↑' : '↓';
+      icon.classList.add('active');
+    } else {
+      icon.textContent = '↕';
+      icon.classList.remove('active');
+    }
+  });
+}
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const fields = ['firstName', 'lastName', 'email', 'message'];
+  let valid = true;
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.style.borderColor = '#ef4444'; valid = false; }
+    else el.style.borderColor = '';
+  });
+  if (!valid) return;
+  document.getElementById('formSuccess').style.display = 'block';
+  this.reset();
+  setTimeout(() => { document.getElementById('formSuccess').style.display = 'none'; }, 6000);
+});
+
+// Init
+updateSortIcons();
+renderTable();
+</script>
+</body>
+</html>
