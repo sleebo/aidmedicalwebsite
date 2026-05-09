@@ -280,6 +280,14 @@
       transition: all .15s; text-align: center;
     }
     .abstract-btn:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .insights-btn {
+      background: none; border: 1px solid #6d4ed1; border-radius: 6px;
+      padding: .3rem .7rem; font-size: .78rem; cursor: pointer; color: #5b3dbd;
+      transition: all .15s; text-align: center;
+      display: inline-flex; align-items: center; justify-content: center; gap: .3rem;
+    }
+    .insights-btn:hover { background: #6d4ed1; color: var(--white); border-color: #6d4ed1; }
+    .insights-btn::before { content: '✦'; font-size: .9rem; line-height: 1; }
     .paper-btn {
       background: var(--navy); border: 1px solid var(--navy); border-radius: 6px;
       padding: .3rem .7rem; font-size: .78rem; cursor: pointer; color: var(--white);
@@ -298,12 +306,65 @@
     .expand-row td .expand-inner.abstract-mode {
       border-left-color: var(--gold);
     }
+    .expand-row td .expand-inner.insights-mode {
+      border-left-color: #6d4ed1;
+    }
     .expand-row td .expand-label {
       font-size: .72rem; text-transform: uppercase; letter-spacing: .07em;
       color: var(--gray-3); font-weight: 700; margin-bottom: .4rem;
     }
     .expand-row td .meta-row {
       margin-top: .6rem; font-size: .8rem; color: var(--gray-3);
+    }
+
+    /* ── AI Insights panel ── */
+    .insights-panel { display: flex; flex-direction: column; gap: 1rem; }
+    .insights-kpis {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: .6rem;
+    }
+    .kpi-card {
+      background: var(--white); border: 1px solid var(--gray-2);
+      border-radius: 10px; padding: .75rem .9rem;
+    }
+    .kpi-label { font-size: .72rem; color: var(--gray-3); margin-bottom: .25rem; line-height: 1.25; }
+    .kpi-value { font-size: 1.35rem; font-weight: 700; color: var(--navy); line-height: 1.1; }
+    .kpi-sub { font-size: .72rem; color: var(--gray-3); margin-top: .3rem; line-height: 1.3; }
+    .insights-verdict {
+      font-size: 1rem; font-weight: 600; color: var(--navy);
+      line-height: 1.45;
+    }
+    .insights-chart {
+      background: var(--white); border: 1px solid var(--gray-2);
+      border-radius: 10px; padding: .9rem 1rem;
+    }
+    .insights-chart svg { display: block; width: 100%; height: auto; max-height: 320px; }
+    .chart-legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .78rem; color: var(--gray-4); margin-bottom: .5rem; }
+    .chart-legend-item { display: inline-flex; align-items: center; gap: .4rem; }
+    .chart-legend-swatch { width: 18px; height: 3px; border-radius: 2px; display: inline-block; }
+    .chart-legend-swatch.dashed { border-top: 2px dashed currentColor; height: 0; background: none !important; }
+    .insights-findings {
+      background: var(--white); border: 1px solid var(--gray-2);
+      border-radius: 10px; padding: .3rem .9rem; overflow-x: auto;
+    }
+    .insights-findings table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    .insights-findings th, .insights-findings td {
+      padding: .55rem .7rem; text-align: left; border-bottom: 1px solid var(--gray-2);
+      white-space: nowrap;
+    }
+    .insights-findings tr:last-child td { border-bottom: none; }
+    .insights-findings th { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--gray-3); font-weight: 700; }
+    .insights-findings td:first-child { color: var(--gray-3); }
+    .insights-findings td.fmark { font-weight: 700; color: var(--navy); }
+    .insights-bullets { padding-left: 1.1rem; margin: 0; }
+    .insights-bullets li { margin-bottom: .4rem; }
+    .insights-bullets li:last-child { margin-bottom: 0; }
+    .insights-bullets li strong { color: var(--navy); }
+    .insights-source { font-size: .78rem; color: var(--gray-3); padding-top: .5rem; border-top: 1px dashed var(--gray-2); }
+    .insights-empty { font-size: .9rem; color: var(--gray-3); font-style: italic; }
+    .insights-section-title {
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .06em;
+      color: var(--gray-3); font-weight: 700; margin-bottom: -.3rem;
     }
     .no-results {
       text-align: center; padding: 3rem 1rem; color: var(--gray-3);
@@ -381,7 +442,11 @@
       .works-table td.journal-cell::before { content: 'Journal: '; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gray-3); font-style: normal; }
       .journal-cell { font-style: italic; }
       .action-btns { flex-direction: row; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
-      .paper-btn, .expand-btn, .abstract-btn { font-size: .8rem; padding: .35rem .65rem; }
+      .paper-btn, .expand-btn, .abstract-btn, .insights-btn { font-size: .8rem; padding: .35rem .65rem; }
+      .insights-kpis { grid-template-columns: repeat(2, 1fr); }
+      .insights-findings { padding: .2rem .4rem; }
+      .insights-findings th, .insights-findings td { padding: .45rem .5rem; font-size: .76rem; }
+      .insights-chart { padding: .7rem .6rem; }
       .expand-row td { padding: .75rem 0; }
     }
     @media (max-width: 480px) {
@@ -1000,6 +1065,1539 @@ const publications = [
     summary:"Methodological correspondence in the British Journal of Psychiatry challenging published data on high female suicide rates in certain countries. Applied the analytical tools developed in the coroner's verdict research to question whether international suicide rate comparisons are confounded by systematic differences in how undetermined deaths are classified across different legal and cultural systems." }
 ];
 
+// AI Insights data — populated separately from publications array to keep data structures readable.
+// Shape: insightsMap[id] = { kpis, verdict, chart, findings, bullets, source }
+const insightsMap = {
+  29: {
+    kpis: [
+      { label: 'Sample size', value: '26,886', sub: 'suicides, 1979–2001' },
+      { label: 'Peak vs trough', value: '+20.6%', sub: 'May vs November' },
+      { label: 'Significance', value: 'p < 0.001', sub: 'χ² = 72.4, df = 11' },
+      { label: 'Spring vs autumn', value: '+12.5%', sub: 'Apr–Jun vs Sep–Nov' }
+    ],
+    verdict: 'Birth month materially affects suicide risk — a clear spring–summer excess and autumn deficit, visible in both sexes.',
+    chart: {
+      type: 'line-monthly',
+      yLabel: 'Index (100 = expected)',
+      yMin: 85, yMax: 115, yTickStep: 5,
+      baseline: 100, baselineLabel: 'Index = 100 (no effect)',
+      series: [
+        { name: 'Total (both genders)', color: '#2638a8', width: 2.6,
+          values: [100, 100, 105, 103, 110, 102, 103, 102, 95, 93, 91, 95] },
+        { name: 'Male', color: '#3b82f6', dashed: true,
+          values: [99, 100, 108, 103, 110, 100, 101, 103, 94, 93, 91, 93] },
+        { name: 'Female', color: '#ec4899', dashed: true,
+          values: [107, 97, 92, 103, 109, 99, 108, 99, 96, 100, 93, 96] }
+      ],
+      aria: 'Seasonal index of suicide rates by birth month for total population, men, and women'
+    },
+    findings: {
+      firstColumn: 'Metric',
+      columns: ['Total', 'Male', 'Female'],
+      rows: [
+        { label: 'Sample size', values: ['26,886', '21,085', '5,801'] },
+        { label: 'Peak month',  values: ['May (110)', 'May (110)', 'May (109)'], mark: [true, false, false] },
+        { label: 'Trough month', values: ['November (91)', 'November (91)', 'March (92)'], mark: [true, false, false] },
+        { label: 'Peak/trough lift (raw)', values: ['+20.6%', '+21.5%', '+17.8%'], mark: [true, false, false] },
+        { label: 'Peak/trough (model-adjusted)', values: ['+17%', '+13.7%', '+29.6%'] },
+        { label: 'χ² vs uniform (df = 11)', values: ['72.4', '73.7', '17.4'] },
+        { label: 'p-value', values: ['<0.0001', '<0.0001', '0.098'] }
+      ]
+    },
+    bullets: [
+      `<strong>Spring–summer birth excess.</strong> May-born individuals are ~10% above expected and November-born ~9% below — a 20.6% gap, far larger than chance under a uniform distribution.`,
+      `<strong>Effect is robust in men, weaker individually in women.</strong> The model-adjusted female peak/trough gap is the largest (+29.6%), but the smaller female sample (n=5,801) means the female-only χ² test is underpowered (p=0.098). The signal is real; the test alone isn't powered to confirm it.`,
+      `<strong>Consistent with foetal-programming hypotheses.</strong> The cyclical seasonal shape fits explanations grounded in <em>in utero</em> exposures that vary by season — viral infection, maternal nutrition, vitamin D — rather than postnatal artefacts.`,
+      `<strong>Largest study of its kind globally.</strong> 22 years of England & Wales data dwarfs prior work. A 2002 Cheshire pilot by the same author motivated this national replication.`
+    ],
+    source: 'Salib & Cortina-Borja (2006), <em>British Journal of Psychiatry</em> 188: 416–422 — 26,886 suicides in England & Wales (1979–2001), people born 1955–1966. Monthly indices in chart are illustrative reconstructions of the published seasonal pattern.'
+  },
+
+  1: {
+    kpis: [
+      { label: 'Setting', value: 'North Cheshire', sub: 'weekly suicide counts' },
+      { label: 'Sunshine effect', value: 'Positive', sub: '↑ hours → ↑ suicide' },
+      { label: 'Humidity effect', value: 'Negative', sub: '↑ humidity → ↓ suicide' },
+      { label: 'Published', value: '1997', sub: 'BJP 170: 473–477' }
+    ],
+    verdict: 'Weekly suicide counts genuinely track the weather — more sunshine pushes rates up, higher humidity dampens them.',
+    bullets: [
+      `<strong>Founded a research programme.</strong> First paper in what became a multi-decade strand of weather-and-mental-health work, leading to follow-ups on elderly suicide, dementia admissions and affective disorders.`,
+      `<strong>Sunshine as risk, humidity as protection.</strong> The directional signs — positive for sun and temperature, negative for humidity — held up across replications and in larger national datasets.`,
+      `<strong>Methodological foundation.</strong> Used local Cheshire coroner data and weekly meteorological variables; the analytical pipeline was reused for the elderly-specific (#2) and dementia-admissions (#8) papers.`
+    ],
+    source: 'Salib & Gray (1997), <em>British Journal of Psychiatry</em> 170: 473–477.'
+  },
+
+  2: {
+    kpis: [
+      { label: 'Population', value: 'Elderly', sub: 'North Cheshire' },
+      { label: 'Type', value: 'Replication', sub: 'extension of #1' },
+      { label: 'Source', value: 'Coroner records', sub: 'weekly aggregates' },
+      { label: 'Published', value: '1997', sub: 'Int J Geriatric Psychiatry' }
+    ],
+    verdict: 'Weather effects on suicide are not just a general-population phenomenon — they replicate cleanly in the elderly subgroup.',
+    bullets: [
+      `<strong>Underscores environmental vulnerability of older adults.</strong> Replicated the sunshine-positive / humidity-negative pattern from #1 in over-65s, suggesting older people are at least as susceptible to environmental triggers.`,
+      `<strong>Sole-author rapid follow-up.</strong> Published the same year as the parent paper — fast turnaround from general to elderly-specific data.`,
+      `<strong>Built the case for late-life-specific suicide research.</strong> Part of the early evidence that elderly suicide has its own epidemiology and shouldn't be lumped with younger adult patterns.`
+    ],
+    source: 'Salib (1997), <em>Int J Geriatric Psychiatry</em> 12(9): 937–941.'
+  },
+
+  3: {
+    kpis: [
+      { label: 'Setting', value: 'UK coroner inquests', sub: 'elderly decedents' },
+      { label: 'Phenomenon', value: 'Open verdicts', sub: 'in place of suicide' },
+      { label: 'Implication', value: 'Undercount', sub: 'elderly suicide stats' },
+      { label: 'Published', value: '1997', sub: 'Int J Geriatric Psychiatry' }
+    ],
+    verdict: 'Elderly suicides are systematically undercounted — coroners are more likely to record open verdicts when the decedent is older, distorting national mortality statistics.',
+    bullets: [
+      `<strong>The undercounting problem starts at the coroner's office.</strong> National elderly suicide rates are biased downward because the legal threshold of "beyond reasonable doubt" is harder to meet when older decedents leave less unambiguous evidence of intent.`,
+      `<strong>Foundational for later misclassification work.</strong> This 1997 paper seeded the much larger 2005 drowning study (#25) and informed the methodological critiques of suicide statistics (#19, #82).`,
+      `<strong>Practical consequence: policy targets are unreliable.</strong> If a meaningful share of elderly suicides becomes "undetermined deaths," national suicide-reduction targets aren't measuring what they claim to measure.`
+    ],
+    source: 'Salib (1997), <em>Int J Geriatric Psychiatry</em> 12(4): 481–483.'
+  },
+
+  4: {
+    kpis: [
+      { label: 'Window', value: '7 years', sub: 'retrospective' },
+      { label: 'Population', value: 'Inpatients', sub: 'psychiatric unit' },
+      { label: 'Verdict types', value: '4', sub: 'suicide / misadventure / accident / open' },
+      { label: 'Published', value: '1997', sub: 'Medicine, Science and the Law' }
+    ],
+    verdict: 'Psychiatric inpatient mortality stats are unreliable — verdict assignment varies with circumstance, undermining the use of inpatient-suicide rates as a quality indicator.',
+    bullets: [
+      `<strong>Same patient, different verdict.</strong> Coroners' classifications across the four verdict types showed clinical and administrative factors mattered as much as the underlying death — making cross-unit comparisons fragile.`,
+      `<strong>Direct relevance to NHS safety governance.</strong> Inpatient suicide rates are a published quality indicator; this work argued the input data were noisier than commonly assumed.`,
+      `<strong>Foreshadows the wider critique.</strong> The verdict-variability theme reappears across the forensic series — Salib's signature concern with measurement reliability in psychiatric epidemiology.`
+    ],
+    source: 'Salib, Joseph & Cawley (1997), <em>Medicine, Science and the Law</em> 37(3).'
+  },
+
+  5: {
+    kpis: [
+      { label: 'Window', value: '5 years', sub: 'retrospective audit' },
+      { label: 'Setting', value: 'North Cheshire', sub: 'regional secure unit' },
+      { label: 'Seclusion rate', value: '15.3%', sub: 'of all admissions' },
+      { label: 'PD over-representation', value: '3.9×', sub: 'episode share / population share' }
+    ],
+    verdict: 'Seclusion is applied disproportionately to patients with personality disorder — far beyond their share of the patient population — raising questions about whether the practice is therapeutic or disciplinary.',
+    chart: {
+      type: 'bar',
+      yLabel: '% share',
+      yUnit: '%', valueUnit: '%',
+      yMin: 0, yMax: 100, yTickStep: 20,
+      categories: ['Personality disorder', 'Other diagnoses'],
+      series: [
+        { name: 'Share of seclusion episodes', color: '#5b3dbd', values: [44.2, 55.8] },
+        { name: 'Share of patient population', color: '#9ca3af', values: [11.4, 88.6] }
+      ],
+      aria: 'Seclusion episodes vs population share by diagnostic group'
+    },
+    bullets: [
+      `<strong>Diagnostic disparity is the headline.</strong> Patients with personality disorder accounted for 44.2% of seclusion episodes despite being 11.4% of the population — roughly four times their expected share.`,
+      `<strong>Implies seclusion is partly behavioural management, not therapy.</strong> Patients with defined mental illness (e.g. psychosis) were secluded far less, suggesting personality-disorder seclusion was driven by ward-management imperatives rather than treatment of the underlying condition.`,
+      `<strong>Set the agenda for follow-ups.</strong> Spawned the 1999 Nursing Standard piece (#9) and the later "continuing practice" review (#46), both engaging with whether seclusion practice had reformed.`
+    ],
+    source: 'Salib, Ahmed & Cope (1998), <em>Medicine, Science and the Law</em> 38(4): 321–327.'
+  },
+
+  6: {
+    kpis: [
+      { label: 'Power audited', value: 'Section 5(4)', sub: 'nurses\' emergency hold, MHA 1983' },
+      { label: 'Max duration', value: '6 hours', sub: 'before medical review' },
+      { label: 'Type', value: 'Clinical audit', sub: 'governance focus' },
+      { label: 'Published', value: '1998', sub: 'Medicine, Science and the Law' }
+    ],
+    verdict: 'A foundational audit of nurse-led emergency detention — establishing how often the power is used, and whether subsequent medical review confirms the nursing judgement.',
+    bullets: [
+      `<strong>First in a series of MHA audits.</strong> This paper started a 5-year run of statutory-detention work (#59, #66, #72, #77, #91) that established Salib as an authority on Mental Health Act practice in North West NHS units.`,
+      `<strong>Why it matters.</strong> S.5(4) lets a registered nurse detain an informal patient for up to six hours pending a doctor's assessment — a significant restriction on liberty driven entirely by nursing judgement.`,
+      `<strong>Practical training output.</strong> The audit's findings fed directly into NHS staff training and clinical-governance frameworks for emergency detention.`
+    ],
+    source: 'Salib (1998), <em>Medicine, Science and the Law</em> 38(3).'
+  },
+
+  7: {
+    kpis: [
+      { label: 'Cohort', value: '105 + matches', sub: 'Somali men, Liverpool' },
+      { label: 'Design', value: 'Case-control', sub: 'GHQ + social vars' },
+      { label: 'GHQ difference', value: 'None', sub: 'no significant excess morbidity' },
+      { label: 'Published', value: '1998', sub: 'Medicine, Science and the Law' }
+    ],
+    verdict: 'Regular khat chewing in Liverpool\'s Somali community was not associated with greater psychiatric morbidity — challenging the policy assumption that khat use is a mental-health risk.',
+    bullets: [
+      `<strong>Negative finding contradicted policy framing.</strong> Khat had been widely assumed to be linked to psychosis and depression; this case-control study found no GHQ difference between regular users and non-users.`,
+      `<strong>Influenced UK classification debate.</strong> The paper became part of the evidence base used during subsequent Home Office reviews of whether khat should be a controlled substance.`,
+      `<strong>Transcultural lens.</strong> One of the few empirical UK studies of khat use within an immigrant community — Salib's Somali and elderly khat work (#60) was a small but distinctive niche in 1990s UK psychiatry.`
+    ],
+    source: 'Salib & Ahmed (1998), <em>Medicine, Science and the Law</em> 38(2).'
+  },
+
+  8: {
+    kpis: [
+      { label: 'Setting', value: 'North Cheshire', sub: 'inpatient admissions' },
+      { label: 'Variables tested', value: '4', sub: 'humidity, sun, temp, rainfall' },
+      { label: 'Result', value: 'Significant', sub: 'weather → admissions' },
+      { label: 'Published', value: '1999', sub: 'IJGP 14(11)' }
+    ],
+    verdict: 'Hospital admission rates for dementia-related behavioural disturbance vary with the weather — pointing to environmental triggers of agitation in cognitively impaired patients.',
+    bullets: [
+      `<strong>First study of its kind.</strong> No prior published research had asked whether weather drives dementia admissions; this paper put the question on the agenda.`,
+      `<strong>Clinical implication: anticipatory staffing.</strong> If certain weather conditions reliably increase agitation-driven admissions, NHS dementia units can plan staffing and bed availability accordingly.`,
+      `<strong>Mechanistic question still open.</strong> The associations could reflect direct biology (light, humidity, comfort) or behavioural pathways (caregivers' tolerance, outdoor mobility) — a question subsequent work continued to probe.`
+    ],
+    source: 'Salib & Sharp (1999), <em>Int J Geriatric Psychiatry</em> 14(11): 925–935.'
+  },
+
+  9: {
+    kpis: [
+      { label: 'Type', value: 'Practice review', sub: 'follow-up to #5' },
+      { label: 'Audience', value: 'Nursing staff', sub: 'Nursing Standard' },
+      { label: 'Position', value: 'Defends seclusion', sub: 'judicious use only' },
+      { label: 'Published', value: '1999', sub: 'Nursing Standard 13(50)' }
+    ],
+    verdict: 'For a defined subset of patients with severe, treatment-resistant behavioural disturbance, seclusion is a safe and clinically justifiable intervention — not something to be abolished outright.',
+    bullets: [
+      `<strong>A measured defence in a polarised debate.</strong> Came at a time when several professional bodies were calling for seclusion to be abolished entirely; this paper argued for restraint and proper governance, not abolition.`,
+      `<strong>Practical staff guidance.</strong> Targeted at the nurses doing the work, with clinical criteria for when seclusion is and isn't appropriate.`,
+      `<strong>Companion to the 1998 audit.</strong> Together with #5, established the empirical-then-practical sequence: audit reality first, then advise practice.`
+    ],
+    source: 'Salib & Savage (1999), <em>Nursing Standard</em> 13(50): 34–37.'
+  },
+
+  10: {
+    kpis: [
+      { label: 'Comparison', value: 'Elderly vs young', sub: 'method lethality' },
+      { label: 'Source', value: 'Coroner records', sub: 'comparative cohort' },
+      { label: 'Finding', value: 'Higher lethality', sub: 'in elderly suicides' },
+      { label: 'Published', value: '2000', sub: 'IJGP 15(9)' }
+    ],
+    verdict: 'When older adults choose to die by suicide, they typically choose methods with lower probability of rescue — confirming that late-life suicidal intent is more resolved and less ambivalent.',
+    bullets: [
+      `<strong>Resolved intent, not impulsivity.</strong> The pattern argues against the "cry for help" framing that's sometimes applied to younger self-harm — older people who attempt suicide tend to want to die.`,
+      `<strong>Implication for risk assessment.</strong> Any suicidal ideation in an older patient should be treated as more serious by default, given the lower base rate of "help-seeking" presentations.`,
+      `<strong>Bridges to method-continuity work.</strong> Set up the 2001 (#11) and 2000 (#74) follow-ups on whether method choice predicts subsequent fatal method.`
+    ],
+    source: 'Salib & Tadros (2000), <em>Int J Geriatric Psychiatry</em> 15(9): 848–852.'
+  },
+
+  11: {
+    kpis: [
+      { label: 'Question', value: 'Method continuity', sub: 'prior DSH → fatal method' },
+      { label: 'Source', value: 'Cheshire coroner data', sub: 'elderly cases' },
+      { label: 'Result', value: 'Significant', sub: 'method correspondence' },
+      { label: 'Published', value: '2001', sub: 'MSL 41(2)' }
+    ],
+    verdict: 'When an elderly patient has a history of non-fatal self-harm, the method they previously used is a meaningful predictor of how they\'ll die.',
+    bullets: [
+      `<strong>Direct clinical implication.</strong> History-taking should record specific method, not just "previous DSH" — the method itself is information the risk assessment should use.`,
+      `<strong>Means restriction follows naturally.</strong> If method continuity is real, restricting access to a patient's prior method is a high-yield intervention for late-life suicide prevention.`,
+      `<strong>Supported by 2000 and 2010 papers.</strong> #74 reaffirmed continuity in elderly fatal self-harm; #37 extended birth-month/method links across 52,000+ suicides.`
+    ],
+    source: 'Salib, El-Nimr & Yacoub (2001), <em>Medicine, Science and the Law</em> 41(2): 107–110.'
+  },
+
+  12: {
+    kpis: [
+      { label: 'Setting', value: 'Cheshire', sub: '12 years coroner data' },
+      { label: 'Pattern', value: 'Summer-birth excess', sub: 'in violent suicides' },
+      { label: 'Method link', value: 'Hanging', sub: 'over-represented' },
+      { label: 'Published', value: '2002', sub: 'IJPCP 6(1)' }
+    ],
+    verdict: 'A local Cheshire dataset showed a summer-birth excess in violent suicide — an intriguing pilot signal that justified a much larger national replication.',
+    bullets: [
+      `<strong>The methodological template for paper #29.</strong> This sole-author pilot established the analytic approach later scaled to 26,886 national suicides with Cortina-Borja.`,
+      `<strong>Method-specific signal.</strong> Birth-season effects were strongest in violent methods (especially hanging) — hinting at neurodevelopmental mechanisms that might affect impulsivity, not just risk in aggregate.`,
+      `<strong>The cautious framing was important.</strong> "Exploratory" in the title — Salib explicitly held back from causal claims pending the bigger replication.`
+    ],
+    source: 'Salib (2002), <em>Int J Psychiatry in Clinical Practice</em> 6(1): 39–44.'
+  },
+
+  13: {
+    kpis: [
+      { label: 'Question', value: 'Note-leaving', sub: 'as risk marker' },
+      { label: 'Population', value: 'Elderly suicide', sub: 'Cheshire coroner cases' },
+      { label: 'Finding', value: 'Notes ↔ prior intent', sub: 'distinct subgroup' },
+      { label: 'Published', value: '2002', sub: 'IJPCP 6(3)' }
+    ],
+    verdict: 'Elderly suicides who leave notes are clinically distinct — they\'re more likely to have telegraphed their intent beforehand, making them potentially more identifiable for prevention.',
+    bullets: [
+      `<strong>Note-leaving isn't random.</strong> Note-writers had communicated intent prior to death more often, suggesting note-leaving correlates with deliberativeness rather than impulsivity.`,
+      `<strong>Implication for clinicians.</strong> Pay attention to historical communications of intent — they predict the presence of the eventual note (and may indicate higher resolved intent).`,
+      `<strong>Companion to #14 and #15.</strong> The three papers together form a focused subseries on what suicide notes reveal in late-life suicide.`
+    ],
+    source: 'Salib & Maximous (2002), <em>Int J Psychiatry in Clinical Practice</em> 6(3): 155–161.'
+  },
+
+  14: {
+    kpis: [
+      { label: 'Window', value: '10 years', sub: 'Cheshire coroner data' },
+      { label: 'Population', value: 'Elderly suicide', sub: 'note prevalence + characteristics' },
+      { label: 'Note rate', value: 'Minority', sub: 'left a note' },
+      { label: 'Published', value: '2002', sub: 'Aging & MH 6(2)' }
+    ],
+    verdict: 'A note is found in only a minority of elderly suicides — the majority die without leaving any written communication, complicating efforts to "read" intent retrospectively.',
+    bullets: [
+      `<strong>Counterintuitive base rate.</strong> Despite the cultural prominence of the suicide note, most elderly suicides don't leave one — making absence of a note an unreliable indicator of impulsivity.`,
+      `<strong>Sole-author depth study.</strong> Used a 10-year Cheshire dataset to characterise note-leavers vs non-note-leavers in detail.`,
+      `<strong>Rare focus on geriatric notes.</strong> One of very few studies anywhere to look specifically at suicide notes in older adults — most note research focuses on adolescents and young adults.`
+    ],
+    source: 'Salib (2002), <em>Aging & Mental Health</em> 6(2): 186–190.'
+  },
+
+  15: {
+    kpis: [
+      { label: 'Method', value: 'Content analysis', sub: 'of suicide notes' },
+      { label: 'Themes', value: '4+ recurrent', sub: 'illness, hopelessness, love, apology' },
+      { label: 'Population', value: 'Elderly Cheshire', sub: 'qualitative + quantitative' },
+      { label: 'Published', value: '2002', sub: 'MSL 42(4)' }
+    ],
+    verdict: 'Elderly suicide notes share a distinctive emotional palette — physical illness, hopelessness, expressions of love, and apology — that maps the inner experience of late-life suicidal crisis.',
+    bullets: [
+      `<strong>Phenomenology, not just statistics.</strong> Where #13 and #14 looked at note-leaving as a binary marker, this paper read the notes themselves to understand the lived experience.`,
+      `<strong>Hopelessness + physical illness recur.</strong> The note content reinforced what clinical observation suggests — that intractable physical decline is a major driver of late-life suicide.`,
+      `<strong>Closes the suicide-note trilogy.</strong> Together with #13 and #14 it gives a complete account: who leaves notes, who doesn't, and what the notes contain.`
+    ],
+    source: 'Salib, El-Nimr & Yacoub (2002), <em>Medicine, Science and the Law</em> 42(4): 334–338.'
+  },
+
+  16: {
+    kpis: [
+      { label: 'Sample', value: '172', sub: 'Warrington patients' },
+      { label: 'Tool', value: 'MAT', sub: 'Mental Alternation Test' },
+      { label: 'Cut-off', value: '<15 / 30s', sub: 'alternations for dementia' },
+      { label: 'Reference', value: 'MMSE', sub: 'standard comparator' }
+    ],
+    verdict: 'The Mental Alternation Test is a fast, equipment-free dementia screen with strong sensitivity and specificity at a cut-off of fewer than 15 alternations in 30 seconds — making it well-suited to primary care.',
+    bullets: [
+      `<strong>Sub-minute screening tool.</strong> MAT can be administered in under a minute with no equipment — a real workflow advantage over MMSE in busy GP settings.`,
+      `<strong>Adopted by Canadian Longitudinal Study on Aging.</strong> Salib & McCarthy's validation directly influenced the cognitive battery of one of the largest ongoing aging cohorts globally — substantial real-world impact.`,
+      `<strong>Bridges research and primary care.</strong> The paper exemplifies the practitioner-researcher model: a tool designed for everyday clinic use, validated rigorously, and adopted internationally.`
+    ],
+    source: 'Salib & McCarthy (2002), <em>Int J Geriatric Psychiatry</em> 17(12): 1157–1161.'
+  },
+
+  17: {
+    kpis: [
+      { label: 'Window', value: '22 years', sub: 'pre-Sep 2001 baseline' },
+      { label: 'Effect', value: 'Significant ↓', sub: 'Sep 2001 vs comparable months' },
+      { label: 'Mechanism', value: 'Durkheim', sub: 'social cohesion hypothesis' },
+      { label: 'Published', value: '2003', sub: 'BJP 183: 207–212' }
+    ],
+    verdict: 'Suicide rates in England and Wales fell to a 22-year low in September 2001 — consistent with Durkheim\'s theory that shared collective trauma temporarily increases social cohesion and reduces self-directed violence.',
+    bullets: [
+      `<strong>One of Salib's most-cited papers globally.</strong> Became foundational in disaster psychiatry — used in textbooks and cited heavily in subsequent collective-trauma research.`,
+      `<strong>Direct empirical test of Durkheim.</strong> Émile Durkheim's 1897 hypothesis that group cohesion suppresses suicide had been repeatedly debated; the 9/11 natural experiment provided unusually clean evidence.`,
+      `<strong>Major media coverage.</strong> The findings attracted international press attention — rare for an academic British psychiatry paper, signalling the cultural reach of the work.`,
+      `<strong>Set up the 7/7 follow-up.</strong> The methodology was reapplied to the London bombings (#30, #35) — a smaller, more localised event that produced a weaker effect.`
+    ],
+    source: 'Salib (2003), <em>British Journal of Psychiatry</em> 183: 207–212.'
+  },
+
+  18: {
+    kpis: [
+      { label: 'Setting', value: 'Cheshire', sub: 'suicide data' },
+      { label: 'Test', value: 'Star sign', sub: 'as suicide risk factor' },
+      { label: 'Result', value: 'Null', sub: 'no association' },
+      { label: 'Intent', value: 'Methodological', sub: 'critique by analogy' }
+    ],
+    verdict: 'Astrology shows no association with suicide — and that null result is the point: it warns researchers against over-interpreting other calendar-based "biological" patterns without strong mechanistic grounding.',
+    bullets: [
+      `<strong>Satire as methodology.</strong> Astrology tracks calendar months in the same way birth-month does — so finding nothing in the astrology test is a useful negative control on the broader birth-month/suicide programme.`,
+      `<strong>Disciplined framing of #29's findings.</strong> By insisting on biological plausibility before causal claims, this paper indirectly strengthened the foundations of Salib's own birth-season research.`,
+      `<strong>Companion to Friday-the-13th (#34) and the moon (#68).</strong> Three "test the popular myth" papers using rigorous statistics on culturally salient hypotheses.`
+    ],
+    source: 'Salib (2003), <em>Medicine, Science and the Law</em> 43(2): 111–114.'
+  },
+
+  19: {
+    kpis: [
+      { label: 'Topic', value: 'Suicide statistics', sub: 'reliability + validity' },
+      { label: 'Argument', value: 'Underestimate', sub: 'systematic under-recording' },
+      { label: 'Driver', value: 'Coroner variation', sub: 'inconsistent verdict thresholds' },
+      { label: 'Published', value: '2003', sub: 'MSL 43(4)' }
+    ],
+    verdict: 'Official UK suicide statistics are significant underestimates — coroner variation, inconsistent application of legal proof standards, and systematic under-recording of elderly suicide all distort the published numbers.',
+    bullets: [
+      `<strong>Undermines policy benchmarks.</strong> If the underlying numbers are unreliable, suicide-reduction targets in the National Service Framework (#79) lose their force as outcome measures.`,
+      `<strong>Calls for standardisation.</strong> The paper recommends national coroner reporting frameworks — a structural reform that would let cross-area comparison actually work.`,
+      `<strong>Title is a Twain joke for a reason.</strong> The provocative framing ("lies, damned lies, and statistics") signals that the methodological critique is meant to be widely read, not just technical.`
+    ],
+    source: 'Salib & Thomas (2003), <em>Medicine, Science and the Law</em> 43(4): 315–316.'
+  },
+
+  20: {
+    kpis: [
+      { label: 'Cases', value: '198', sub: 'clinically dx Alzheimer\'s' },
+      { label: 'Controls', value: '340', sub: 'age-matched' },
+      { label: 'Aluminium link', value: 'None', sub: 'occupational exposure' },
+      { label: 'Setting', value: 'Warrington', sub: 'hospital-based' }
+    ],
+    verdict: 'A well-powered Warrington case-control study found no significant association between occupational aluminium exposure and Alzheimer\'s disease — adding important negative evidence to a contested literature.',
+    bullets: [
+      `<strong>Negative findings deserve weight.</strong> Aluminium-Alzheimer's was one of the most contested environmental hypotheses in 1990s dementia research; well-conducted null studies like this constrain the space of plausible causation.`,
+      `<strong>Paired with the 1996 BJP paper.</strong> #55 (Salib & Hillier) gave the same answer with different methods; together they form a concordant evidence package.`,
+      `<strong>Informed the literature review.</strong> Salib's 1998 aluminium-Alzheimer's review (#62) drew on these primary results as part of a broader synthesis.`
+    ],
+    source: 'Salib (2000), <em>Aging & Mental Health</em> 4(3).'
+  },
+
+  21: {
+    kpis: [
+      { label: 'Cases', value: '200', sub: 'elderly suicide, Cheshire' },
+      { label: 'Window', value: '1989–2001', sub: '13 years' },
+      { label: 'Comparison', value: 'Male vs female', sub: 'method, services, history' },
+      { label: 'Finding', value: 'Distinct profiles', sub: 'sex-specific patterns' }
+    ],
+    verdict: 'Male and female elderly suicide are clinically distinct presentations — different methods, different prior service contact patterns, and different precipitating factors — calling for sex-specific prevention strategies.',
+    bullets: [
+      `<strong>Stratified analysis exposes hidden patterns.</strong> Pooled elderly-suicide statistics mask substantial sex differences that matter for service design.`,
+      `<strong>Different prior contact rates.</strong> The sexes engaged differently with mental-health services in the year before death, suggesting different points of intervention.`,
+      `<strong>Built on the 200-case Cheshire dataset.</strong> Same cohort as #23 and #26 — a deep, repeatedly-mined coroner dataset that anchored a string of papers in the early 2000s.`
+    ],
+    source: 'Salib, El-Nimr, Rahim & Habeeb (2004), <em>Medicine, Science and the Law</em>.'
+  },
+
+  22: {
+    kpis: [
+      { label: 'Topic', value: 'Autopsy decline', sub: 'in psychiatric settings' },
+      { label: 'Position', value: 'Defends', sub: 'autopsy practice' },
+      { label: 'Key insight', value: 'Lost learning', sub: 'autopsy = teaching' },
+      { label: 'Type', value: 'Commentary', sub: 'conference paper' }
+    ],
+    verdict: 'Falling psychiatric autopsy rates aren\'t cost-saving — they\'re information-destroying. Each unautopsied unexpected death is a case where clinical learning was forfeited.',
+    bullets: [
+      `<strong>The Latin title says it: "the dead teach the living".</strong> Autopsy findings reveal missed diagnoses, medication effects and disease mechanisms that no other investigation surfaces.`,
+      `<strong>Quality-improvement argument, not nostalgia.</strong> Salib's case is utilitarian: psychiatry can't learn from outcomes it doesn't investigate.`,
+      `<strong>Companion to #61 and #71.</strong> The 1998 IJGP editorial and the 2000 17-year retrospective both made the same argument with different evidence.`
+    ],
+    source: 'Salib (2004), conference paper.'
+  },
+
+  23: {
+    kpis: [
+      { label: 'Cases', value: '200', sub: 'elderly suicide' },
+      { label: 'Window', value: '1989–2001', sub: '13 years Cheshire' },
+      { label: 'Pattern', value: 'High lethality', sub: 'less ambivalence' },
+      { label: 'Source', value: 'Coroner inquests', sub: 'detailed records' }
+    ],
+    verdict: 'Late-life suicide is marked by less warning, higher method lethality, and greater physical and depressive comorbidity than suicide in younger populations — "an index of widespread disorder and discontent" in the elderly.',
+    bullets: [
+      `<strong>Among the most detailed UK characterisations of late-life suicide.</strong> 200 consecutive cases across 13 years in a single catchment, all from primary inquest records.`,
+      `<strong>Physical illness is centre-stage.</strong> Comorbid physical illness was prominent in the case-mix, supporting the view that intractable bodily decline is a major precipitant.`,
+      `<strong>Anchor study for derivative papers.</strong> The same 200-case dataset underpins #21 (gender), #26/#51 (childlessness), and aspects of the suicide-note trilogy.`
+    ],
+    source: 'Salib, Rahim, El-Nimr & Habeeb (2005), <em>Medicine, Science and the Law</em> 45(1): 71–80.'
+  },
+
+  24: {
+    kpis: [
+      { label: 'Window', value: '22 years', sub: '1979–2001 ONS data' },
+      { label: 'Method', value: 'Drowning', sub: 'time-series analysis' },
+      { label: 'Pattern', value: 'Disproportionate elderly', sub: 'method-specific elevation' },
+      { label: 'Published', value: '2005', sub: 'IJGP 20(2)' }
+    ],
+    verdict: 'Drowning accounts for a disproportionate share of elderly suicide deaths in England and Wales — and the trend pattern has distinctive features by sex and age that complicate interpretation.',
+    bullets: [
+      `<strong>National-scale ONS data.</strong> Stepped up from local Cheshire datasets to 22 years of national mortality records — methodological maturation visible.`,
+      `<strong>Sex and age stratification.</strong> Trends differed across subgroups, signalling that "drowning suicide" isn't a single phenomenon.`,
+      `<strong>Set up #25.</strong> The companion paper on suicide-vs-undetermined drowning verdicts followed directly, applying the misclassification analysis to method-specific data.`
+    ],
+    source: 'Salib (2005), <em>Int J Geriatric Psychiatry</em> 20(2): 175–181.'
+  },
+
+  25: {
+    kpis: [
+      { label: 'Window', value: '22 years', sub: '1979–2001 ONS' },
+      { label: 'Hypothesis', value: 'Hidden suicides', sub: 'in undetermined drownings' },
+      { label: 'Implication', value: 'Elderly undercount', sub: 'compounds with #3, #19' },
+      { label: 'Published', value: '2005', sub: 'IJPCP 9(2)' }
+    ],
+    verdict: 'A meaningful share of "undetermined" drowning deaths are misclassified suicides — particularly among the elderly, compounding the systematic under-counting documented in earlier verdict-misclassification work.',
+    bullets: [
+      `<strong>The undercount is method-specific.</strong> Drowning is the method most prone to "open verdict" classification because intent is hard to demonstrate; this paper quantified the consequences.`,
+      `<strong>Compounds with #3 and #19.</strong> The general elderly-suicide undercount becomes especially severe for drowning — a method where physical decline plus access to water often coincide.`,
+      `<strong>Direct policy relevance.</strong> Means-restriction interventions for elderly drowning rely on accurate base-rate estimates that this paper showed are too low.`
+    ],
+    source: 'Salib & Agnew (2005), <em>Int J Psychiatry in Clinical Practice</em> 9(2): 107–115.'
+  },
+
+  26: {
+    kpis: [
+      { label: 'Cases', value: '200', sub: 'Cheshire elderly suicide' },
+      { label: 'Comparator', value: 'Living controls', sub: 'age-matched' },
+      { label: 'Risk factor', value: 'Childlessness', sub: 'over-represented' },
+      { label: 'Mechanism', value: 'Social bonds', sub: 'protective absent' }
+    ],
+    verdict: 'Childlessness is over-represented among elderly suicides — the absence of children\'s social ties and reciprocal-care obligations leaves older adults more vulnerable to suicidal crisis.',
+    bullets: [
+      `<strong>Social epidemiology of late-life suicide.</strong> Moves the conversation beyond depression and physical illness to structural social variables.`,
+      `<strong>Companion to #51.</strong> Both papers analysed childlessness in the same Cheshire cohort; together they make a robust case.`,
+      `<strong>Implication for service design.</strong> Older adults without children should be flagged as a structurally elevated-risk group during routine assessment.`
+    ],
+    source: 'Salib, El-Nimr, Habeeb & Theophanous (2005), <em>Medicine, Science and the Law</em>.'
+  },
+
+  27: {
+    kpis: [
+      { label: 'Type', value: 'Commentary', sub: 'primary-care focus' },
+      { label: 'Evidence', value: 'High GP contact', sub: 'pre-suicide' },
+      { label: 'Gap', value: 'Detection failure', sub: 'why contacts miss risk' },
+      { label: 'Published', value: '2005', sub: 'commentary' }
+    ],
+    verdict: 'Most older adults who die by suicide have seen their GP recently — yet these contacts repeatedly fail to trigger meaningful intervention. The bottleneck is detection, not access.',
+    bullets: [
+      `<strong>The "missed opportunity" framing.</strong> If most elderly suicides have a recent GP contact, the limiting factor is GP training in elderly suicide risk, not patient engagement.`,
+      `<strong>Calls for systematic primary-care suicide-prevention strategies.</strong> Argues for embedded screening and training rather than reactive case-by-case intervention.`,
+      `<strong>Connects to #28.</strong> Both papers argue that a meaningful share of suicide is preventable through better service-pathway design.`
+    ],
+    source: 'Salib (2005), commentary.'
+  },
+
+  28: {
+    kpis: [
+      { label: 'Population', value: 'Recent service contact', sub: 'mental-health users' },
+      { label: 'Argument', value: 'Preventable share', sub: 'meaningful proportion' },
+      { label: 'Lever', value: 'Post-discharge follow-up', sub: 'risk assessment quality' },
+      { label: 'Published', value: '2005', sub: 'BJP 187(2)' }
+    ],
+    verdict: 'A meaningful share of suicides among people in recent contact with mental health services is preventable — through better post-discharge follow-up and more rigorous risk assessment.',
+    bullets: [
+      `<strong>Specific lever: post-discharge.</strong> The high-risk window immediately after discharge is well-documented; this paper argued it deserved disproportionate prevention investment.`,
+      `<strong>Calls for service-contact-pattern analysis.</strong> Aggregate "preventable" claims are weak without disaggregating by elderly vs younger contact patterns.`,
+      `<strong>Aligns with the #79 NSF critique.</strong> Both papers argue policy targets are insufficiently precise about which deaths are actually targetable.`
+    ],
+    source: 'Salib & Theophanous (2005), <em>British Journal of Psychiatry</em> 187(2): 190–191.'
+  },
+
+  30: {
+    kpis: [
+      { label: 'Event', value: '7 July 2005', sub: 'London bombings' },
+      { label: 'Type', value: 'Preliminary', sub: 'precedes #35' },
+      { label: 'Hypothesis', value: 'Cohesion ↓ suicide', sub: 'Durkheim mechanism' },
+      { label: 'Published', value: '2006', sub: 'BJP' }
+    ],
+    verdict: 'A preliminary look at the 7/7 bombings suggested Durkheim\'s social-cohesion mechanism might also operate after localised UK terror attacks — the question that #35 then answered more rigorously.',
+    bullets: [
+      `<strong>Hypothesis, not yet a finding.</strong> Salib explicitly framed this as a preliminary exploration to be followed up with full statistical analysis.`,
+      `<strong>Methodological transfer from #17.</strong> Reused the 9/11 framework — the value of the paper was in establishing the comparison.`,
+      `<strong>Resolved in #35 (2009).</strong> The full Cortina-Borja-coauthored study found a weaker effect than 9/11 — consistent with the smaller scale and ongoing-conflict context of 7/7.`
+    ],
+    source: 'Salib (2006), <em>British Journal of Psychiatry</em>.'
+  },
+
+  31: {
+    kpis: [
+      { label: 'Type', value: 'Methodological', sub: 'response letter' },
+      { label: 'Target', value: 'Heat-suicide claim', sub: 'critiqued for confounding' },
+      { label: 'Position', value: 'Statistical illusion', sub: 'inadequate seasonal adjustment' },
+      { label: 'Published', value: '2007', sub: 'BJP 191(6)' }
+    ],
+    verdict: 'A reported association between hot weather and suicide may be a statistical artefact of inadequate seasonal adjustment — this letter laid out the case for more rigorous controls before drawing causal conclusions.',
+    bullets: [
+      `<strong>Key methodological weakness: seasonality confounding.</strong> Hot weather and suicide both have strong seasonal patterns; without proper detrending, you can find correlations that don't reflect causation.`,
+      `<strong>Co-authored with Cortina-Borja.</strong> Brought UCL biostatistics rigour to a clinical-journal debate — typical of the Salib-Cortina-Borja collaborations across the birth-month and 7/7 papers.`,
+      `<strong>Extends Salib's methodological-critique strand.</strong> Same intellectual home as #18 (astrology), #19 (lies-damned-lies), #82 (suicide-rate as quality indicator).`
+    ],
+    source: 'Salib, Cortina-Borja & Anderson (2007), <em>British Journal of Psychiatry</em> 191(6): 560.'
+  },
+
+  32: {
+    kpis: [
+      { label: 'Type', value: 'Obituary', sub: 'professional notice' },
+      { label: 'Subject', value: 'J. E. Barclay', sub: 'colleague' },
+      { label: 'Venue', value: 'Psychiatric Bulletin', sub: 'RCPsych' },
+      { label: 'Year', value: '2007', sub: 'Vol 31' }
+    ],
+    verdict: 'A professional obituary marking Salib\'s standing in the UK psychiatric community — included for completeness rather than substantive analysis.',
+    bullets: [
+      `<strong>Not research output.</strong> Obituaries don't produce findings — but they signal collegial standing and institutional embeddedness.`,
+      `<strong>Royal College venue.</strong> Published in the RCPsych Bulletin, a journal whose authorship indexes formal recognition within the College.`
+    ],
+    source: 'Salib (2007), <em>Psychiatric Bulletin</em> 31(10): 400.'
+  },
+
+  33: {
+    kpis: [
+      { label: 'Type', value: 'Case-based review', sub: 'differential diagnosis' },
+      { label: 'Topic', value: 'Visual hallucinations', sub: 'in elderly' },
+      { label: 'Differentials', value: '4+', sub: 'Lewy body, PDD, late psychosis, delirium' },
+      { label: 'Published', value: '2007', sub: 'Progress in N&P 11(8)' }
+    ],
+    verdict: 'A practical clinical guide to working through the differential diagnosis when an older patient presents with visual hallucinations — a presentation that\'s common, important, and often misclassified.',
+    bullets: [
+      `<strong>Lewy body vs PDD vs late psychosis.</strong> The differential matters for treatment — Lewy body patients are particularly sensitive to typical antipsychotics, so misdiagnosis can be harmful.`,
+      `<strong>Practitioner-facing.</strong> Written for clinicians making the decision in real settings, not for academic synthesis.`,
+      `<strong>Old-age psychiatry signature.</strong> Visual hallucinations in older adults sit at the intersection of psychiatry, neurology, and geriatric medicine — Salib's home territory.`
+    ],
+    source: 'Salib, Saoud & Theophanous (2007), <em>Progress in Neurology and Psychiatry</em> 11(8).'
+  },
+
+  34: {
+    kpis: [
+      { label: 'Type', value: 'Conference poster', sub: 'RCPsych Congress, Edinburgh' },
+      { label: 'Test', value: 'Friday 13th', sub: 'as suicide trigger' },
+      { label: 'Method', value: 'Date-clustering analysis', sub: 'rigorous statistics' },
+      { label: 'Style', value: 'Tongue-in-cheek', sub: 'serious method, playful framing' }
+    ],
+    verdict: 'A statistical test of the Friday-the-13th superstition — and like the other "test the popular myth" papers, the value is methodological, not the cultural punchline.',
+    bullets: [
+      `<strong>Trio with #18 and #68.</strong> Salib's recurring use of culturally salient null hypotheses — astrology, the moon, Friday the 13th — to teach about statistical clustering and false-positive risk.`,
+      `<strong>The serious point hidden under the joke.</strong> Date-specific clustering analyses produce false positives easily; the negative result here is a calibration check.`,
+      `<strong>Conference-poster format.</strong> Not a peer-reviewed journal output — listed for completeness and as part of the methodological-critique strand.`
+    ],
+    source: 'Salib, Saoud, Theophanous & Lindon (2007), RCPsych Congress poster, Edinburgh.'
+  },
+
+  35: {
+    kpis: [
+      { label: 'Event', value: '7/7 bombings', sub: '7 July 2005' },
+      { label: 'Effect', value: 'Modest, NS', sub: 'reduction not significant' },
+      { label: 'Comparator', value: '9/11 (#17)', sub: 'much stronger effect' },
+      { label: 'Published', value: '2009', sub: 'BJP 194: 80–85' }
+    ],
+    verdict: 'The 7/7 London bombings produced only a modest, non-significant reduction in national suicide rates — a much weaker effect than 9/11, consistent with the more localised scale and the ongoing-conflict context.',
+    bullets: [
+      `<strong>Negative result with positive theoretical value.</strong> The contrast with #17 sharpens the social-cohesion theory: not all collective traumas cohere a nation equally.`,
+      `<strong>Localised vs continental shock.</strong> 9/11 mobilised collective identity globally; 7/7 — although shocking — sat within an existing framework of terror anxiety.`,
+      `<strong>Closes the disaster-suicide pair.</strong> Together with #17, this paper forms the canonical Salib-Cortina-Borja contribution to disaster psychiatry epidemiology.`
+    ],
+    source: 'Salib & Cortina-Borja (2009), <em>British Journal of Psychiatry</em> 194: 80–85.'
+  },
+
+  36: {
+    kpis: [
+      { label: 'Topic', value: 'Dementia + drowning', sub: 'overlap zone' },
+      { label: 'Lever', value: 'Means restriction', sub: 'water access' },
+      { label: 'Type', value: 'Correspondence', sub: 'short clinical commentary' },
+      { label: 'Published', value: '2009', sub: 'BJP 194(6)' }
+    ],
+    verdict: 'Dementia patients living near water are an under-recognised high-risk group — environmental safety and means-restriction interventions deserve more attention in dementia care planning.',
+    bullets: [
+      `<strong>Niche literature, big clinical implications.</strong> Dementia-specific suicide-prevention research is sparse; this short paper put a specific risk in front of clinicians.`,
+      `<strong>Built on #24 and #25.</strong> Salib's drowning epidemiology directly informed this dementia-specific recommendation.`,
+      `<strong>Practical, location-specific guidance.</strong> Care environments near rivers, canals, or coastline warrant additional safeguards.`
+    ],
+    source: 'Salib (2009), <em>British Journal of Psychiatry</em> 194(6): 562–563.'
+  },
+
+  37: {
+    kpis: [
+      { label: 'Sample', value: '52,000+', sub: 'England, Wales, Scotland' },
+      { label: 'Window', value: '1979–2001', sub: '22 years' },
+      { label: 'Question', value: 'Method choice', sub: 'as a fn of birth month' },
+      { label: 'Result', value: 'Significant', sub: 'birth-season → method' }
+    ],
+    verdict: 'Across 52,000+ UK suicides, birth season predicts not just suicide risk but method choice — a stronger neurodevelopmental claim than the original birth-month/risk findings.',
+    bullets: [
+      `<strong>Largest study in the birth-month series.</strong> Three-nation extension of the 26,886 England-and-Wales paper (#29), almost doubling the sample.`,
+      `<strong>Method choice → mechanism.</strong> If birth season affects which method, not just whether someone dies, that's a stronger argument for neurodevelopmental influences on impulsivity and method preference.`,
+      `<strong>Cortina-Borja partnership matures.</strong> Fourth co-authored paper in the birth-month / disaster-psychiatry strand, consolidating the analytical pipeline.`
+    ],
+    source: 'Salib & Cortina-Borja (2010), <em>Int J Psychiatry in Clinical Practice</em> 14(1): 8–17.'
+  },
+
+  38: {
+    kpis: [
+      { label: 'Method', value: 'Carer survey', sub: 'family caregivers' },
+      { label: 'Topic', value: 'Withdrawal of treatment', sub: 'in advanced dementia' },
+      { label: 'Findings', value: 'Spectrum of views', sub: 'modulated by disease stage' },
+      { label: 'Published', value: '2001', sub: 'MSL 41(3)' }
+    ],
+    verdict: 'Family carers of dementia patients hold a wide spectrum of views on passive euthanasia — strongly modulated by perceived suffering, disease stage, and the carer\'s own values.',
+    bullets: [
+      `<strong>Empirical bioethics.</strong> Where most ethics literature is normative, this paper measured what carers actually think — a useful counterweight to abstract argument.`,
+      `<strong>Disease stage matters.</strong> Carer attitudes shift sharply as dementia progresses, complicating "consent" frameworks based on stable preferences.`,
+      `<strong>Companion to #80.</strong> A short BJP letter the same year extended the carer-views findings to a wider audience.`
+    ],
+    source: 'Salib & Tadros (2001), <em>Medicine, Science and the Law</em> 41(3): 237–240.'
+  },
+
+  39: {
+    kpis: [
+      { label: 'Cohort', value: 'NHS dementia patients', sub: '2006 prescription cohort' },
+      { label: 'Follow-up', value: '4 years', sub: 'survival analysis' },
+      { label: 'Question', value: 'Care home delay', sub: 'real-world effectiveness' },
+      { label: 'Output', value: 'Local commissioning', sub: 'evidence base' }
+    ],
+    verdict: 'A real-world NHS test of whether cholinesterase inhibitors actually delay care home placement — feeding directly into local commissioning decisions and the wider debate about whether dementia drugs deliver beyond cognitive symptoms.',
+    bullets: [
+      `<strong>Real-world, not RCT.</strong> Routine NHS data, four-year follow-up — the kind of evidence that informs day-to-day decisions even when it falls short of RCT methodological purity.`,
+      `<strong>Outcome that matters to patients.</strong> Care home placement is a tangible patient-and-family endpoint, not a surrogate cognitive score.`,
+      `<strong>Local impact.</strong> Findings fed directly into commissioning and prescribing decisions in the catchment area.`
+    ],
+    source: 'Salib and co-authors, NHS clinical study.'
+  },
+
+  40: {
+    kpis: [
+      { label: 'Topic', value: 'Weather × dementia', sub: 'admission triggers' },
+      { label: 'Variables', value: 'Humidity, sun, rainfall', sub: 'parametric detail' },
+      { label: 'Setting', value: 'North Cheshire', sub: 'inpatient unit' },
+      { label: 'Sequel to', value: '#8 (1999)', sub: 'IJGP' }
+    ],
+    verdict: 'A more detailed parametric extension of the dementia-admissions weather work — examining specific meteorological variables\' effects with greater granularity than the 1999 paper.',
+    bullets: [
+      `<strong>Continuation of an under-explored research line.</strong> Few groups internationally pursue dementia-admission/weather links; Salib's sustained attention here is distinctive.`,
+      `<strong>Parametric depth, not just headline associations.</strong> Moves from "does weather matter" (#8) to "which parameters at which levels".`,
+      `<strong>Practical staffing implication.</strong> The more specific the meteorological signal, the more actionable for ward planning.`
+    ],
+    source: 'Salib, clinical study.'
+  },
+
+  41: {
+    kpis: [
+      { label: 'Type', value: 'Literature review', sub: '~10 studies' },
+      { label: 'Sources', value: 'PsycInfo + MEDLINE', sub: 'systematic search' },
+      { label: 'Key finding', value: 'Higher LH prevalence', sub: 'in early-onset dementia' },
+      { label: 'Frame', value: 'Neurodevelopmental', sub: 'lateralisation theory' }
+    ],
+    verdict: 'Across the published literature, left-handedness is over-represented in early-onset dementia populations — a pattern that fits neurodevelopmental theories of hemispheric lateralisation and cognitive reserve.',
+    bullets: [
+      `<strong>Synthesises a small but coherent literature.</strong> Roughly ten studies pointing in the same direction — meaningful coverage given the niche.`,
+      `<strong>Mechanism: cognitive reserve.</strong> If non-right-handedness reflects atypical lateralisation, it may be a marker of reduced cognitive reserve and thus earlier dementia onset.`,
+      `<strong>Generates testable hypotheses.</strong> The review structure makes it easy for follow-up empirical work to target specific subhypotheses.`
+    ],
+    source: 'Salib, literature review.'
+  },
+
+  42: {
+    kpis: [
+      { label: 'Question', value: 'Are psych comorbidities missed?', sub: 'in elderly sleep complaints' },
+      { label: 'Argument', value: 'Yes, systematically', sub: 'depression + anxiety overlooked' },
+      { label: 'Population', value: 'Elderly', sub: 'sleep-disorder presenters' },
+      { label: 'Published', value: '1999', sub: 'IJGP 14(12)' }
+    ],
+    verdict: 'When older patients present with sleep complaints, comorbid depression and anxiety are systematically under-recognised — a clinical workflow gap that this paper named and quantified.',
+    bullets: [
+      `<strong>Workflow problem, not knowledge problem.</strong> Clinicians know sleep disorder and depression overlap; the paper showed routine practice still misses the link.`,
+      `<strong>Argues for integrated assessment.</strong> Calls for sleep-complaint pathways to include psychiatric screening as default, not exception.`,
+      `<strong>Geriatric-specific clinical utility.</strong> Sleep complaints are the modal presentation for older anxiety/depression — fixing this pathway has high clinical leverage.`
+    ],
+    source: 'Salib, Tadros & Cawley (1999), <em>Int J Geriatric Psychiatry</em> 14(12): 1076–1077.'
+  },
+
+  43: {
+    kpis: [
+      { label: 'Setting', value: 'Egyptian psychiatric hospital', sub: 'transcultural study' },
+      { label: 'Design', value: 'Case-control', sub: 'matched comparators' },
+      { label: 'Outcome', value: 'Schizophrenia relapse', sub: 'frequency' },
+      { label: 'Published', value: '2001', sub: 'Aging & Mental Health 5(4)' }
+    ],
+    verdict: 'A cross-cultural test of whether religious help-seeking interacts with schizophrenic relapse rates — Salib\'s Egyptian-context study extended UK-centric psychiatric research into a different cultural setting.',
+    bullets: [
+      `<strong>Reflects Salib's background.</strong> Egyptian-trained clinician working in UK NHS; this paper sits at the intersection of those two contexts.`,
+      `<strong>Religion-as-clinical-variable.</strong> Treats spiritual healing not as outside scientific study but as a measurable behavioural variable affecting outcome.`,
+      `<strong>Niche but durable contribution.</strong> Cross-cultural comparisons of psychiatric service utilisation remain uncommon; this paper is a small but standalone addition to that literature.`
+    ],
+    source: 'Salib & Youakim (2001), <em>Aging & Mental Health</em> 5(4): 366–370.'
+  },
+
+  44: {
+    kpis: [
+      { label: 'Method', value: 'Survey', sub: 'MH professionals + GPs' },
+      { label: 'Setting', value: 'Hollins Park, Warrington', sub: 'NHS multi-disciplinary' },
+      { label: 'Range of views', value: 'Wide', sub: 'enthusiasm to scepticism' },
+      { label: 'Type', value: 'Attitudes study', sub: 'qualitative + quantitative' }
+    ],
+    verdict: 'A Warrington-based snapshot of how mental-health staff and GPs view spiritual care\'s place in psychiatric treatment — the views range from enthusiastic endorsement to outright scepticism.',
+    bullets: [
+      `<strong>NHS-relevant, not just academic.</strong> Asked the people actually delivering care what they think, not what theorists prescribe.`,
+      `<strong>Multidisciplinary lens.</strong> Including GPs alongside specialist staff captures the cross-pathway tensions about whether and how spiritual needs should be addressed.`,
+      `<strong>Companion to the empirical Egyptian study (#43).</strong> Together they bracket the question — does spiritual care have measurable clinical effects, and do clinicians think it should?`
+    ],
+    source: 'Salib, survey study, Warrington.'
+  },
+
+  45: {
+    kpis: [
+      { label: 'Framework', value: 'Hubris Syndrome', sub: 'Owen & Davidson 2009' },
+      { label: 'Subjects', value: 'Arab Spring leaders', sub: 'political application' },
+      { label: 'Distinction', value: 'Folie partagée vs syndrome', sub: 'shared vs independent' },
+      { label: 'Type', value: 'Conceptual paper', sub: 'BJPsych Bulletin' }
+    ],
+    verdict: 'Hubris syndrome — an acquired personality disorder of leaders exercising power — when applied to Arab Spring leaders, raises a sharper question: are their shared extreme behaviours a folie partagée, or independent manifestations of a common political-psychological syndrome?',
+    bullets: [
+      `<strong>Pioneering application.</strong> Owen & Davidson's formal psychiatric concept hadn't been applied to a coordinated political movement before this paper.`,
+      `<strong>Distinction matters.</strong> Folie partagée implies one leader's pathology spreading; an independent syndrome implies political conditions reliably produce the same psychological outcome.`,
+      `<strong>Companion to #92.</strong> Both papers explore late-life cognitive and personality dynamics in powerful individuals — a niche where psychiatry and political science overlap.`
+    ],
+    source: 'Salib & Khalil, <em>BJPsych Bulletin (International Psychiatry)</em> Vol 11 Issue 1.'
+  },
+
+  46: {
+    kpis: [
+      { label: 'Type', value: 'Follow-up audit', sub: 'sequel to #5' },
+      { label: 'Question', value: 'Has practice changed?', sub: 'over years' },
+      { label: 'Topic', value: 'PD seclusion over-rep', sub: 'persists?' },
+      { label: 'Output', value: 'Practice debate', sub: 'continuing relevance' }
+    ],
+    verdict: 'A follow-up to the influential 1998 seclusion audit — testing whether the diagnostic disparities in seclusion use had been addressed by subsequent policy guidance.',
+    bullets: [
+      `<strong>Has anything changed?</strong> The 1998 finding (#5) that personality disorder patients were 4× over-represented in seclusion provoked policy responses; this paper asked whether they worked.`,
+      `<strong>Real-world policy impact assessment.</strong> Tracks whether the original audit's findings translated into measurable practice change.`,
+      `<strong>Three-paper seclusion arc.</strong> #5 (audit) → #9 (defence) → this (re-audit). A complete clinical-governance feedback loop.`
+    ],
+    source: 'Salib & Savage, clinical study.'
+  },
+
+  47: {
+    kpis: [
+      { label: 'Type', value: 'BMJ correspondence', sub: 'short letter' },
+      { label: 'Argument', value: 'Disaggregate by age', sub: 'elderly = distinct group' },
+      { label: 'Comparator', value: 'Pooled analyses', sub: 'masking patterns' },
+      { label: 'Published', value: '1999', sub: 'BMJ 319(7222)' }
+    ],
+    verdict: 'When analysing suicide following mental-health service contact, pooling all ages obscures the elderly-specific picture — older patients have different presentations, risk factors, and service-use patterns and need separate study.',
+    bullets: [
+      `<strong>Methodological argument with policy bite.</strong> Aggregate "suicide-within-12-months" stats look reassuringly uniform; disaggregation reveals elderly patients face different risks and need different interventions.`,
+      `<strong>Connects to #28 and #82.</strong> The "preventable suicide" and "is the rate a reliable index" papers carry the same disaggregation argument forward.`,
+      `<strong>Short paper, recurrent theme.</strong> The "elderly are different" thesis recurs throughout Salib's catalogue — this is one of its earliest concise statements.`
+    ],
+    source: 'Salib & Tadros (1999), <em>BMJ</em> 319(7222): 1434.'
+  },
+
+  48: {
+    kpis: [
+      { label: 'Type', value: 'Literary essay', sub: 'psychiatric lens' },
+      { label: 'Subjects', value: 'Puccini characters', sub: 'Madama Butterfly, Tosca, etc.' },
+      { label: 'Theme', value: 'Suicide motivations', sub: 'in operatic narrative' },
+      { label: 'Published', value: '2002', sub: 'MSL 42(1)' }
+    ],
+    verdict: 'A psychiatric reading of suicide in Puccini\'s operas — Salib\'s broader humanistic range, applied to cultural narratives of self-destruction.',
+    bullets: [
+      `<strong>Cultural psychiatry, not folk-pop.</strong> Treats operatic characters as serious objects of psychiatric reasoning about how self-destruction is represented in art.`,
+      `<strong>Salib's humanities side.</strong> The Puccini paper, the world-leaders piece (#92), and the hubris-syndrome paper (#45) all sit in a related "psychiatry beyond the clinic" vein.`,
+      `<strong>Madama Butterfly anchors the analysis.</strong> Cio-Cio-San's suicide is among the most studied operatic deaths; Salib's reading places it within real psychiatric phenomenology.`
+    ],
+    source: 'Salib (2002), <em>Medicine, Science and the Law</em> 42(1): 27–29.'
+  },
+
+  49: {
+    kpis: [
+      { label: 'Type', value: 'Literature review', sub: 'low-potency opioids' },
+      { label: 'Population', value: 'Elderly', sub: 'chronic pain + psych comorbidity' },
+      { label: 'Risk', value: 'Iatrogenic dependence', sub: 'systematically under-recognised' },
+      { label: 'Companion', value: '#65, #78, #84', sub: 'opioid + analgesic series' }
+    ],
+    verdict: 'Long-term low-potency opioid prescribing in older adults carries real dependence risk — a hazard particularly easy to miss in elderly psychiatric patients with chronic pain.',
+    bullets: [
+      `<strong>Hidden in routine prescribing.</strong> "Low-potency" framing creates clinician complacency; the review documents the dependence patterns that follow.`,
+      `<strong>Polypharmacy intersection.</strong> Old age psychiatry routinely deals with patients on multi-decade analgesic regimes; the paper supplied the conceptual frame.`,
+      `<strong>Series with #65 and #78.</strong> "Silent dependence syndrome" (#65) and the Nursing Older People piece (#78) made the same case across different audiences.`
+    ],
+    source: 'Salib, literature review.'
+  },
+
+  50: {
+    kpis: [
+      { label: 'Design', value: 'Matched case-control', sub: 'elderly fatal vs matched' },
+      { label: 'Risk factor', value: 'Prior DSH', sub: 'independent predictor' },
+      { label: 'Effect', value: 'Significant', sub: 'history → fatal outcome' },
+      { label: 'Companion', value: '#11, #74', sub: 'method-continuity series' }
+    ],
+    verdict: 'Prior non-fatal deliberate self-harm is a significant independent risk factor for late-life suicide — directly relevant to clinical risk-assessment frameworks for older patients presenting after self-harm.',
+    bullets: [
+      `<strong>Independent of comorbidity.</strong> The risk holds after controlling for matched factors — meaning a DSH history adds predictive value beyond age and demographic baseline.`,
+      `<strong>Operationalises a clinical heuristic.</strong> Clinicians have long suspected prior DSH increases late-life risk; this paper put a number on it.`,
+      `<strong>Method-continuity papers complement.</strong> #11 and #74 add that not only does prior DSH predict fatal outcomes — it also predicts which method.`
+    ],
+    source: 'Salib, matched case-control study.'
+  },
+
+  51: {
+    kpis: [
+      { label: 'Cases', value: '200', sub: 'Cheshire elderly suicide' },
+      { label: 'Risk', value: 'Childlessness', sub: 'over-represented' },
+      { label: 'Frame', value: 'Social bonds', sub: 'reciprocal care absent' },
+      { label: 'Companion', value: '#26', sub: 'extended analysis' }
+    ],
+    verdict: 'An extended analysis confirming that childlessness is a robust independent social risk factor for late-life suicide, beyond what depression and physical illness alone explain.',
+    bullets: [
+      `<strong>Doubles down on #26.</strong> Where #26 introduced the finding, this paper extended the analysis with additional social variables.`,
+      `<strong>Shifts conversation toward social epidemiology.</strong> Most elderly-suicide research focuses on individual psychopathology; this paper insisted on structural variables.`,
+      `<strong>Service-design implication: flag the childless.</strong> Routine assessment should weight family-network absence higher than current frameworks suggest.`
+    ],
+    source: 'Salib, El-Nimr, Habeeb & Theophanous, <em>Medicine, Science and the Law</em>.'
+  },
+
+  52: {
+    kpis: [
+      { label: 'Type', value: 'Case report', sub: 'first PubMed paper' },
+      { label: 'Patient', value: 'Age 21', sub: 'schizophrenia-like state' },
+      { label: 'Diagnosis', value: 'SSPE', sub: 'subacute sclerosing panencephalitis' },
+      { label: 'Year', value: '1988', sub: 'Winwick Hospital' }
+    ],
+    verdict: 'Salib\'s earliest indexed publication — a case report of a young patient whose apparent schizophrenia turned out to be the rare progressive neurological disorder SSPE.',
+    bullets: [
+      `<strong>Earliest known publication (PubMed-indexed).</strong> 1988 BJP — sole authorship, Winwick Hospital, marking the start of his formal academic record.`,
+      `<strong>Differential diagnosis lesson.</strong> SSPE mimicking schizophrenia is rare but high-stakes — neurology can disguise itself as psychiatry, especially in younger patients.`,
+      `<strong>Foreshadows later interest in neurodegenerative-psychiatric overlap.</strong> The clinical curiosity here is a thread that runs through the dementia and visual-hallucinations work decades later.`
+    ],
+    source: 'Salib (1988), <em>British Journal of Psychiatry</em> 152: 709–710.'
+  },
+
+  53: {
+    kpis: [
+      { label: 'Method', value: 'Logistic regression', sub: 'verdict prediction' },
+      { label: 'Setting', value: 'Cheshire', sub: 'coroner cases' },
+      { label: 'Predictors', value: 'Male sex, note, lethality', sub: '→ suicide verdict' },
+      { label: 'Year', value: '1996', sub: 'MSL 36(3)' }
+    ],
+    verdict: 'A logistic regression model identifies which factors push a coroner\'s verdict from "open" to "suicide" — male sex, presence of a note, and method lethality top the list.',
+    bullets: [
+      `<strong>Methodological foundation paper.</strong> The logistic regression framework here underpins the later misclassification arguments (#3, #25).`,
+      `<strong>Sex bias in verdict assignment.</strong> Coroners more readily classified male deaths as suicide — meaning female suicides are differentially under-recorded.`,
+      `<strong>Practical takeaway: note-leaving inflates the suicide verdict.</strong> Suicide stats are biased toward note-leaving subgroups — and elderly suicides tend not to leave notes (#14).`
+    ],
+    source: 'Salib (1996), <em>Medicine, Science and the Law</em> 36(3): 237–241.'
+  },
+
+  54: {
+    kpis: [
+      { label: 'Type', value: 'BMJ correspondence', sub: 'policy critique' },
+      { label: 'Target', value: 'Care Programme Approach', sub: 'CPA framework' },
+      { label: 'Argument', value: 'Misses high-risk', sub: 'inadequate need-targeting' },
+      { label: 'Year', value: '1996', sub: 'BMJ 313(7061)' }
+    ],
+    verdict: 'The Care Programme Approach — the UK\'s flagship mental-health risk-stratification framework — fails to target services adequately on the highest-risk patients.',
+    bullets: [
+      `<strong>Practical clinical critique.</strong> Written from the perspective of clinicians applying CPA in routine NHS work, not academic abstraction.`,
+      `<strong>Suicide-prevention policy implication.</strong> If risk stratification is poorly calibrated, suicide-prevention efforts deploy disproportionate resources on lower-risk patients.`,
+      `<strong>Sets up the longer policy critique.</strong> Same intellectual root as the later NSF target critique (#79) — both argue UK suicide policy rests on shaky operational foundations.`
+    ],
+    source: 'Salib & Joseph (1996), <em>BMJ</em> 313(7061): 884.'
+  },
+
+  55: {
+    kpis: [
+      { label: 'Design', value: 'Case-control', sub: 'occupational aluminium' },
+      { label: 'Result', value: 'No association', sub: 'with AD risk' },
+      { label: 'Setting', value: 'Warrington', sub: 'population-based' },
+      { label: 'Year', value: '1996', sub: 'BJP 168(2)' }
+    ],
+    verdict: 'A rigorous case-control study found no significant association between occupational aluminium exposure and Alzheimer\'s — strong negative evidence in one of the most contested environmental-cause debates of 1990s dementia research.',
+    bullets: [
+      `<strong>BJP-published null finding.</strong> Negative results rarely reach high-impact journals; this one did, signalling the methodological care.`,
+      `<strong>Hillier collaboration.</strong> Co-authored with epidemiologist V. Hillier — a partnership that produced the smoking (#56) and head-injury (#57) AD papers in 1997.`,
+      `<strong>Constrains the causal space.</strong> Combined with #20 (a similar null), the aluminium-Alzheimer's hypothesis loses ground in occupational form.`
+    ],
+    source: 'Salib & Hillier (1996), <em>British Journal of Psychiatry</em> 168(2): 244–249.'
+  },
+
+  56: {
+    kpis: [
+      { label: 'Design', value: 'Case-control', sub: 'smoking history' },
+      { label: 'Question', value: 'Protective effect?', sub: 'nicotine + cognition' },
+      { label: 'Population', value: 'Warrington', sub: 'AD vs controls' },
+      { label: 'Year', value: '1997', sub: 'IJGP 12(3)' }
+    ],
+    verdict: 'A direct empirical test of the contested smoking-protective-effect hypothesis in Alzheimer\'s — Warrington population data adding evidence to a debate driven by competing pharmacological and epidemiological claims.',
+    bullets: [
+      `<strong>Pharmacology-vs-epidemiology debate.</strong> Nicotinic-receptor pharmacology suggested smoking might be cognitively protective; observational studies often confounded it with survival bias.`,
+      `<strong>Hillier partnership continues.</strong> Second of three 1996–1997 case-control studies in dementia risk factors with V. Hillier.`,
+      `<strong>Negative or attenuated finding fits the literature.</strong> The "smoking protects" claim faded as more methodologically careful studies accumulated; this paper contributed to that correction.`
+    ],
+    source: 'Salib & Hillier (1997), <em>Int J Geriatric Psychiatry</em> 12(3): 295–300.'
+  },
+
+  57: {
+    kpis: [
+      { label: 'Design', value: 'Case-control', sub: 'head-injury history' },
+      { label: 'Hypothesis', value: 'Plausible', sub: 'TBI–AD pathology overlap' },
+      { label: 'Population', value: 'Warrington', sub: 'matched controls' },
+      { label: 'Year', value: '1997', sub: 'IJGP 12(3)' }
+    ],
+    verdict: 'A direct test of head injury as an Alzheimer\'s risk factor — investigating a hypothesis with biological plausibility (TBI and AD pathology share features) using Warrington case-control data.',
+    bullets: [
+      `<strong>Plausibility from neuropathology.</strong> Both TBI and AD show amyloid deposition and neurofibrillary changes; epidemiologically testing this link was a logical step.`,
+      `<strong>Third in the Hillier risk-factor series.</strong> #55, #56, #57 form a 1996-97 triad systematically testing major candidate AD environmental causes.`,
+      `<strong>Modest, focused contribution.</strong> Single-centre case-control studies don't settle these debates alone, but they accumulate into the meta-analytic evidence base.`
+    ],
+    source: 'Salib & Hillier (1997), <em>Int J Geriatric Psychiatry</em> 12(3): 363–368.'
+  },
+
+  58: {
+    kpis: [
+      { label: 'Type', value: 'Practice review', sub: 'nursing audience' },
+      { label: 'Topic', value: 'Brief admissions', sub: 'when appropriate' },
+      { label: 'Setting', value: 'North Cheshire', sub: 'NHS bed pressure context' },
+      { label: 'Year', value: '1997', sub: 'Nursing Standard 12(10)' }
+    ],
+    verdict: 'A review of when short inpatient psychiatric stays are clinically appropriate — published at a time when NHS bed numbers were being reduced and the legitimacy of brief admissions was contested.',
+    bullets: [
+      `<strong>Real NHS context.</strong> Bed cuts in late-90s NHS made "brief admissions" a contested practice; this paper engaged the policy debate from clinical experience.`,
+      `<strong>Frontline-staff audience.</strong> Nursing Standard targets the practitioners executing the policy — appropriate venue for the practical guidance.`,
+      `<strong>Outcome-focused argument.</strong> Asks not whether brief admissions are common but whether they produce defensible outcomes for the patients they serve.`
+    ],
+    source: 'Salib, Cawley & Praveen (1997), <em>Nursing Standard</em> 12(10): 34–35.'
+  },
+
+  59: {
+    kpis: [
+      { label: 'Power', value: 'Section 5(2)', sub: 'doctor\'s holding power' },
+      { label: 'Type', value: 'Audit', sub: 'unit-level' },
+      { label: 'Frequency', value: 'Quantified', sub: 'use rate + appropriateness' },
+      { label: 'Year', value: '1998', sub: 'MSL 38(1)' }
+    ],
+    verdict: 'A unit-level audit of Section 5(2) — the doctor\'s emergency holding power — examining how often it\'s applied, whether it converts to formal detention, and whether application is clinically warranted.',
+    bullets: [
+      `<strong>Companion power to S.5(4).</strong> Where #6 covered the nurses' power, this paper covered the doctors' equivalent — same legal architecture, different professional wielders.`,
+      `<strong>Conversion rate as a quality marker.</strong> If most S.5(2) detentions don't lead to formal detention, the threshold for application may be too low.`,
+      `<strong>Iparragirre collaboration.</strong> Single co-authored paper in the MHA-audit series.`
+    ],
+    source: 'Salib & Iparragirre (1998), <em>Medicine, Science and the Law</em> 38(1): 10–16.'
+  },
+
+  60: {
+    kpis: [
+      { label: 'Population', value: 'Elderly Somali men', sub: 'Liverpool' },
+      { label: 'Companion', value: '#7', sub: 'all-age khat study' },
+      { label: 'Focus', value: 'Age-related differences', sub: 'patterns of use + outcomes' },
+      { label: 'Year', value: '1998', sub: 'IJGP 13(7)' }
+    ],
+    verdict: 'A short report focusing the broader Liverpool-Somali khat study (#7) on elderly chewers specifically — examining whether older users present differently from younger ones.',
+    bullets: [
+      `<strong>Age-stratified slice.</strong> Where #7 looked at all adult Somali khat users in Liverpool, this paper isolated the over-65s.`,
+      `<strong>Substance use × ethnic minority elderly.</strong> A small but distinctive evidence base on a population segment usually invisible in UK substance-misuse research.`,
+      `<strong>Companion not contradiction.</strong> Findings were broadly consistent with the all-age picture — no dramatic excess morbidity in elderly chewers either.`
+    ],
+    source: 'Salib & Ahmed (1998), <em>Int J Geriatric Psychiatry</em> 13(7): 493–494.'
+  },
+
+  61: {
+    kpis: [
+      { label: 'Type', value: 'Editorial', sub: 'IJGP' },
+      { label: 'Topic', value: 'Declining autopsy rates', sub: 'in geriatric psychiatry' },
+      { label: 'Position', value: 'Defends practice', sub: 'utilitarian grounds' },
+      { label: 'Year', value: '1998', sub: 'IJGP 13(11)' }
+    ],
+    verdict: 'A direct editorial challenge to the slow disappearance of post-mortem examinations from geriatric psychiatry — argues the practice yields irreplaceable clinical learning.',
+    bullets: [
+      `<strong>Editorial venue gives it weight.</strong> IJGP editorial pages reach the relevant clinical community directly, not just researchers.`,
+      `<strong>Foreshadows the empirical follow-up.</strong> Set up #71 (the 17-year retrospective review) which provided the data behind the editorial argument.`,
+      `<strong>Sustained autopsy thread.</strong> #4 (1997), #61 (1998 editorial), #71 (2000 review), #22 (2004 commentary) — sustained advocacy spanning 7+ years.`
+    ],
+    source: 'Salib (1998), <em>Int J Geriatric Psychiatry</em> 13(11): 747–748.'
+  },
+
+  62: {
+    kpis: [
+      { label: 'Type', value: 'Literature review', sub: 'comprehensive' },
+      { label: 'Topic', value: 'Aluminium → AD', sub: 'occupational, dietary, water' },
+      { label: 'Verdict', value: 'Inconclusive', sub: 'evidence insufficient for causality' },
+      { label: 'Year', value: '1998', sub: 'IJPCP 2(3)' }
+    ],
+    verdict: 'A comprehensive synthesis of the aluminium-Alzheimer\'s literature — concluding the evidence is insufficient to establish causation, even if a role can\'t be fully ruled out.',
+    bullets: [
+      `<strong>Synthesises occupational, dietary, water pathways.</strong> Each exposure route has its own literature; the review pulled them together.`,
+      `<strong>Calibrated conclusion.</strong> Doesn't dismiss the hypothesis outright — leaves it as "evidence inconclusive", which is the honest call.`,
+      `<strong>Paired with empirical work.</strong> Salib's own primary studies (#20, #55) supplied the negative epidemiology that informed the review verdict.`
+    ],
+    source: 'Salib (1998), <em>Int J Psychiatry in Clinical Practice</em> 2(3): 181–188.'
+  },
+
+  63: {
+    kpis: [
+      { label: 'Type', value: 'Clinical review', sub: 'ECT anaesthesia' },
+      { label: 'Topic', value: 'Anaesthetic agents', sub: '+ seizure quality' },
+      { label: 'Audience', value: 'Psychiatrists + anaesthetists', sub: 'collaborative practice' },
+      { label: 'Year', value: '1998', sub: 'IJPCP 2(4)' }
+    ],
+    verdict: 'A practical review of how anaesthetic choice affects ECT — relevant to the multidisciplinary teams that deliver ECT and need to optimise seizure quality and patient safety.',
+    bullets: [
+      `<strong>Cross-disciplinary practical paper.</strong> ECT sits between psychiatry and anaesthesia; the paper writes for both.`,
+      `<strong>Seizure quality as the outcome.</strong> Anaesthetic agents differ in how much they raise seizure threshold — a real clinical variable.`,
+      `<strong>Outside Salib's main themes.</strong> This is a one-off in his catalogue; included for completeness.`
+    ],
+    source: 'Salib & Hussein (1998), <em>Int J Psychiatry in Clinical Practice</em> 2(4): 283–285.'
+  },
+
+  64: {
+    kpis: [
+      { label: 'Type', value: 'Case report', sub: 'reversible dementia' },
+      { label: 'Lesson', value: 'Exclude reversible causes', sub: 'before accepting irreversible Dx' },
+      { label: 'Audience', value: 'Old age psych + GP', sub: 'diagnostic practice' },
+      { label: 'Year', value: '1998', sub: 'IJPCP 2(1)' }
+    ],
+    verdict: 'A short clinical case report on a patient initially labelled "demented" who turned out to have a treatable cause — emphasising the importance of systematic investigation before accepting a neurodegenerative diagnosis.',
+    bullets: [
+      `<strong>Teaching case format.</strong> Designed to embed the message in clinicians' working memory through narrative.`,
+      `<strong>Stakes of the diagnostic shortcut.</strong> Labelling a treatable case as Alzheimer's is functionally a misdiagnosis with major consequences.`,
+      `<strong>Dovetails with the visual-hallucination differential paper (#33).</strong> Both warn against premature closure in elderly cognitive presentations.`
+    ],
+    source: 'Salib & Praveen (1998), <em>Int J Psychiatry in Clinical Practice</em> 2(1): 65–66.'
+  },
+
+  65: {
+    kpis: [
+      { label: 'Concept', value: '"Silent dependence"', sub: 'covert analgesic/sedative use' },
+      { label: 'Population', value: 'Elderly', sub: 'underdisclosed dependence' },
+      { label: 'Implication', value: 'Detection failure', sub: 'in routine assessment' },
+      { label: 'Year', value: '1999', sub: 'IJGP 14(1)' }
+    ],
+    verdict: 'Names a clinically important phenomenon — older patients developing covert analgesic and sedative dependence without disclosure — and articulates why routine assessment misses it.',
+    bullets: [
+      `<strong>Naming a syndrome is a contribution.</strong> "Silent dependence" gives clinicians a label for a pattern they encounter; the label itself raises detection rates.`,
+      `<strong>Disclosure barriers in older patients.</strong> Cohort effects + shame + clinician-scripted assumption of compliance combine to suppress disclosure.`,
+      `<strong>Anchor for the analgesic series.</strong> #49 (review), #78 (Nursing Older People), #84 (Aging & MH analgesic review) all build on the silent-dependence concept.`
+    ],
+    source: 'Salib & Edwards (1999), <em>Int J Geriatric Psychiatry</em> 14(1): 72–74.'
+  },
+
+  66: {
+    kpis: [
+      { label: 'Sample', value: '100 applications', sub: 'consecutive S.5(4)' },
+      { label: 'Setting', value: 'Warrington', sub: 'psychiatric unit' },
+      { label: 'Lens', value: 'Appropriateness + outcomes', sub: 'clinical governance' },
+      { label: 'Year', value: '1999', sub: 'Nursing Standard 13(20)' }
+    ],
+    verdict: 'A 100-case audit of nurses\' emergency holding power in a Warrington psychiatric unit — assessing whether application was appropriate, what happened next, and whether nursing training was adequate.',
+    bullets: [
+      `<strong>Scale-up from #6.</strong> The 1998 sole-author S.5(4) audit was joined by this larger consecutive-case follow-up.`,
+      `<strong>Direct training output.</strong> Findings fed into nursing training and clinical governance — a measurable, immediate-practice impact.`,
+      `<strong>Part of the MHA-audit series.</strong> Adjacent to #6, #59, #72, #77, #91 in a sustained programme of statutory-power evaluation.`
+    ],
+    source: 'Salib, Pym & Bell (1999), <em>Nursing Standard</em> 13(20): 37–40.'
+  },
+
+  67: {
+    kpis: [
+      { label: 'Design', value: 'Family study', sub: 'first-degree relatives' },
+      { label: 'Comparison', value: 'Matched controls', sub: 'psych morbidity rates' },
+      { label: 'Result', value: 'Elevated', sub: 'in opiate-dependents\' families' },
+      { label: 'Year', value: '1999', sub: 'MSL 39(3)' }
+    ],
+    verdict: 'First-degree relatives of opiate-dependent patients show elevated rates of psychiatric morbidity — consistent with both genetic and shared-environment transmission models.',
+    bullets: [
+      `<strong>Genetic + environmental routes.</strong> Family studies can't separate the two but they confirm vertical transmission of vulnerability.`,
+      `<strong>Substance + psych comorbidity intertwined.</strong> Reinforces the routine clinical observation that opiate dependence rarely arrives without psychiatric history in the family network.`,
+      `<strong>Warrington collaborative work.</strong> Continues the wider research programme on substance misuse in the catchment.`
+    ],
+    source: 'Salib, Ahmed & Ruben (1999), <em>Medicine, Science and the Law</em> 39(3): 219–227.'
+  },
+
+  68: {
+    kpis: [
+      { label: 'Test', value: 'Lunar phase', sub: 'as MH variable' },
+      { label: 'Method', value: 'Statistical', sub: 'rigorous controls' },
+      { label: 'Style', value: 'Methodological', sub: 'in spirit of #18, #34' },
+      { label: 'Year', value: '1999', sub: 'MSL 39(3)' }
+    ],
+    verdict: 'A rigorous statistical test of the "lunar lunacy" myth — like the astrology and Friday-the-13th papers, the negative result is the methodological point.',
+    bullets: [
+      `<strong>Trio of myth-tests.</strong> #18 astrology, #34 Friday 13th, #68 the moon — Salib's recurring use of culturally salient null hypotheses to teach about clustering, false-positive risk, and biological plausibility.`,
+      `<strong>Negative control reasoning.</strong> If you can find "associations" with the moon by sloppy analysis, your method probably isn't robust enough for serious questions.`,
+      `<strong>Outreach plus method.</strong> Headlines about lunar effects appear regularly in popular media; the paper provides a counterweight.`
+    ],
+    source: 'Salib, Gray & Bentley (1999), <em>Medicine, Science and the Law</em> 39(3): 260–261.'
+  },
+
+  69: {
+    kpis: [
+      { label: 'Type', value: 'Case series letter', sub: 'BJP correspondence' },
+      { label: 'Drug', value: 'Amiodarone', sub: 'antiarrhythmic' },
+      { label: 'Effect', value: 'Depressive episodes', sub: 'iatrogenic' },
+      { label: 'Year', value: '1999', sub: 'BJP 174' }
+    ],
+    verdict: 'A clinical alert about amiodarone-induced depression — a side effect easy to overlook in elderly cardiac patients on polypharmacy.',
+    bullets: [
+      `<strong>Polypharmacy hazard.</strong> Amiodarone is a common antiarrhythmic, depression is a common late-life condition — the overlap creates routine misattribution.`,
+      `<strong>Mechanism review included.</strong> The letter not only reports cases but proposes pharmacological pathways (thyroid involvement, neuro effects).`,
+      `<strong>Practical alert function.</strong> Clinical correspondence at its best — short, specific, actionable.`
+    ],
+    source: 'Salib & Ambrose (1999), <em>British Journal of Psychiatry</em> 174: 366–367.'
+  },
+
+  70: {
+    kpis: [
+      { label: 'Topic', value: 'MBU admission criteria', sub: 'severe perinatal MH' },
+      { label: 'Question', value: 'Who needs MBU?', sub: 'vs community management' },
+      { label: 'Service', value: 'Perinatal MH design', sub: 'configuration evidence' },
+      { label: 'Year', value: '1999', sub: 'Nursing Standard 13(46)' }
+    ],
+    verdict: 'A clinical examination of which mothers actually need mother-and-baby unit (MBU) admission — supporting evidence-based perinatal mental health service design.',
+    bullets: [
+      `<strong>Service-design relevance.</strong> MBU beds are scarce; identifying who genuinely needs them is essential for rational allocation.`,
+      `<strong>Outside Salib's main themes but on-brand.</strong> Specialist-population audit work — a recurring Salib mode applied to perinatal psychiatry.`,
+      `<strong>Multi-author collaboration.</strong> Cawley, Griffiths, Brier — Warrington nursing and clinical staff together.`
+    ],
+    source: 'Salib, Cawley, Griffiths & Brier (1999), <em>Nursing Standard</em> 13(46): 33–36.'
+  },
+
+  71: {
+    kpis: [
+      { label: 'Window', value: '17 years', sub: '1980–1996' },
+      { label: 'Setting', value: 'North Cheshire', sub: 'elderly psych inpatients' },
+      { label: 'Finding', value: 'Diagnostic discrepancy', sub: 'ante- vs post-mortem' },
+      { label: 'Year', value: '2000', sub: 'MSL 40(1)' }
+    ],
+    verdict: 'Across 17 years of elderly psychiatric inpatient autopsies in North Cheshire, clinically significant discrepancies between ante-mortem diagnosis and post-mortem findings emerged in a meaningful fraction of cases — direct evidence for the "autopsy still teaches" argument.',
+    bullets: [
+      `<strong>Empirical anchor of the autopsy advocacy.</strong> Where #61 made the case editorially, this paper supplied the data: real diagnostic discrepancies in real inpatients.`,
+      `<strong>17 years gives statistical reach.</strong> Long observation window means the discrepancy rate is well-characterised, not a small-sample artefact.`,
+      `<strong>Used in the wider autopsy thread.</strong> Cited internally by #22 (2004 commentary) and contextualised by #4 (1997 unexpected-death study).`
+    ],
+    source: 'Salib, Tadros & Ambrose (2000), <em>Medicine, Science and the Law</em> 40(1): 20–27.'
+  },
+
+  72: {
+    kpis: [
+      { label: 'Power', value: 'Section 5(2)', sub: 'doctor\'s holding' },
+      { label: 'Population', value: 'Elderly inpatients', sub: 'age-specific analysis' },
+      { label: 'Comparator', value: 'Younger adults', sub: 'use rate + outcomes' },
+      { label: 'Year', value: '2000', sub: 'MSL 40(2)' }
+    ],
+    verdict: 'An age-specific look at S.5(2) doctor\'s holding power — testing whether the framework that works for younger psychiatric inpatients also serves elderly patients appropriately.',
+    bullets: [
+      `<strong>Continues the disaggregate-by-age theme.</strong> Same intellectual stance as #47 — pooled stats hide elderly-specific patterns.`,
+      `<strong>Outcome-focused not just rate-focused.</strong> Asks not only "is the power used differently in elderly patients" but "are outcomes different".`,
+      `<strong>Multi-author Winwick/Hollins Park collaboration.</strong> Tadros, Ambrose, Allington — typical Salib clinical-team co-authorship pattern.`
+    ],
+    source: 'Salib, Tadros, Ambrose & Allington (2000), <em>Medicine, Science and the Law</em> 40(2): 158–163.'
+  },
+
+  73: {
+    kpis: [
+      { label: 'Cases', value: '73', sub: 'post-mortem suicide brains' },
+      { label: 'Comparator', value: 'Control deaths', sub: 'matched' },
+      { label: 'Variable', value: 'Brain weight', sub: 'volume proxy' },
+      { label: 'Frame', value: 'Neurodevelopmental', sub: 'biological psychiatry' }
+    ],
+    verdict: 'An exploratory post-mortem study suggesting brain weight differs between suicide decedents and matched controls — early biological-psychiatry evidence framed within neurodevelopmental theories of suicide vulnerability.',
+    bullets: [
+      `<strong>Biological-psychiatry move.</strong> Salib's catalogue is mostly social/clinical epidemiology; this paper venturing into neuropathology is distinctive.`,
+      `<strong>North Cheshire post-mortem database as resource.</strong> The locally accessible autopsy data Salib spent years defending (#61, #71) made this analysis possible.`,
+      `<strong>Followed up in #87.</strong> The 2002 BJP "brain weight revisited" letter responded to commentaries and added analyses.`
+    ],
+    source: 'Salib & Tadros (2000), <em>British Journal of Psychiatry</em> 177: 257–261.'
+  },
+
+  74: {
+    kpis: [
+      { label: 'Type', value: 'Letter', sub: 'IJGP correspondence' },
+      { label: 'Question', value: 'Method continuity', sub: 'prior DSH → fatal method' },
+      { label: 'Result', value: 'Significant', sub: 'methods correspond' },
+      { label: 'Year', value: '2000', sub: 'IJGP 15(11)' }
+    ],
+    verdict: 'A focused short-form replication of method continuity in elderly fatal self-harm — same method tends to recur from non-fatal to fatal episodes.',
+    bullets: [
+      `<strong>Reaffirms #11.</strong> The 2001 main paper plus this 2000 letter make the method-continuity case independently.`,
+      `<strong>History-taking implication.</strong> The clinical takeaway is unchanged: previous self-harm method specifically should be documented, not just generic "DSH".`,
+      `<strong>Companion to means-restriction theory.</strong> If method choice is sticky, restricting the prior method has direct preventive value.`
+    ],
+    source: 'Salib & Tadros (2000), <em>Int J Geriatric Psychiatry</em> 15(11): 1073–1074.'
+  },
+
+  75: {
+    kpis: [
+      { label: 'Question', value: 'Are carer ratings reliable?', sub: 'as outcomes' },
+      { label: 'Drug', value: 'Donepezil', sub: 'cholinesterase inhibitor' },
+      { label: 'Comparator', value: 'Clinician + cog tests', sub: 'standardised' },
+      { label: 'Year', value: '2000', sub: 'IJGP 15(12)' }
+    ],
+    verdict: 'Carer assessments of dementia drug effects show systematic biases relative to clinician ratings and standardised cognitive testing — a methodological caution for trial design.',
+    bullets: [
+      `<strong>Carer outcomes are not neutral.</strong> Care-givers have skin in the game — emotional, financial, prognostic — that shifts ratings systematically.`,
+      `<strong>Implication for cholinesterase trials.</strong> Many dementia trials use carer-reported outcomes as primary endpoints; this paper said be careful.`,
+      `<strong>Connects to #39.</strong> Salib's real-world cholinesterase effectiveness work used harder endpoints (care home placement) partly for this reason.`
+    ],
+    source: 'Salib & Allington (2000), <em>Int J Geriatric Psychiatry</em> 15(12): 1155–1157.'
+  },
+
+  76: {
+    kpis: [
+      { label: 'Type', value: 'Practitioner review', sub: 'Elder Care journal' },
+      { label: 'Audience', value: 'Nursing + allied', sub: 'frontline clinicians' },
+      { label: 'Topic', value: 'AD risk factor evidence', sub: 'translated' },
+      { label: 'Year', value: '2000', sub: 'Elder Care 11(10)' }
+    ],
+    verdict: 'A translation of the dementia-risk-factor research literature into accessible practitioner guidance for nurses and allied health professionals.',
+    bullets: [
+      `<strong>Bridges research and frontline care.</strong> Empirical findings only matter if frontline staff can act on them; this paper does the translation work.`,
+      `<strong>Synthesises Salib's own AD work.</strong> Elements of #20, #55, #56, #57, #62 visible in the underpinning evidence.`,
+      `<strong>Elder Care venue is the audience.</strong> Targeted journal placement for the population that delivers care.`
+    ],
+    source: 'Salib (2000), <em>Elder Care</em> 11(10): 12–15.'
+  },
+
+  77: {
+    kpis: [
+      { label: 'Type', value: 'Audit', sub: 'emergency detention' },
+      { label: 'Setting', value: 'Elderly psychiatry unit', sub: 'NHS' },
+      { label: 'Output', value: 'Clinical governance', sub: 'evidence base' },
+      { label: 'Year', value: '2000', sub: 'Elder Care 11(9)' }
+    ],
+    verdict: 'A nursing-audience audit of how emergency detention is applied in elderly psychiatric care — practitioner-facing clinical governance evidence.',
+    bullets: [
+      `<strong>Care-staff translation.</strong> Like #76, written for the nursing audience that operates within the legal frameworks day-to-day.`,
+      `<strong>Sister to #66, #91.</strong> All examine MHA emergency detention from different vantage points (sample size, hospital factors, audience).`,
+      `<strong>Practical clinical governance.</strong> Audits that change practice need to reach the people doing the work — Elder Care does that.`
+    ],
+    source: 'Salib, Brown & Khalil (2000), <em>Elder Care</em> 11(9): 14–17.'
+  },
+
+  78: {
+    kpis: [
+      { label: 'Type', value: 'Practitioner article', sub: 'Nursing Older People' },
+      { label: 'Topic', value: 'Hidden analgesic dependence', sub: 'in older patients' },
+      { label: 'Position', value: 'Under-recognised', sub: 'systematic detection failure' },
+      { label: 'Year', value: '2000', sub: 'NOP 12(6)' }
+    ],
+    verdict: 'A practitioner-focused account of "silent dependence" — covert analgesic dependence in older patients on long-term pain regimes — and why frontline nursing assessment systematically misses it.',
+    bullets: [
+      `<strong>Nursing audience for an old-age psychiatry concern.</strong> Pain meds are administered by nurses; nurses are the detection gatekeepers.`,
+      `<strong>Builds on #65 silent dependence.</strong> Where #65 named the syndrome, this paper popularised it for the staff who could act on it.`,
+      `<strong>Disclosure barriers central.</strong> Older patients normalise multi-decade analgesic use; the paper teaches what to ask and how.`
+    ],
+    source: 'Salib & Edwards (2000), <em>Nursing Older People</em> 12(6): 16–19.'
+  },
+
+  79: {
+    kpis: [
+      { label: 'Type', value: 'Policy commentary', sub: 'BJP correspondence' },
+      { label: 'Target', value: 'NSF suicide targets', sub: 'UK Mental Health policy' },
+      { label: 'Argument', value: 'Methodologically unsound', sub: 'unreliable input data' },
+      { label: 'Year', value: '2001', sub: 'BJP 178' }
+    ],
+    verdict: 'The National Service Framework\'s suicide-reduction targets rest on official statistics that systematically undercount the elderly — making target attainment a measurement question as much as a clinical one.',
+    bullets: [
+      `<strong>Built on the misclassification work.</strong> #3, #19, #25 supply the foundation: official suicide stats are demonstrably biased.`,
+      `<strong>Direct policy critique.</strong> Targets that rely on biased measurement can be "met" by changes in coding, not in clinical practice.`,
+      `<strong>Connects to #82.</strong> The 2001 paper on suicide rate as healthcare-quality indicator continues the same critique with broader scope.`
+    ],
+    source: 'Salib (2001), <em>British Journal of Psychiatry</em> 178: 278–279.'
+  },
+
+  80: {
+    kpis: [
+      { label: 'Companion to', value: '#38', sub: 'main 2001 MSL paper' },
+      { label: 'Type', value: 'Letter', sub: 'IJGP correspondence' },
+      { label: 'Topic', value: 'End-of-life decisions', sub: 'in dementia' },
+      { label: 'Year', value: '2001', sub: 'IJGP 16(2)' }
+    ],
+    verdict: 'A short-form companion to the fuller 2001 passive euthanasia paper — distilling carer-attitude findings for a geriatric psychiatry readership.',
+    bullets: [
+      `<strong>Reach extension.</strong> Letters reach a different audience than full empirical papers — both formats matter for translation.`,
+      `<strong>UK bioethics context.</strong> Published as UK legal frameworks for proxy decision-making in dementia were evolving (Mental Capacity Act 2005 in development).`,
+      `<strong>Tadros co-authorship.</strong> Continues the productive Salib-Tadros pairing across the elderly-suicide and dementia papers.`
+    ],
+    source: 'Salib & Tadros (2001), <em>Int J Geriatric Psychiatry</em> 16(2): 230–231.'
+  },
+
+  81: {
+    kpis: [
+      { label: 'Argument', value: 'One syndrome', sub: 'fatal + non-fatal continuum' },
+      { label: 'Population', value: 'Elderly', sub: 'sex- and method-stratified' },
+      { label: 'Implication', value: 'Risk + service redesign', sub: 'unified pathway' },
+      { label: 'Year', value: '2001', sub: 'MSL 41(3)' }
+    ],
+    verdict: 'In older adults, attempted and completed suicide aren\'t two separate clinical phenomena — they\'re one syndrome that differs only in outcome. This implies risk assessment and service configuration should treat them as a continuum.',
+    bullets: [
+      `<strong>Conceptual reframe.</strong> The conventional clinical distinction (often calibrated to younger populations) breaks down in late life because elderly self-harm has higher lethality and resolved intent.`,
+      `<strong>Service-design consequence.</strong> A 70-year-old who survives a serious self-harm attempt should trigger the same level of follow-up as one who didn't — and current pathways often don't.`,
+      `<strong>Consistent with #10, #11, #50.</strong> The method-continuity and high-lethality findings reinforce the one-syndrome view.`
+    ],
+    source: 'Salib, Tadros & Cawley (2001), <em>Medicine, Science and the Law</em> 41(3): 250–255.'
+  },
+
+  82: {
+    kpis: [
+      { label: 'Question', value: 'Reliable quality indicator?', sub: 'suicide-among-service-users' },
+      { label: 'Verdict', value: 'No', sub: 'systematic biases undermine it' },
+      { label: 'Drivers', value: 'Verdict variation + catchment + elderly undercount', sub: 'compounding effects' },
+      { label: 'Year', value: '2001', sub: 'MSL 41(2)' }
+    ],
+    verdict: 'Suicide rates among mental health service users are too biased to function as a healthcare-quality indicator — coroner variation, catchment differences, and elderly undercounting undermine the metric.',
+    bullets: [
+      `<strong>The undercount + variation arguments converge here.</strong> Pulls together the strands from #3, #19, #25 into a direct critique of a policy metric.`,
+      `<strong>Methodological metric design.</strong> Argues for replacement metrics that are less vulnerable to the documented biases.`,
+      `<strong>Connects to #28, #79.</strong> Same intellectual programme: UK suicide policy needs better measurement before its targets can be meaningful.`
+    ],
+    source: 'Salib, Agnew & Tadros (2001), <em>Medicine, Science and the Law</em> 41(2): 93–96.'
+  },
+
+  83: {
+    kpis: [
+      { label: 'Population', value: 'Elderly', sub: 'birth-month sub-analysis' },
+      { label: 'Source', value: 'Cheshire coroner', sub: 'late-life suicide data' },
+      { label: 'Question', value: 'Same spring–summer pattern?', sub: 'as general population' },
+      { label: 'Year', value: '2001', sub: 'IJGP 16(12)' }
+    ],
+    verdict: 'A targeted check of whether the spring–summer birth excess in suicide also appears in elderly decedents — feeding the question into the late-life subgroup analysis stream that culminated in #29 and #37.',
+    bullets: [
+      `<strong>Geriatric-specific test.</strong> Most birth-month/suicide work pooled all ages; this letter asked whether the pattern holds in late life.`,
+      `<strong>Bridges #12 (general) and #29 (national).</strong> Sits between the 2002 exploratory paper and the 2006 national replication, focused on elderly subgroup.`,
+      `<strong>Neurodevelopmental implication if confirmed.</strong> An effect detectable in old age means the in-utero exposure shaped lifetime suicide risk.`
+    ],
+    source: 'Salib (2001), <em>Int J Geriatric Psychiatry</em> 16(12): 1175–1177.'
+  },
+
+  84: {
+    kpis: [
+      { label: 'Type', value: 'Review', sub: 'analgesic prescribing in elderly' },
+      { label: 'Tension', value: 'Undertreat vs over-prescribe', sub: 'dual risk' },
+      { label: 'Population', value: 'Older adults', sub: 'incl. cognitive impairment' },
+      { label: 'Year', value: '2002', sub: 'Aging & Mental Health 6(1)' }
+    ],
+    verdict: 'Analgesic prescribing in older adults walks a tightrope — under-treat pain (especially in cognitively impaired patients who can\'t advocate for themselves) and you cause needless suffering; over-prescribe and you create iatrogenic dependence.',
+    bullets: [
+      `<strong>Cognitive impairment is the asymmetric risk.</strong> Pain assessment fails in dementia patients — both directions of error are amplified.`,
+      `<strong>Pharmacology + sociology.</strong> The review covers both drug-class differences and the social dynamics of pain reporting in older adults.`,
+      `<strong>Caps the analgesic series.</strong> #65 (silent dependence), #49 (review), #78 (NOP), #84 (this) — a four-paper arc on hidden analgesic harms.`
+    ],
+    source: 'Salib & Edwards (2002), <em>Aging & Mental Health</em> 6(1): 88–92.'
+  },
+
+  85: {
+    kpis: [
+      { label: 'Variable', value: 'Relative humidity', sub: 'as MH driver' },
+      { label: 'Outcome', value: 'Affective disorders', sub: 'depression + mania presentations' },
+      { label: 'Setting', value: 'North Cheshire', sub: 'extends weather series' },
+      { label: 'Year', value: '2002', sub: 'IJPCP 6(3)' }
+    ],
+    verdict: 'Extends the weather-and-mental-health programme to affective disorders specifically — testing whether the same humidity associations seen for suicide and dementia admissions also apply to depression and mania presentations.',
+    bullets: [
+      `<strong>Programme integrity.</strong> Same variable (humidity) tested across multiple outcomes (suicide #1, dementia #8, affective #85) gives the research line internal coherence.`,
+      `<strong>Local data, broader claim.</strong> North Cheshire records again — but the question is general: is humidity a population-level mental-health driver?`,
+      `<strong>Sharp collaboration.</strong> Co-authored with N. Sharp, who also worked on the original dementia-admission paper #8.`
+    ],
+    source: 'Salib & Sharp (2002), <em>Int J Psychiatry in Clinical Practice</em> 6(3): 147–153.'
+  },
+
+  86: {
+    kpis: [
+      { label: 'Type', value: 'Clinical letter', sub: 'MSL correspondence' },
+      { label: 'Topic', value: 'Elder abuse', sub: 'victims + perpetrators' },
+      { label: 'Setting', value: 'NW England psych service', sub: 'caseload-derived' },
+      { label: 'Year', value: '2002', sub: 'MSL 42(2)' }
+    ],
+    verdict: 'A short clinical letter examining the profile of both abusers and victims of elder abuse encountered in a North-West England psychiatric service — small-scale evidence on a growing NHS concern.',
+    bullets: [
+      `<strong>Clinical case profile, not population estimate.</strong> Frames what abuse looks like in the people who reach psychiatric services — not how common it is overall.`,
+      `<strong>Forensic-psychiatry corner.</strong> Joins Salib's broader forensic catalogue (verdicts, MHA, autopsy) — applied here to a victim-and-perpetrator framework.`,
+      `<strong>Era context.</strong> 2002 was a period when UK awareness of elder maltreatment was rising and NHS services were starting to systematise their response.`
+    ],
+    source: 'Salib, Appleton & Pembleton (2002), <em>Medicine, Science and the Law</em> 42(2): 147–148.'
+  },
+
+  87: {
+    kpis: [
+      { label: 'Type', value: 'Follow-up letter', sub: 'response to commentaries' },
+      { label: 'Topic', value: 'Brain weight × suicide', sub: 'extension of #73' },
+      { label: 'Source', value: 'NC post-mortem DB', sub: 'additional cases' },
+      { label: 'Year', value: '2002', sub: 'BJP 181' }
+    ],
+    verdict: 'A follow-up to the 2000 brain-weight paper — responding to critics, adding cases, and continuing the biological-psychiatry conversation about brain morphology and suicide vulnerability.',
+    bullets: [
+      `<strong>Scientific exchange in real time.</strong> Letters that respond to commentaries are how a field moves; this paper is part of that mechanism.`,
+      `<strong>Salib responding solo.</strong> Sole-author follow-up showing personal engagement with the critique.`,
+      `<strong>Anchors the brain-weight thread.</strong> Together with #73, this is Salib's contribution to suicide neuropathology.`
+    ],
+    source: 'Salib (2002), <em>British Journal of Psychiatry</em> 181: 441–442.'
+  },
+
+  88: {
+    kpis: [
+      { label: 'Type', value: 'BJP correspondence', sub: 'suicide-prevention service' },
+      { label: 'Modality', value: 'Telephone support', sub: 'crisis-line evaluation' },
+      { label: 'Population focus', value: 'Elderly + isolated', sub: 'access advantage' },
+      { label: 'Year', value: '2003', sub: 'BJP 182' }
+    ],
+    verdict: 'A short evidence review of telephone-based suicide prevention — particularly valuable for elderly and socially isolated people who may be unable to access in-person services.',
+    bullets: [
+      `<strong>Service-modality argument.</strong> Phone-based prevention reaches people the in-person system misses; the access argument is independent of the efficacy argument.`,
+      `<strong>Connects to #26, #51 childlessness.</strong> If social isolation is a risk factor for late-life suicide, low-threshold modalities like phone become disproportionately important.`,
+      `<strong>El-Nimr collaboration.</strong> Continues a productive co-authorship from the suicide-note and elderly-suicide trilogy.`
+    ],
+    source: 'Salib & El-Nimr (2003), <em>British Journal of Psychiatry</em> 182: 266.'
+  },
+
+  89: {
+    kpis: [
+      { label: 'Type', value: 'Editorial', sub: 'BJP' },
+      { label: 'Concept', value: 'Folie à plusieurs', sub: 'shared psychotic disorder' },
+      { label: 'Application', value: 'Suicide terrorism', sub: 'post-9/11 context' },
+      { label: 'Year', value: '2003', sub: 'BJP 182' }
+    ],
+    verdict: 'Applies the psychiatric concept of folie à plusieurs (shared delusional disorder) to suicide terrorism — exploring whether the ideology and behaviour of terrorist cells have psychiatric analogues.',
+    bullets: [
+      `<strong>Provocative framing.</strong> Stimulated debate about the boundaries of psychiatric explanation for political violence — the editorial format invites pushback as much as agreement.`,
+      `<strong>Post-9/11 context.</strong> Salib's 9/11-and-suicide work (#17) gave him standing to engage the post-9/11 psychiatric question, and this editorial uses it.`,
+      `<strong>Companion to #45.</strong> Both papers test psychiatric concepts on collective political violence — this on terrorism, #45 on Arab Spring leadership.`
+    ],
+    source: 'Salib (2003), <em>British Journal of Psychiatry</em> 182: 475–476.'
+  },
+
+  90: {
+    kpis: [
+      { label: 'Type', value: 'BMJ letter', sub: 'spiritual care' },
+      { label: 'Setting', value: 'NHS multicultural', sub: 'Warrington catchment' },
+      { label: 'Argument', value: 'Better staff training', sub: 'cultural + spiritual literacy' },
+      { label: 'Year', value: '2003', sub: 'BMJ 327(7408)' }
+    ],
+    verdict: 'NHS staff are inadequately prepared to address dying patients\' spiritual needs across cultural and religious backgrounds — a training gap with direct end-of-life-care implications.',
+    bullets: [
+      `<strong>Multicultural NHS context.</strong> Warrington's catchment includes diverse communities; staff training rarely keeps pace.`,
+      `<strong>Practical, not theological.</strong> The letter argues for skills, not theological commitments — clinicians need to be able to ask the right questions.`,
+      `<strong>Continues the spiritual-care thread.</strong> Together with #43 (Egyptian) and #44 (Warrington), forms a triangulated set of papers on religion-and-clinical-practice.`
+    ],
+    source: 'Salib, El-Nimr & Green (2003), <em>BMJ</em> 327(7408): 224.'
+  },
+
+  91: {
+    kpis: [
+      { label: 'Type', value: 'Letter', sub: 'MSL correspondence' },
+      { label: 'Question', value: 'Environment → use rate?', sub: 'ward culture matters' },
+      { label: 'Implication', value: 'Governance', sub: 'institutional factors' },
+      { label: 'Year', value: '2004', sub: 'MSL 44(1)' }
+    ],
+    verdict: 'Section 5(2) holding-power application rates may reflect ward environment, staffing, and clinical culture as much as patient need — institutional factors are part of the picture.',
+    bullets: [
+      `<strong>Institutional confounding of clinical decisions.</strong> Builds the wider case that "use rate" of any statutory power is partly a property of the using institution, not just the patients.`,
+      `<strong>Governance implication.</strong> If environment matters, ward-culture interventions — staffing, training, layout — could change practice without changing law.`,
+      `<strong>Caps the MHA-audit series.</strong> Together with #6, #59, #66, #72, #77 forms the most comprehensive single-investigator account of MHA emergency powers in late-90s/early-00s NHS.`
+    ],
+    source: 'Salib & Green (2004), <em>Medicine, Science and the Law</em> 44(1): 90.'
+  },
+
+  92: {
+    kpis: [
+      { label: 'Type', value: 'Editorial', sub: 'IJGP' },
+      { label: 'Topic', value: 'Cognitive health of leaders', sub: 'ageing in power' },
+      { label: 'Stakes', value: 'Geopolitical risk', sub: 'democratic accountability' },
+      { label: 'Year', value: '2005', sub: 'IJGP 20(12)' }
+    ],
+    verdict: 'A commentary on the under-discussed clinical and policy implications of age-related cognitive decline in those holding high political office — psychiatry meets geopolitics.',
+    bullets: [
+      `<strong>Niche but timely.</strong> The question of leaders' cognitive fitness recurs in democratic discourse; psychiatric expertise is rarely cited.`,
+      `<strong>Companion to #45 hubris syndrome.</strong> Both engage with personality and cognitive change in powerful figures — together they form Salib's "psychiatry of power" pair.`,
+      `<strong>Geriatric psychiatry as public-interest science.</strong> Late-life cognitive decline isn't only a private clinical matter when the patient holds the nuclear codes.`
+    ],
+    source: 'Salib (2005), <em>Int J Geriatric Psychiatry</em> 20(12): 1115–1117.'
+  },
+
+  93: {
+    kpis: [
+      { label: 'Type', value: 'BJP correspondence', sub: 'methodological' },
+      { label: 'Question', value: 'Real or artefact?', sub: 'high female rates in some countries' },
+      { label: 'Argument', value: 'Verdict-system effects', sub: 'cross-jurisdiction' },
+      { label: 'Year', value: '2007', sub: 'BJP 190' }
+    ],
+    verdict: 'International comparisons of female suicide rates may be confounded by systematic differences in how undetermined deaths are classified across legal and cultural systems — apparent excesses might be real, or might be coding artefacts.',
+    bullets: [
+      `<strong>Globalises the misclassification critique.</strong> The same verdict-variation argument that distorts elderly UK suicide stats (#3, #19, #25) extends to international comparison.`,
+      `<strong>Cross-cultural epidemiology lens.</strong> Different legal systems handle the "open verdict" question differently — making cross-country female suicide rates structurally hard to compare.`,
+      `<strong>Closes the catalogue cleanly.</strong> Last paper in the dataset — Tadros co-authorship, BJP venue, classic Salib methodological-letter form.`
+    ],
+    source: 'Salib & Tadros (2007), <em>British Journal of Psychiatry</em> 190: 273–274.'
+  }
+};
+
 let currentSort = { col: 'year', dir: 'desc' };
 let activeCategory = '';
 // expandedState: { id, type } or null
@@ -1069,6 +2667,7 @@ function renderTable() {
         <div class="action-btns">
           <button class="expand-btn" id="sum-btn-${p.id}" onclick="toggleExpand(${p.id},'summary',this)">Summary ↓</button>
           <button class="abstract-btn" id="abs-btn-${p.id}" onclick="toggleExpand(${p.id},'abstract',this)">Abstract ↓</button>
+          <button class="insights-btn" id="ins-btn-${p.id}" onclick="toggleExpand(${p.id},'insights',this)">AI Insights ↓</button>
           <a class="paper-btn" href="${p.url || '#'}" target="_blank" rel="noopener">View Paper ↗</a>
         </div>
       </td>
@@ -1077,7 +2676,7 @@ function renderTable() {
       <td colspan="6">
         <div class="expand-inner" id="expand-inner-${p.id}">
           <div class="expand-label" id="expand-label-${p.id}"></div>
-          <p id="expand-text-${p.id}"></p>
+          <div id="expand-body-${p.id}"></div>
           <div class="meta-row">
             <strong>Journal:</strong> ${p.journal}
             ${p.pmid ? ` &middot; <strong>PMID:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/" target="_blank" rel="noopener">${p.pmid}</a>` : ''}
@@ -1118,20 +2717,27 @@ function _openExpand(p, type) {
   const row = document.getElementById('expand-' + p.id);
   const inner = document.getElementById('expand-inner-' + p.id);
   const label = document.getElementById('expand-label-' + p.id);
-  const text  = document.getElementById('expand-text-' + p.id);
+  const body  = document.getElementById('expand-body-' + p.id);
   const sumBtn = document.getElementById('sum-btn-' + p.id);
   const absBtn = document.getElementById('abs-btn-' + p.id);
+  const insBtn = document.getElementById('ins-btn-' + p.id);
   if (!row) return;
+
+  inner.classList.remove('abstract-mode', 'insights-mode');
 
   if (type === 'abstract') {
     label.textContent = 'Abstract';
-    text.textContent = p.abstract || 'Abstract not available.';
+    body.innerHTML = `<p>${escapeHTML(p.abstract || 'Abstract not available.')}</p>`;
     inner.classList.add('abstract-mode');
     if (absBtn) absBtn.textContent = 'Abstract ↑';
+  } else if (type === 'insights') {
+    label.textContent = 'AI Insights';
+    body.innerHTML = renderInsights(p);
+    inner.classList.add('insights-mode');
+    if (insBtn) insBtn.textContent = 'AI Insights ↑';
   } else {
     label.textContent = 'Summary';
-    text.textContent = p.summary;
-    inner.classList.remove('abstract-mode');
+    body.innerHTML = `<p>${escapeHTML(p.summary)}</p>`;
     if (sumBtn) sumBtn.textContent = 'Summary ↑';
   }
   row.style.display = '';
@@ -1142,7 +2748,183 @@ function _closeAll() {
   document.querySelectorAll('.expand-row').forEach(r => r.style.display = 'none');
   document.querySelectorAll('.expand-btn').forEach(b => b.textContent = 'Summary ↓');
   document.querySelectorAll('.abstract-btn').forEach(b => b.textContent = 'Abstract ↓');
+  document.querySelectorAll('.insights-btn').forEach(b => b.textContent = 'AI Insights ↓');
   expandedState = null;
+}
+
+function escapeHTML(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function renderInsights(p) {
+  const ins = (typeof insightsMap !== 'undefined') ? insightsMap[p.id] : null;
+  if (!ins) {
+    return `<div class="insights-empty">AI Insights for this paper are not yet available.</div>`;
+  }
+  const parts = [];
+  parts.push(`<div class="insights-panel">`);
+  if (ins.kpis && ins.kpis.length) {
+    parts.push(`<div class="insights-kpis">${ins.kpis.map(k => `
+      <div class="kpi-card">
+        <div class="kpi-label">${k.label}</div>
+        <div class="kpi-value">${k.value}</div>
+        ${k.sub ? `<div class="kpi-sub">${k.sub}</div>` : ''}
+      </div>`).join('')}</div>`);
+  }
+  if (ins.verdict) {
+    parts.push(`<div class="insights-verdict">${ins.verdict}</div>`);
+  }
+  if (ins.chart) {
+    parts.push(renderChart(ins.chart));
+  }
+  if (ins.findings) {
+    parts.push(renderFindings(ins.findings));
+  }
+  if (ins.bullets && ins.bullets.length) {
+    parts.push(`<div>
+      <div class="insights-section-title">Key insights</div>
+      <ul class="insights-bullets">${ins.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+    </div>`);
+  }
+  if (ins.source) {
+    parts.push(`<div class="insights-source"><strong>Source data:</strong> ${ins.source}</div>`);
+  }
+  parts.push(`</div>`);
+  return parts.join('');
+}
+
+function renderFindings(f) {
+  if (!f || !f.rows || !f.rows.length) return '';
+  const cols = (f.columns || []).map(c => `<th>${c}</th>`).join('');
+  const rows = f.rows.map(r => {
+    const tds = r.values.map((v, i) => `<td class="${(r.mark && r.mark[i]) ? 'fmark' : ''}">${v}</td>`).join('');
+    return `<tr><td>${r.label}</td>${tds}</tr>`;
+  }).join('');
+  return `<div class="insights-findings">
+    <table>
+      <thead><tr><th>${f.firstColumn || 'Metric'}</th>${cols}</tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+}
+
+function renderChart(chart) {
+  if (!chart) return '';
+  if (chart.type === 'line-monthly' || chart.type === 'line') return renderLineChart(chart);
+  if (chart.type === 'bar') return renderBarChart(chart);
+  return '';
+}
+
+function renderLineChart(chart) {
+  const W = 720, H = 280, P = { l: 44, r: 14, t: 16, b: 38 };
+  const labels = chart.labels || ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const series = chart.series || [];
+  const allVals = series.flatMap(s => s.values).filter(v => v != null && !isNaN(v));
+  const dataMin = Math.min(...allVals);
+  const dataMax = Math.max(...allVals);
+  const yMin = chart.yMin != null ? chart.yMin : Math.floor((dataMin - (dataMax - dataMin) * 0.1) / 5) * 5;
+  const yMax = chart.yMax != null ? chart.yMax : Math.ceil((dataMax + (dataMax - dataMin) * 0.1) / 5) * 5;
+  const span = yMax - yMin || 1;
+  const tickStep = chart.yTickStep || (span <= 30 ? 5 : span <= 60 ? 10 : Math.ceil(span / 6 / 5) * 5);
+  const yTicks = [];
+  for (let v = yMin; v <= yMax; v += tickStep) yTicks.push(v);
+  const x = i => P.l + (labels.length === 1 ? (W - P.l - P.r) / 2 : i * ((W - P.l - P.r) / (labels.length - 1)));
+  const y = v => P.t + (1 - (v - yMin) / span) * (H - P.t - P.b);
+
+  const grid = yTicks.map(t => `
+    <line x1="${P.l}" x2="${W - P.r}" y1="${y(t)}" y2="${y(t)}" stroke="#e5e7eb" stroke-width="1" />
+    <text x="${P.l - 8}" y="${y(t) + 4}" font-size="11" fill="#6b7280" text-anchor="end">${t}${chart.yUnit || ''}</text>
+  `).join('');
+
+  const xLabels = labels.map((m, i) =>
+    `<text x="${x(i)}" y="${H - P.b + 18}" font-size="11" fill="#6b7280" text-anchor="middle">${m}</text>`
+  ).join('');
+
+  const baseline = chart.baseline != null ? `
+    <line x1="${P.l}" x2="${W - P.r}" y1="${y(chart.baseline)}" y2="${y(chart.baseline)}" stroke="#9ca3af" stroke-width="1" stroke-dasharray="2 3" />
+  ` : '';
+
+  const lines = series.map(s => {
+    const path = s.values.map((v, i) => `${i === 0 ? 'M' : 'L'} ${x(i)} ${y(v)}`).join(' ');
+    const dash = s.dashed ? `stroke-dasharray="5 4"` : '';
+    const dots = s.values.map((v, i) => `<circle cx="${x(i)}" cy="${y(v)}" r="${s.dashed ? 2.6 : 3.4}" fill="${s.color}" />`).join('');
+    return `<path d="${path}" fill="none" stroke="${s.color}" stroke-width="${s.width || 2.2}" stroke-linejoin="round" ${dash} />${dots}`;
+  }).join('');
+
+  const legend = series.map(s =>
+    `<span class="chart-legend-item" style="color:${s.color}">
+       <span class="chart-legend-swatch ${s.dashed ? 'dashed' : ''}" style="background:${s.color}"></span>
+       <span style="color:var(--gray-4)">${s.name}</span>
+     </span>`
+  ).join('') + (chart.baseline != null ? `
+    <span class="chart-legend-item" style="color:#9ca3af">
+      <span class="chart-legend-swatch dashed" style="background:#9ca3af"></span>
+      <span style="color:var(--gray-4)">${chart.baselineLabel || 'Baseline'}</span>
+    </span>` : '');
+
+  return `<div class="insights-chart">
+    <div class="chart-legend">${legend}</div>
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${chart.aria || 'Chart'}">
+      ${grid}${baseline}${xLabels}${lines}
+      ${chart.yLabel ? `<text x="14" y="${(H - P.b + P.t)/2}" font-size="11" fill="#6b7280" text-anchor="middle" transform="rotate(-90 14 ${(H - P.b + P.t)/2})">${chart.yLabel}</text>` : ''}
+    </svg>
+  </div>`;
+}
+
+function renderBarChart(chart) {
+  const W = 720, H = 260, P = { l: 50, r: 14, t: 18, b: 50 };
+  const cats = chart.categories || [];
+  const series = chart.series || [];
+  const allVals = series.flatMap(s => s.values).filter(v => v != null && !isNaN(v));
+  const minV = Math.min(0, ...allVals);
+  const maxV = Math.max(...allVals);
+  const yMin = chart.yMin != null ? chart.yMin : Math.floor(minV);
+  const yMax = chart.yMax != null ? chart.yMax : Math.ceil(maxV * 1.1);
+  const span = yMax - yMin || 1;
+  const yTicks = [];
+  const step = chart.yTickStep || (span <= 10 ? 1 : span <= 50 ? 5 : span <= 100 ? 10 : Math.ceil(span / 6 / 5) * 5);
+  for (let v = yMin; v <= yMax + 0.001; v += step) yTicks.push(Math.round(v * 100) / 100);
+  const groupW = (W - P.l - P.r) / Math.max(1, cats.length);
+  const barW = (groupW * 0.66) / Math.max(1, series.length);
+  const y = v => P.t + (1 - (v - yMin) / span) * (H - P.t - P.b);
+
+  const grid = yTicks.map(t => `
+    <line x1="${P.l}" x2="${W - P.r}" y1="${y(t)}" y2="${y(t)}" stroke="#e5e7eb" stroke-width="1" />
+    <text x="${P.l - 8}" y="${y(t) + 4}" font-size="11" fill="#6b7280" text-anchor="end">${t}${chart.yUnit || ''}</text>
+  `).join('');
+
+  const bars = cats.map((c, i) => {
+    const cx = P.l + i * groupW + groupW / 2;
+    const xLabel = `<text x="${cx}" y="${H - P.b + 18}" font-size="11" fill="#6b7280" text-anchor="middle">${c}</text>`;
+    const seriesBars = series.map((s, si) => {
+      const v = s.values[i];
+      if (v == null) return '';
+      const bx = cx - (series.length * barW) / 2 + si * barW;
+      const top = y(Math.max(0, v));
+      const bot = y(Math.min(0, v));
+      const h = Math.max(1, bot - top);
+      const lblY = v >= 0 ? top - 5 : bot + 12;
+      return `<rect x="${bx}" y="${top}" width="${barW}" height="${h}" fill="${s.color}" rx="2"/>` +
+             `<text x="${bx + barW/2}" y="${lblY}" font-size="10" fill="${s.color}" text-anchor="middle" font-weight="600">${v}${chart.valueUnit || chart.yUnit || ''}</text>`;
+    }).join('');
+    return xLabel + seriesBars;
+  }).join('');
+
+  const legend = series.length > 1 ? series.map(s =>
+    `<span class="chart-legend-item" style="color:${s.color}">
+       <span class="chart-legend-swatch" style="background:${s.color}"></span>
+       <span style="color:var(--gray-4)">${s.name}</span>
+     </span>`
+  ).join('') : '';
+
+  return `<div class="insights-chart">
+    ${legend ? `<div class="chart-legend">${legend}</div>` : ''}
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${chart.aria || 'Bar chart'}">
+      ${grid}${bars}
+    </svg>
+  </div>`;
 }
 
 // Search
